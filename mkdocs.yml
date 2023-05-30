@@ -94,3 +94,36 @@ copyright: Copyright &copy; 2023 - 2023 Jaemin Park
 
 nav:
   - Home: index.md
+  - Abstract Algebra:
+      - Abstract Algebra/index.md
+      - 0. Sets and Relations : Abstract Algebra/0.md
+      - Ch 1. Groups and SubGroups:
+          - 1. Introduction and Examples : Abstract Algebra/1.md
+          - 2. Binary Operations : Abstract Algebra/2.md
+          - 3. Isomorphic Binary Structures : Abstract Algebra/3.md
+          - 4. Groups : Abstract Algebra/4.md
+          - 5. Subgroups : Abstract Algebra/5.md
+          - 6. Cyclic Groups : Abstract Algebra/6.md
+          - 7. Generating Sets and Cayley Digraphs : Abstract Algebra/7.md
+      - Ch 2. Permutations, Cosets, and Direct Products : 
+          - 8. Groups of Permutations : Abstract Algebra/8.md
+          - 9. Orbits, Cycles, and the Alternating Groups : Abstract Algebra/9.md
+          - 10. Cosets and the Theorem of Lagrange : Abstract Algebra/10.md
+          - 11. Direct Products and Finitely Generated Abelian Groups : Abstract Algebra/11.md
+          - 12. Plane Isometries : Abstract Algebra/12.md
+      - Ch 3. Homomorphisms and Factor Groups : 
+          - 13. Homomorphisms : Abstract Algebra/13.md
+          - 14. Factor Groups : Abstract Algebra/14.md
+          - 15. Factor-Group Computations and Simple Groups : Abstract Algebra/15.md
+          - 16. Group Action on a Set : Abstract Algebra/16.md
+          - 17. Applications of G-Sets to Counting : Abstract Algebra/17.md
+      - Ch 4. Rings and Fields :
+          - 18. Rings and Fields : Abstract Algebra/18.md
+          - 19. Integral Domains : Abstract Algebra/19.md
+          - 20. Fermat's and Euler's Theorem : Abstract Algebra/20.md
+          - 21. The Field of Quotients of an Integral Domain : Abstract Algebra/21.md
+          - 22. Rings of Polynomials : Abstract Algebra/22.md
+          - 23. Factorization of Polynomials over a Field : Abstract Algebra/23.md
+          - 24. Noncommutative Examples : Abstract Algebra/24.md
+          - 25. Ordered Rings and Fields : Abstract Algebra/25.md
+                
