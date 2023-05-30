@@ -1,0 +1,4 @@
+definition : !!! info
+theorem : !!! note
+example : !!! example
+proof : !!! abstract
