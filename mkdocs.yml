@@ -89,7 +89,7 @@ extra:
       link: https://github.com/arnold518
   generator: false
 
-copyright: Copyright &copy; 2023 - 2023 Jaemin Park
+copyright: Copyright &copy; 2023 - 2024 Jaemin Park
 
 nav:
   - Home: index.md
@@ -130,4 +130,5 @@ nav:
       - Ch 1. Set Theory and Logic:
           - 1. Fundamental Concepts : Topology/1.md
           - 2. Functions : Topology/2.md
-          
+          - 3. Relations : Topology/3.md
+
