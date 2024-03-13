@@ -1,0 +1,3 @@
+go back to main folder
+
+javac javafiles/DocumentFormat.java && java javafiles/DocumentFormat

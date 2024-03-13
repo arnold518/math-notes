@@ -125,4 +125,9 @@ nav:
           - 23. Factorization of Polynomials over a Field : Abstract Algebra/23.md
           - 24. Noncommutative Examples : Abstract Algebra/24.md
           - 25. Ordered Rings and Fields : Abstract Algebra/25.md
-                
+  - Topology:
+      - Topology/index.md
+      - Ch 1. Set Theory and Logic:
+          - 1. Fundamental Concepts : Topology/1.md
+          - 2. Functions : Topology/2.md
+          
