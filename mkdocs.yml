@@ -146,3 +146,5 @@ nav:
           - 20. The Metric Topology : Topology/20.md
           - 21. The Metric Topology (continued) : Topology/21.md
           - 22. The Quotient Topology : Topology/22.md
+      - Ch 3. Connectedness and Compactness:
+          - 23. Connected Spaces : Topology/23.md
