@@ -148,3 +148,5 @@ nav:
           - 22. The Quotient Topology : Topology/22.md
       - Ch 3. Connectedness and Compactness:
           - 23. Connected Spaces : Topology/23.md
+          - 24. Connected Subspaces of the Real Line : Topology/24.md
+          - 25. Components and Local Connectedness : Topology/25.md
