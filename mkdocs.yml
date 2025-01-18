@@ -89,8 +89,6 @@ extra:
       link: https://github.com/arnold518
   generator: false
 
-copyright: Copyright &copy; 2023 - 2024 Jaemin Park
-
 nav:
   - Home: index.md
   - Abstract Algebra:
@@ -154,3 +152,8 @@ nav:
           - 27. Compact Subspaces of the Real Line : Topology/27.md
           - 28. Limit Point Compactness : Topology/28.md
           - 29. Local Compactness : Topology/29.md
+  - Mathematical Foundations of Deep Neural Networks:
+      - MFDNN/index.md
+      - Ch 1. Optimization and Stochastic Gradient Descent:
+          - 1. Optimization Problem : MFDNN/1.md
+          - 2. Gradient Descent: MFDNN/2.md
