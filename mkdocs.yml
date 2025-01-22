@@ -157,6 +157,10 @@ nav:
       - Ch 1. Optimization and Stochastic Gradient Descent:
           - 1. Optimization Problem : MFDNN/1.md
           - 2. Gradient Descent: MFDNN/2.md
+          - Chapter 1 Code: https://drive.google.com/file/d/1PSpoeseUPIptYQOPuQpxNawxtZbVR_K6/view?usp=sharing
       - Ch 2. Shallow Neural Networks to Multilayer Perceptrons:
           - 3. Shallow Neural Networks : MFDNN/3.md
           - 4. Deep Neural Networks : MFDNN/4.md
+          - Chapter 2 Code: https://drive.google.com/file/d/15kXC3cJUV63gZNfXK6JdPPuSrwQZBzI8/view?usp=sharing
+      - Ch 3. Convolutional Neural Networks:
+          - 5. Convolutional Neural Networks : MFDNN/5.md
