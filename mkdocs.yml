@@ -174,5 +174,6 @@ nav:
           - 9. Autoencoder : MFDNN/9.md
           - 10. Flow Models : MFDNN/10.md
           - 11. Variational Autoencoders : MFDNN/11.md
+          - 12. Generative Adversarial Networks : MFDNN/12.md
       - Ch A. Appendix - Basics of Monte Carlo:
           - 13. Basics of Monte Carlo : MFDNN/13.md
