@@ -127,25 +127,38 @@ def merge_latex(chapters):
 
     return merged
 
+def parse():
+    global chapters
 
-chapters = parse_toc(filepath + "index.md")    
+    chapters = parse_toc(filepath + "index.md")    
 
-if not os.path.exists(format_markdown_filepath):
-    os.makedirs(format_markdown_filepath)
+    if not os.path.exists(format_markdown_filepath):
+        os.makedirs(format_markdown_filepath)
 
-if not os.path.exists(format_latex_filepath):
-    os.makedirs(format_latex_filepath)
+    if not os.path.exists(format_latex_filepath):
+        os.makedirs(format_latex_filepath)
+    
+    for chapter in chapters:
+        print(f"Chapter {chapter.number}: {chapter.title}")
+        for section in chapter.sections:
+            section_label = f"Section {section.number}"
+            print(f"  {section_label}: {section.title} ({section.filepath})")
 
-for chapter in chapters:
-    for section in chapter.sections:
-        if section.read_markdown() :
-            section.format_markdown()
-            section.format_latex()
+def format_all():
+    for chapter in chapters:
+        for section in chapter.sections:
+            if section.read_markdown() :
+                section.format_markdown()
+                section.format_latex()
 
-for chapter in chapters:
-    print(f"Chapter {chapter.number}: {chapter.title}")
-    for section in chapter.sections:
-        section_label = f"Section {section.number}"
-        print(f"  {section_label}: {section.title} ({section.filepath})")
+def format_one(filepath):
+    for chapter in chapters:
+        for section in chapter.sections:
+            if section.filepath == filepath:    
+                if section.read_markdown() :
+                    section.format_markdown()
+                    section.format_latex()
 
+parse()
+format_all()
 merge_latex(chapters)
