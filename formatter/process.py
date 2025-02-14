@@ -8,6 +8,7 @@ title = ""
 filepath = "../docs/MFDNN/"
 format_markdown_filepath = filepath + 'format_markdown/'
 format_latex_filepath = filepath + 'format_latex/'
+log = ""
 
 class Chapter:
     def __init__(self, title="", number=0):
@@ -29,14 +30,30 @@ class Section:
         parser = MarkdownParser(filepath + self.filepath)
         self.content = parser.parse()
         return True
-    def format_markdown(self):
-        with open(format_markdown_filepath + self.filename + '.md', 'w') as file:
+    def format_markdown(self, reformat = False):
+        global log
+        filename = format_markdown_filepath + self.filename + '.md'
+        if not reformat:
+            if os.path.exists(filename):
+                with open(filename, "r", encoding="utf-8") as file:
+                    self.str_markdown = file.read()
+            if self.str_markdown != "": return
+        with open(filename, 'w') as file:
             self.str_markdown = self.content.str_markdown()
             file.write(self.str_markdown)
-    def format_latex(self):
-        with open(format_latex_filepath + self.filename + '.tex', 'w') as file:
+            log += "Reformatted Markdown of " + self.filepath + " to " + filename + "\n"
+    def format_latex(self, reformat = False):
+        global log
+        filename = format_latex_filepath + self.filename + '.tex'
+        if not reformat:
+            if os.path.exists(filename):
+                with open(filename, "r", encoding="utf-8") as file:
+                    self.str_latex = file.read()
+            if self.str_latex != "": return
+        with open(filename, 'w') as file:
             self.str_latex = self.content.str_latex()
             file.write(self.str_latex)
+            log += "Reformatted Latex of " + self.filepath + " to " + filename + "\n"
 
 def parse_toc(file_path):
     global title
@@ -137,28 +154,45 @@ def parse():
 
     if not os.path.exists(format_latex_filepath):
         os.makedirs(format_latex_filepath)
-    
+
+def print_log():
     for chapter in chapters:
         print(f"Chapter {chapter.number}: {chapter.title}")
         for section in chapter.sections:
             section_label = f"Section {section.number}"
             print(f"  {section_label}: {section.title} ({section.filepath})")
 
+    print("===== LOG ======")
+    print(log)
+
 def format_all():
     for chapter in chapters:
         for section in chapter.sections:
             if section.read_markdown() :
-                section.format_markdown()
-                section.format_latex()
+                section.format_markdown(False)
+                section.format_latex(False)
 
-def format_one(filepath):
+def format_one_markdown(filepath):
+    global log
     for chapter in chapters:
         for section in chapter.sections:
-            if section.filepath == filepath:    
+            if section.filepath == filepath : 
                 if section.read_markdown() :
-                    section.format_markdown()
-                    section.format_latex()
+                    log += f"Reformatting Markdown of Chapter {chapter.number} ({chapter.title}) - Section {section.number} ({section.title}) - {filepath}\n"
+                    section.format_markdown(True)
+
+def format_one_latex(filepath):
+    global log
+    for chapter in chapters:
+        for section in chapter.sections:
+            if section.filepath == filepath : 
+                if section.read_markdown() :
+                    log += f"Reformatting Latex of Chapter {chapter.number} ({chapter.title}) - Section {section.number} ({section.title}) - {filepath}\n"
+                    section.format_latex(True)
+
 
 parse()
 format_all()
+format_one_latex("3.md")
 merge_latex(chapters)
+print_log()
