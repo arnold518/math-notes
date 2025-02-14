@@ -1,0 +1,29 @@
+\documentclass{beamer}
+\makeatletter
+\@ifclassloaded{beamer}{\usecolortheme{orchid}}{\usepackage{beamerarticle}}
+\makeatother
+
+\NewDocumentEnvironment{preuve}{O{Preuve}}{\begin{block}{#1}}{\end{block}}
+
+\begin{document}
+\begin{frame}
+\begin{alertblock}{Berge, 1957}
+Un couplage $C$ est de cardinal maximal si et seulement s'il n'admet pas de chemin augmentant.
+\end{alertblock}
+\pause
+\begin{preuve}[Preuve du sens non couvert par le lemme]
+some already long text
+\mergeFrame{preuve}{block}
+\end{preuve}
+\end{frame}
+
+\begin{frame}
+\begin{block}{}
+
+Soit $p$ un chemin maximal dans $K$ : \uncover<2->{sa première et sa dernière arêtes sont dans $C_2$.}
+\end{block}
+
+Remarque : ce lemme et ce théorème n'utilisent pas le fait que le graphe est biparti.\\
+Cette propriété va cependant permettre de faciliter la recherche d'un chemin augmentant.
+\end{frame}
+\end{document}
