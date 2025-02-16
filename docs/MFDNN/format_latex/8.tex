@@ -371,7 +371,7 @@ $$
         \item Input tensor: $Y \in \mathbb{R}^{B \times C_{\mathrm{in}} \times m \times n}$
         \item Output tensor: $X \in \mathbb{R}^{B \times C_{\text {out }} \times\left(m+f_{1}-1\right) \times\left(n+f_{2}-1\right)}$
         \item Filter $w \in \mathbb{R}^{C_{\text {in }} \times C_{\text {out }} \times f_{1} \times f_{2}}$
-        \item Bias $b \in \mathbb{R}^{C_{\text {out }}}$ (If \texttt{bias=False}, then $b=0$.) 
+        \item Bias $b \in \mathbb{R}^{C_{\text {out }}}$ (If \verb|bias=False|, then $b=0$.) 
     \end{itemize}
 
     \par\noindent\textcolor{gray}{\hdashrule{\textwidth}{0.4pt}{1pt 2pt}}
@@ -402,7 +402,7 @@ We can combine this reasoning with our visual understanding of convolution. The 
 \subsection{Upsampling}
 
 \begin{concept}[8.17][Upsampling]
-    \texttt{torch.nn.Upsample} with \texttt{mode='nearest'}
+    \verb|torch.nn.Upsample| with \verb|mode='nearest'|
 
     \begin{figure}[H]
         \centering
@@ -411,9 +411,9 @@ We can combine this reasoning with our visual understanding of convolution. The 
 \end{concept}
 
 \begin{concept}[8.18][Upsampling]
-    \texttt{Torch.nn.Upsample} with \texttt{mode='bilinear'}\\
-    \texttt{linear} interpolation is available for 1D data\\
-    \texttt{trilinear} interpolation is available for 3D data\\
+    \verb|Torch.nn.Upsample| with \verb|mode='bilinear'|\\
+    \verb|linear| interpolation is available for 1D data\\
+    \verb|trilinear| interpolation is available for 3D data\\
     (We won't pay attention to the interpolation formula.)
 
     \begin{figure}[H]

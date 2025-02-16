@@ -121,47 +121,44 @@ $$
 
 \begin{example}[1.5][Least-Squares Minimization]
     \begin{itemize}
-        \item \textbf{Problem}
+        \item
+        \textbf{Problem}
+
+        $$
+        \underset{\theta \in \mathbb{R}^{p}}{\operatorname{minimize}} \quad \frac{1}{2}\|X \theta-Y\|^{2}
+        $$
+
+        where $X \in \mathbb{R}^{N \times p}$ and $Y \in \mathbb{R}^{N}$. Equivalent to
+
+        $$
+        \underset{\theta \in \mathbb{R}^{p}}{\operatorname{minimize}} \frac{1}{2} \sum_{i=1}^{N}\left(X_{i}^{\top} \theta-Y_{i}\right)^{2}
+        $$
+
+        where $X=\left[\begin{array}{c}X_{1}^{\top} \\ \vdots \\ X_{N}^{\top}\end{array}\right]$ and $Y=\left[\begin{array}{c}Y_{1} \\ \vdots \\ Y_{N}\end{array}\right]$.
+        \item
+        \textbf{Solution}
+
+        To solve
+
+        $$
+        \underset{\theta \in \mathbb{R}^{p}}{\operatorname{minimize}} \frac{1}{2}\|X \theta-Y\|^{2}
+        $$
+
+        take gradient and set it to $0$.
+
+        $$
+        \nabla_{\theta} \frac{1}{2}\|X \theta-Y\|^{2}=X^{\top}(X \theta-Y)
+        $$
+
+        $$
+        \begin{gathered}
+        X^{\top}\left(X \theta^{\star}-Y\right)=0 \\
+        \theta^{\star}=\left(X^{\top} X\right)^{-1} X^{\top} Y
+        \end{gathered}
+        $$
+
+        Here, we assume $X^{\top} X$ is invertible.
     \end{itemize}
-
-    $$
-    \underset{\theta \in \mathbb{R}^{p}}{\operatorname{minimize}} \quad \frac{1}{2}\|X \theta-Y\|^{2}
-    $$
-
-    where $X \in \mathbb{R}^{N \times p}$ and $Y \in \mathbb{R}^{N}$. Equivalent to
-
-    $$
-    \underset{\theta \in \mathbb{R}^{p}}{\operatorname{minimize}} \frac{1}{2} \sum_{i=1}^{N}\left(X_{i}^{\top} \theta-Y_{i}\right)^{2}
-    $$
-
-    where $X=\left[\begin{array}{c}X_{1}^{\top} \\ \vdots \\ X_{N}^{\top}\end{array}\right]$ and $Y=\left[\begin{array}{c}Y_{1} \\ \vdots \\ Y_{N}\end{array}\right]$.
-
-    \par\noindent\textcolor{gray}{\hdashrule{\textwidth}{0.4pt}{1pt 2pt}}
-
-    \begin{itemize}
-        \item \textbf{Solution}
-    \end{itemize}
-
-    To solve
-
-    $$
-    \underset{\theta \in \mathbb{R}^{p}}{\operatorname{minimize}} \frac{1}{2}\|X \theta-Y\|^{2}
-    $$
-
-    take gradient and set it to $0$.
-
-    $$
-    \nabla_{\theta} \frac{1}{2}\|X \theta-Y\|^{2}=X^{\top}(X \theta-Y)
-    $$
-
-    $$
-    \begin{gathered}
-    X^{\top}\left(X \theta^{\star}-Y\right)=0 \\
-    \theta^{\star}=\left(X^{\top} X\right)^{-1} X^{\top} Y
-    \end{gathered}
-    $$
-
-    Here, we assume $X^{\top} X$ is invertible.
 \end{example}
 
 \begin{concept}[1.6][Least squares is an instance of curve fitting.]
@@ -1331,7 +1328,7 @@ If the optimal value is 0, then the data is linearly separable.
 
     Operation is independent across elements of the batch.
 
-    If \texttt{bias=False}, then $b=0$.
+    If \verb|bias=False|, then $b=0$.
 \end{definition}
 
 \section{Multi-Class Classification}
@@ -1629,7 +1626,7 @@ If the optimal value is 0, then the data is linearly separable.
 
     Operation is independent across elements of the batch.
     The vertical and horizontal indices are referred to as spatial dimensions.
-    If \texttt{bias=False}, then $b=0$.
+    If \verb|bias=False|, then $b=0$.
 
     \par\noindent\textcolor{gray}{\hdashrule{\textwidth}{0.4pt}{1pt 2pt}}
 
@@ -1804,7 +1801,7 @@ If the optimal value is 0, then the data is linearly separable.
         \item
         Option 2: Use randomly transformed data in training loop.\\
 
-        In PyTorch, we use \texttt{Torchvision.transforms}.
+        In PyTorch, we use \verb|Torchvision.transforms|.
     \end{itemize}
 
     \par\noindent\textcolor{gray}{\hdashrule{\textwidth}{0.4pt}{1pt 2pt}}
@@ -1952,7 +1949,7 @@ If the optimal value is 0, then the data is linearly separable.
     torch.optim.SGD(model.parameters(), lr=... , weight_decay=0)
     \end{verbatim}
 
-    or by using \texttt{weight_decay} in the optimizer
+    or by using \verb|weight_decay| in the optimizer
 
     \begin{verbatim}
     torch.optim.SGD(model.parameters(), lr=... , weight_decay=lamda)
@@ -2021,7 +2018,7 @@ If the optimal value is 0, then the data is linearly separable.
         return mask * X / (1.0 - p_drop)
     \end{verbatim}
 
-    PyTorch provides an implementation of dropout through \texttt{torch.nn.Dropout}.
+    PyTorch provides an implementation of dropout through \verb|torch.nn.Dropout|.
 \end{concept}
 
 \begin{concept}[6.14][Dropout in Training vs Test]
@@ -2229,7 +2226,7 @@ If the optimal value is 0, then the data is linearly separable.
 \end{concept}
 
 \begin{concept}[6.26][Using Different Optimizers in Pytorch]
-    In PyTorch, the \texttt{torch.optim} module implements the commonly used optimizers.
+    In PyTorch, the \verb|torch.optim| module implements the commonly used optimizers.
 
     \begin{itemize}
         \item Using SGD:
@@ -2282,7 +2279,7 @@ If the optimal value is 0, then the data is linearly separable.
 
     \par\noindent\textcolor{gray}{\hdashrule{\textwidth}{0.4pt}{1pt 2pt}}
 
-    One common choice is to specify a diminishing learning rate via a function (a lambda expression). Choices like \texttt{C/epoch} or \texttt{C / sqrt(iteration)}, where \texttt{C} is an appropriately chosen constant, are common.
+    One common choice is to specify a diminishing learning rate via a function (a lambda expression). Choices like \verb|C/epoch| or \verb|C / sqrt(iteration)|, where \verb|C| is an appropriately chosen constant, are common.
 
     \begin{verbatim}
     # lr_lambda allows us to set lr with a function
@@ -2551,7 +2548,7 @@ If the optimal value is 0, then the data is linearly separable.
     \sigma_{A}^{2}=\frac{2}{n_{\text {out }}}
     $$
 
-    In PyTorch, use \texttt{mode='fan_in'} and \texttt{mode='fan_out'} to toggle between the two modes.
+    In PyTorch, use \verb|mode='fan_in'| and \verb|mode='fan_out'| to toggle between the two modes.
 
     (Kaiming He, X. Zhang, S. Ren, and J. Sun, Delving deep into rectifiers: Surpassing human-level performance on ImageNet classification, ICCV, 2015.)
 \end{definition}
@@ -2857,12 +2854,12 @@ If the optimal value is 0, then the data is linearly separable.
     \end{figure}
 
     In NN training, parameters (shown blue in the image) and fixed inputs are distinguished.
-    In PyTorch, you (1) clear the existing gradient with \texttt{.zero_grad()}
+    In PyTorch, you (1) clear the existing gradient with \verb|.zero_grad()|
     (2) forward-evaluate the loss function by providing the input and label and
-    (3) perform backprop with \texttt{.backward()}.
+    (3) perform backprop with \verb|.backward()|.
 
     The forward pass stores the intermediate neuron values so that they can later be used in backprop. In the test loop, however, we don't compute gradients so the intermediate neuron values are unnecessary.
-    The \texttt{torch.no_grad()} context manager allows intermediate node values to discarded or not be stored.
+    The \verb|torch.no_grad()| context manager allows intermediate node values to discarded or not be stored.
     This saves memory and can accelerate the test loop.
 \end{concept}
 
@@ -2905,7 +2902,7 @@ If the optimal value is 0, then the data is linearly separable.
     \end{gathered}
     $$
 
-    where operations are elementwise. BN normalizes each output neuron. The mean and variance are explicitly controlled through learned parameters $\beta$ and $\gamma$. In Pytorch, \texttt{nn.BatchNorm1d}.
+    where operations are elementwise. BN normalizes each output neuron. The mean and variance are explicitly controlled through learned parameters $\beta$ and $\gamma$. In Pytorch, \verb|nn.BatchNorm1d|.
 \end{definition}
 
 \begin{definition}[6.47][BN for Convolutional Layers]
@@ -2929,7 +2926,7 @@ If the optimal value is 0, then the data is linearly separable.
     \end{gathered}
     $$
 
-    BN normalizes over each convolutional filter. The mean and variance are explicitly controlled through learned parameters $\beta$ and $\gamma$. In Pytorch, \texttt{nn.BatchNorm2d}.
+    BN normalizes over each convolutional filter. The mean and variance are explicitly controlled through learned parameters $\beta$ and $\gamma$. In Pytorch, \verb|nn.BatchNorm2d|.
 \end{definition}
 
 \begin{definition}[6.48][BN during Testing]
@@ -2942,7 +2939,7 @@ If the optimal value is 0, then the data is linearly separable.
         \item During training, compute running average of $\hat{\mu}$ and $\hat{\sigma}$. This is the default behavior of PyTorch.
     \end{enumerate}
 
-    In PyTorch, use \texttt{model.train()} and \texttt{model.eval()} to switch BN behavior between training and testing.
+    In PyTorch, use \verb|model.train()| and \verb|model.eval()| to switch BN behavior between training and testing.
 \end{definition}
 
 \begin{concept}[6.49][Efficiency of BN]
@@ -3005,7 +3002,7 @@ If the optimal value is 0, then the data is linearly separable.
 
     The use of batch norm makes the scaling of weight initialization less important irrelevant.
 
-    Use \texttt{bias=false} on layers preceding BN , since $\beta$ subsumes the bias.
+    Use \verb|bias=false| on layers preceding BN , since $\beta$ subsumes the bias.
 
     (X. Li, S. Chen, X. Hu and J. Yang, Understanding the disharmony between dropout and batch normalization by variance shift, CVPR, 2019.)
 \end{concept}
@@ -3666,7 +3663,7 @@ $$
         \item Input tensor: $Y \in \mathbb{R}^{B \times C_{\mathrm{in}} \times m \times n}$
         \item Output tensor: $X \in \mathbb{R}^{B \times C_{\text {out }} \times\left(m+f_{1}-1\right) \times\left(n+f_{2}-1\right)}$
         \item Filter $w \in \mathbb{R}^{C_{\text {in }} \times C_{\text {out }} \times f_{1} \times f_{2}}$
-        \item Bias $b \in \mathbb{R}^{C_{\text {out }}}$ (If \texttt{bias=False}, then $b=0$.) 
+        \item Bias $b \in \mathbb{R}^{C_{\text {out }}}$ (If \verb|bias=False|, then $b=0$.) 
     \end{itemize}
 
     \par\noindent\textcolor{gray}{\hdashrule{\textwidth}{0.4pt}{1pt 2pt}}
@@ -3697,7 +3694,7 @@ We can combine this reasoning with our visual understanding of convolution. The 
 \subsection{Upsampling}
 
 \begin{concept}[8.17][Upsampling]
-    \texttt{torch.nn.Upsample} with \texttt{mode='nearest'}
+    \verb|torch.nn.Upsample| with \verb|mode='nearest'|
 
     \begin{figure}[H]
         \centering
@@ -3706,9 +3703,9 @@ We can combine this reasoning with our visual understanding of convolution. The 
 \end{concept}
 
 \begin{concept}[8.18][Upsampling]
-    \texttt{Torch.nn.Upsample} with \texttt{mode='bilinear'}\\
-    \texttt{linear} interpolation is available for 1D data\\
-    \texttt{trilinear} interpolation is available for 3D data\\
+    \verb|Torch.nn.Upsample| with \verb|mode='bilinear'|\\
+    \verb|linear| interpolation is available for 1D data\\
+    \verb|trilinear| interpolation is available for 3D data\\
     (We won't pay attention to the interpolation formula.)
 
     \begin{figure}[H]
@@ -5555,7 +5552,7 @@ $$
 
 \begin{concept}[12.6][Minimax Optimization in Pytorch]
     To perform minimax optimization in PyTorch, we maintain two separate optimizers, one for the ascent, one for the descent.
-    The \texttt{OPTIMIZER} can be anything like \texttt{SGD} or \texttt{Adam}.
+    The \verb|OPTIMIZER| can be anything like \verb|SGD| or \verb|Adam|.
 
     \begin{verbatim}
     G = Generator(...).to(device)

@@ -6,7 +6,7 @@ from markdown_parser import MarkdownParser
 
 title = ""
 filepath = "../docs/MFDNN/"
-format_markdown_filepath = filepath + 'format_markdown/'
+format_markdown_filepath = filepath + 'format/'
 format_latex_filepath = filepath + 'format_latex/'
 log = ""
 
@@ -193,6 +193,10 @@ def format_one_latex(filepath):
 
 parse()
 format_all()
-format_one_latex("3.md")
+
+for i in range(1, 14) :
+    format_one_markdown(str(i) + ".md")
+    format_one_latex(str(i) + ".md")
+
 merge_latex(chapters)
 print_log()

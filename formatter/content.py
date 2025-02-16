@@ -189,7 +189,7 @@ class Text(Content):
             tex = tex.replace('  ', '\\\\')
             tex = re.sub(r'(?<!\\)#', r'\\#', tex)
             tex = re.sub(r'(?<!\\)&', r'\\&', tex)
-            tex = re.sub(r'`([^`]+)`', r'\\texttt{\1}', tex)
+            tex = re.sub(r'`([^`]+)`', r'\\verb|\1|', tex)
             tex = convert_links(tex, "latex")
             tex = re.sub(r'(?<!\w)[_*]{2}(.*?)[_*]{2}(?!\w)', r'\\textbf{\1}', tex)
 
