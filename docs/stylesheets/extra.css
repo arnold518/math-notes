@@ -61,6 +61,23 @@ table.highlighttable {
           mask-image: var(--md-admonition-icon--theorem);
 }
 
+.md-typeset .admonition.corollary,
+.md-typeset details.corollary {
+  border-color: rgb(68, 138, 255);
+  text-align: left;
+}
+.md-typeset .corollary > .admonition-title,
+.md-typeset .corollary > summary {
+  text-align: left;
+  background-color: rgba(68, 138, 255, 0.1);
+}
+.md-typeset .corollary > .admonition-title::before,
+.md-typeset .corollary > summary::before {
+  background-color: rgb(68, 138, 255);
+  -webkit-mask-image: var(--md-admonition-icon--theorem);
+          mask-image: var(--md-admonition-icon--theorem);
+}
+
 .md-typeset .admonition.concept,
 .md-typeset details.concept {
   border-color: rgb(68, 138, 255);
