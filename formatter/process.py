@@ -8,6 +8,7 @@ title = ""
 filepath = "../docs/MFDNN/"
 format_markdown_filepath = filepath + 'format/'
 format_latex_filepath = filepath + 'format_latex/'
+format_beamer_filepath = filepath + 'format_beamer/'
 log = ""
 
 class Chapter:
@@ -25,6 +26,7 @@ class Section:
         self.content = ContentList()
         self.str_markdown = ""
         self.str_latex = ""
+        self.str_beamer = ""
     def read_markdown(self):
         if not self.filepath.endswith('.md'): return False
         parser = MarkdownParser(filepath + self.filepath)
@@ -49,11 +51,23 @@ class Section:
             if os.path.exists(filename):
                 with open(filename, "r", encoding="utf-8") as file:
                     self.str_latex = file.read()
-            if self.str_latex != "": return
+                if self.str_latex != "": return
         with open(filename, 'w') as file:
             self.str_latex = self.content.str_latex()
             file.write(self.str_latex)
             log += "Reformatted Latex of " + self.filepath + " to " + filename + "\n"
+    def format_beamer(self, reformat = False):
+        global log
+        filename = format_beamer_filepath + self.filename + '.tex'
+        if not reformat:
+            if os.path.exists(filename):
+                with open(filename, "r", encoding="utf-8") as file:
+                    self.str_beamer = file.read()
+                if self.str_beamer != "": return
+        with open(filename, 'w') as file:
+            self.str_beamer = self.content.str_beamer()
+            file.write(self.str_beamer)
+            log += "Reformatted Beamer of " + self.filepath + " to " + filename + "\n"
 
 def parse_toc(file_path):
     global title
@@ -144,6 +158,37 @@ def merge_latex(chapters):
 
     return merged
 
+def merge_beamer(chapters):
+    merged = ""
+    with open("beamer_prefix.tex", "r", encoding="utf-8") as file:
+        merged = file.read()
+    merged += "\\begin{document}\n\n"
+    merged += f"\\title{{{title}}}\n"
+    merged += "\\author{}\n\\date{}\n\\frame{\\titlepage}\n\n"
+
+    for chapter in chapters:
+        if chapter.number == 0 :
+            merged += f"\\part*{{{chapter.title}}}\n\n"
+        else :
+            merged += f"\\part{{{chapter.title}}}\n\n"
+        for section in chapter.sections:
+            if section.str_beamer == "" :
+                if section.number == 0 :
+                    merged += f"\\section*{{{section.title}}}\n\n"
+                else :
+                    merged += f"\\section{{{section.title}}}\n\n"
+                merged += f"\\href{{{section.filepath}}}{{{section.title}}}\n\n"
+            else :
+                merged += section.str_beamer + "\n"
+                pass
+            
+    merged += "\\end{document}\n"
+
+    with open(format_beamer_filepath + 'merged_beamer.tex', 'w') as file:
+        file.write(merged)
+
+    return merged
+
 def parse():
     global chapters
 
@@ -154,6 +199,9 @@ def parse():
 
     if not os.path.exists(format_latex_filepath):
         os.makedirs(format_latex_filepath)
+
+    if not os.path.exists(format_beamer_filepath):
+        os.makedirs(format_beamer_filepath)
 
 def print_log():
     for chapter in chapters:
@@ -171,6 +219,7 @@ def format_all():
             if section.read_markdown() :
                 section.format_markdown(False)
                 section.format_latex(False)
+                section.format_beamer(False)
 
 def format_one_markdown(filepath):
     global log
@@ -190,13 +239,27 @@ def format_one_latex(filepath):
                     log += f"Reformatting Latex of Chapter {chapter.number} ({chapter.title}) - Section {section.number} ({section.title}) - {filepath}\n"
                     section.format_latex(True)
 
+def format_one_beamer(filepath):
+    global log
+    for chapter in chapters:
+        for section in chapter.sections:
+            if section.filepath == filepath : 
+                if section.read_markdown() :
+                    log += f"Reformatting Beamer of Chapter {chapter.number} ({chapter.title}) - Section {section.number} ({section.title}) - {filepath}\n"
+                    print(f"Reformatting Beamer of Chapter {chapter.number} ({chapter.title}) - Section {section.number} ({section.title}) - {filepath}")
+                    section.format_beamer(True)
 
 parse()
 format_all()
 
+print("=================== Finished Parsing ===================")
+
 for i in range(1, 14) :
     format_one_markdown(str(i) + ".md")
     format_one_latex(str(i) + ".md")
+    format_one_beamer(str(i) + ".md")
+    pass
 
 merge_latex(chapters)
+merge_beamer(chapters)
 print_log()

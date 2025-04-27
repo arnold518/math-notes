@@ -3,6 +3,100 @@
 \usepackage{amsmath, amssymb}
 \usepackage{xcolor}
 
+\setbeamertemplate{footline}
+{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{title in head/foot}\insertsection
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,leftskip=2ex,rightskip=2ex,sep=0pt]{date in head/foot}%
+    \hfill%
+    \usebeamerfont{date in head/foot}%
+    \insertsubsection%
+    \hfill%
+    \usebeamercolor[fg]{page number in head/foot}%
+    \usebeamerfont{page number in head/foot}%
+    \usebeamertemplate{page number in head/foot}%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\let\oldpart\part
+\renewcommand{\part}[1]{
+    \oldpart{#1}
+    \begin{frame}
+        \centering
+        \Huge \textbf{#1}
+    \end{frame}
+}
+\setbeamertemplate{section in toc}[ball unnumbered]
+\setbeamertemplate{subsection in toc}[ball unnumbered]
+\setbeamertemplate{subsubsection in toc}[ball unnumbered]
+
+\AtBeginSection[]{
+    \begin{frame}
+        \vfill
+        \centering
+        \Huge \textbf{\insertsection} \\
+        \vspace{1em}
+        \begin{minipage}{0.7\linewidth}
+            \centering
+            \normalsize
+            \tableofcontents[
+                sectionstyle=show/hide,
+                subsectionstyle=show/shaded/hide,
+                subsubsectionstyle=show/shaded/shaded/hide
+            ]
+        \end{minipage}
+        \vfill
+    \end{frame}
+}
+
+\AtBeginSubsection[]{
+    \begin{frame}
+        \vfill
+        \centering
+        \LARGE \textbf{\insertsection} \\
+        \vspace{1em}
+        \Large \textbf{\insertsubsection} \\
+        \vspace{1em}
+        \begin{minipage}{0.7\linewidth}
+            \centering
+            \normalsize
+            \tableofcontents[
+                sectionstyle=show/hide,
+                subsectionstyle=show/shaded/hide,
+                subsubsectionstyle=show/shaded/shaded/hide
+            ]
+        \end{minipage}
+        \vfill
+    \end{frame}
+}
+
+\AtBeginSubsubsection[]{
+    \begin{frame}
+        \vfill
+        \centering
+        \LARGE \textbf{\insertsection} \\
+        \vspace{1em}
+        \Large \textbf{\insertsubsection} \\
+        \vspace{1em}
+        \large \textbf{\insertsubsubsection} \\
+        \vspace{1em}
+        \begin{minipage}{0.7\linewidth}
+            \centering
+            \normalsize
+            \tableofcontents[
+                sectionstyle=show/hide,
+                subsectionstyle=show/shaded/hide,
+                subsubsectionstyle=show/shaded/shaded/hide
+            ]
+        \end{minipage}
+        \vfill
+    \end{frame}
+}
+
 % Define custom colors
 \definecolor{mytheorem}{RGB}{41, 128, 185} % Dark blue for the theorem title
 \definecolor{myconcept}{RGB}{192, 57, 43}  % Dark red for concept title
@@ -64,6 +158,8 @@
 \date{\today}
 
 \frame{\titlepage}
+
+\section{Introduction}
 
 \begin{frame}[allowframebreaks]{Custom Blocks Example}
 

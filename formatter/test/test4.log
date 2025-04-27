@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.10)  14 FEB 2025 14:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.10)  5 MAR 2025 04:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -763,8 +763,16 @@ default.sty
 )
 (C:\Users\arnol\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beameroutertheme
 default.sty)))
+(C:\Users\arnol\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerthemeMadri
+d.sty
+(C:\Users\arnol\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamercolortheme
+whale.sty)
 (C:\Users\arnol\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamercolortheme
 orchid.sty)
+(C:\Users\arnol\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerinnertheme
+rounded.sty)
+(C:\Users\arnol\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beameroutertheme
+infolines.sty))
 (C:\Users\arnol\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
@@ -773,24 +781,24 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (test4.aux)
 \openout1 = `test4.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -800,14 +808,14 @@ LaTeX Font Info:    ... okay on input line 8.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: includehead includefoot 
-* h-part:(L,W,R)=(28.45274pt, 307.28987pt, 28.45274pt)
+* h-part:(L,W,R)=(10.95003pt, 342.2953pt, 10.95003pt)
 * v-part:(T,H,B)=(0.0pt, 273.14662pt, 0.0pt)
 * \paperwidth=364.19536pt
 * \paperheight=273.14662pt
-* \textwidth=307.28987pt
+* \textwidth=342.2953pt
 * \textheight=244.6939pt
-* \oddsidemargin=-43.81725pt
-* \evensidemargin=-43.81725pt
+* \oddsidemargin=-61.31996pt
+* \evensidemargin=-61.31996pt
 * \topmargin=-72.26999pt
 * \headheight=14.22636pt
 * \headsep=0.0pt
@@ -852,63 +860,63 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 8.
+Package hyperref Info: Link coloring OFF on input line 154.
  (test4.out) (test4.out)
 \@outlinefile=\write5
 \openout5 = `test4.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 8.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 154.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 8.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 154.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 8.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 154.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 154.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 8.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 154.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 8.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 8.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 154.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 154.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 8.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 154.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 8.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 8.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 154.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 154.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 8.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 154.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 8.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 8.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 154.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 154.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 8.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 154.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 8.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 154.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 8.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 154.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 8.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 154.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 8.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 154.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 8.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 154.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 8.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 154.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 8.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 154.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 8.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 8.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 154.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 154.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 8
-.
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 1
+54.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 8
-.
+(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 1
+54.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 8.
+ut line 154.
 
 (C:\Users\arnol\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-b
 asic-dictionary-English.dict
@@ -934,46 +942,1043 @@ Dictionary: translator-numbers-dictionary, Language: English
 heorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 ) (test4.nav)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
+
+Package hyperref Warning: Option `pdfauthor' has already been used,
+(hyperref)                setting the option has no effect on input line 157.
 
 
-(C:\Users\arnol\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+
+[1
+
+{C:/Users/arnol/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (test4.toc)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 163
+.
+ (C:\Users\arnol\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 163
+.
 
 (C:\Users\arnol\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 18.
+ut line 163.
 
 (C:\Users\arnol\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathk
 erncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
-! Undefined control sequence.
-\beamer@doifinframe ...eady long text \mergeFrame 
-                                                  {preuve}{block} \end {preu...
-l.18 \end{frame}
-                
-? 
-! Emergency stop.
-\beamer@doifinframe ...eady long text \mergeFrame 
-                                                  {preuve}{block} \end {preu...
-l.18 \end{frame}
-                
-End of file on the terminal!
 
- 
+[2
+
+{C:/Users/arnol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super
+-ts1.enc}] (test4.toc)
+
+[3
+
+]
+! Extra alignment tab has been changed to \cr.
+<recently read> \endtemplate 
+                             
+l.188 \end{frame}
+                 
+? 
+! Extra alignment tab has been changed to \cr.
+<recently read> \endtemplate 
+                             
+l.188 \end{frame}
+                 
+? 
+
+
+[4
+
+]
+
+[5
+
+]
+
+[6
+
+]
+
+[7
+
+] (test4.toc)
+
+[8
+
+]
+
+[9
+
+]
+Underfull \vbox (badness 1158) detected at line 305
+ []
+
+
+
+[10
+
+]
+Underfull \vbox (badness 1158) detected at line 305
+ []
+
+
+Overfull \vbox (120.1998pt too high) detected at line 305
+ []
+
+
+
+[11
+
+
+]
+
+[12
+
+] (test4.toc)
+
+[13
+
+]
+
+LaTeX Warning: File `.././assets/1.1.jpg' not found on input line 352.
+
+
+! Package pdftex.def Error: File `.././assets/1.1.jpg' not found: using draft s
+etting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.352 \end{frame}
+                 
+? 
+
+Underfull \vbox (badness 1158) detected at line 352
+ []
+
+
+
+[14
+
+]
+Underfull \vbox (badness 1158) detected at line 352
+ []
+
+
+Overfull \vbox (37.61961pt too high) detected at line 352
+ []
+
+
+
+[15
+
+
+] (test4.toc)
+
+[16
+
+]
+
+[17
+
+]
+
+[18
+
+]
+
+[19
+
+]
+
+[20
+
+]
+
+LaTeX Warning: File `.././assets/11.1.png' not found on input line 443.
+
+
+! Package pdftex.def Error: File `.././assets/11.1.png' not found: using draft 
+setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.443 \end{frame}
+                 
+? 
+
+Underfull \vbox (badness 1158) detected at line 443
+ []
+
+
+
+[21
+
+]
+Underfull \vbox (badness 1158) detected at line 443
+ []
+
+
+Overfull \vbox (60.9702pt too high) detected at line 443
+ []
+
+
+
+[22
+
+
+] (test4.toc)
+
+[23
+
+]
+
+[24
+
+]
+! Undefined control sequence.
+<argument> \hdashrule 
+                      {\textwidth }{0.4pt}{1pt 2pt}
+l.531 \end{frame}
+                 
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.531 \end{frame}
+                 
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.531 \end{frame}
+                 
+? 
+
+LaTeX Warning: File `.././assets/11.2.png' not found on input line 531.
+
+
+! Package pdftex.def Error: File `.././assets/11.2.png' not found: using draft 
+setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.531 \end{frame}
+                 
+? 
+! Undefined control sequence.
+<argument> \hdashrule 
+                      {\textwidth }{0.4pt}{1pt 2pt}
+l.531 \end{frame}
+                 
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.531 \end{frame}
+                 
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.531 \end{frame}
+                 
+? 
+! Undefined control sequence.
+<argument> \hdashrule 
+                      {\textwidth }{0.4pt}{1pt 2pt}
+l.531 \end{frame}
+                 
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.531 \end{frame}
+                 
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.531 \end{frame}
+                 
+? 
+
+Underfull \vbox (badness 1158) detected at line 531
+ []
+
+
+
+[25
+
+]
+Underfull \vbox (badness 1158) detected at line 531
+ []
+
+
+Overfull \vbox (472.33795pt too high) detected at line 531
+ []
+
+
+
+[26
+
+
+]
+Overfull \hbox (101.62141pt too wide) detected at line 561
+[][]
+ []
+
+
+LaTeX Warning: File `.././assets/11.3.png' not found on input line 561.
+
+
+! Package pdftex.def Error: File `.././assets/11.3.png' not found: using draft 
+setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.561 \end{frame}
+                 
+? 
+
+Underfull \vbox (badness 1158) detected at line 561
+ []
+
+
+
+[27
+
+]
+Underfull \vbox (badness 1158) detected at line 561
+ []
+
+
+Overfull \vbox (369.87242pt too high) detected at line 561
+ []
+
+
+
+[28
+
+
+] (test4.toc)
+
+[29
+
+]
+
+[30
+
+]
+Underfull \vbox (badness 1158) detected at line 600
+ []
+
+
+
+[31
+
+]
+
+[32
+
+
+]
+Overfull \hbox (57.3414pt too wide) detected at line 614
+[] [] \U/msb/m/n/10.95 E[] [] \OMS/cmsy/m/n/10.95 ^^Y [] [] [] [] []\OML/cmm/m/
+it/10.95 ;  \OT1/mathkerncmss/m/sl/10.95 Z[]\OML/cmm/m/it/10.95 ; [] ; \OT1/mat
+hkerncmss/m/sl/10.95 Z[] \OMS/cmsy/m/n/10.95 ^^X \OT1/mathkerncmss/m/sl/10.95 q
+[]
+ []
+
+
+
+[33
+
+]
+
+[34
+
+]
+! Undefined control sequence.
+<argument> \hdashrule 
+                      {\textwidth }{0.4pt}{1pt 2pt}
+l.639 \end{frame}
+                 
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.639 \end{frame}
+                 
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.639 \end{frame}
+                 
+? 
+
+
+[35
+
+]
+! Undefined control sequence.
+<argument> \hdashrule 
+                      {\textwidth }{0.4pt}{1pt 2pt}
+l.688 \end{frame}
+                 
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.688 \end{frame}
+                 
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.688 \end{frame}
+                 
+? 
+! Undefined control sequence.
+<argument> \hdashrule 
+                      {\textwidth }{0.4pt}{1pt 2pt}
+l.688 \end{frame}
+                 
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.688 \end{frame}
+                 
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.688 \end{frame}
+                 
+? 
+
+Underfull \vbox (badness 1158) detected at line 688
+ []
+
+
+
+[36
+
+]
+Underfull \vbox (badness 1158) detected at line 688
+ []
+
+
+Overfull \vbox (291.60213pt too high) detected at line 688
+ []
+
+
+
+[37
+
+
+]
+Underfull \vbox (badness 1158) detected at line 710
+ []
+
+
+
+[38
+
+]
+
+[39
+
+
+]
+Overfull \hbox (44.10208pt too wide) detected at line 728
+[][]
+ []
+
+
+
+[40
+
+]
+Underfull \vbox (badness 1158) detected at line 751
+ []
+
+
+
+[41
+
+]
+Underfull \vbox (badness 1158) detected at line 751
+ []
+
+
+Overfull \vbox (41.34247pt too high) detected at line 751
+ []
+
+
+
+[42
+
+
+] (test4.toc)
+
+[43
+
+]
+
+[44
+
+]
+Overfull \hbox (5.18845pt too wide) detected at line 846
+[][]
+ []
+
+! Undefined control sequence.
+<argument> \hdashrule 
+                      {\textwidth }{0.4pt}{1pt 2pt}
+l.846 \end{frame}
+                 
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.846 \end{frame}
+                 
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.846 \end{frame}
+                 
+? 
+! Undefined control sequence.
+<argument> \hdashrule 
+                      {\textwidth }{0.4pt}{1pt 2pt}
+l.846 \end{frame}
+                 
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.846 \end{frame}
+                 
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.846 \end{frame}
+                 
+? 
+
+Overfull \hbox (113.00497pt too wide) detected at line 846
+[][]
+ []
+
+
+Underfull \vbox (badness 1158) detected at line 846
+ []
+
+
+
+[45
+
+]
+Underfull \vbox (badness 1158) detected at line 846
+ []
+
+
+Overfull \vbox (518.06105pt too high) detected at line 846
+ []
+
+
+
+[46
+
+
+]
+
+[47
+
+]
+
+LaTeX Warning: File `.././assets/11.4.png' not found on input line 897.
+
+
+! Package pdftex.def Error: File `.././assets/11.4.png' not found: using draft 
+setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.897 \end{frame}
+                 
+? 
+! Undefined control sequence.
+<argument> \hdashrule 
+                      {\textwidth }{0.4pt}{1pt 2pt}
+l.897 \end{frame}
+                 
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.897 \end{frame}
+                 
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.897 \end{frame}
+                 
+? 
+
+Underfull \vbox (badness 1158) detected at line 897
+ []
+
+
+
+[48
+
+]
+Underfull \vbox (badness 1158) detected at line 897
+ []
+
+
+Overfull \vbox (132.03635pt too high) detected at line 897
+ []
+
+
+
+[49
+
+
+] (test4.toc)
+
+[50
+
+]
+! Undefined control sequence.
+<argument> \hdashrule 
+                      {\textwidth }{0.4pt}{1pt 2pt}
+l.940 \end{frame}
+                 
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.940 \end{frame}
+                 
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.940 \end{frame}
+                 
+? 
+
+Overfull \hbox (89.86522pt too wide) detected at line 940
+[] [] []\U/msb/m/n/10.95 E[] [][] \OT1/cmss/m/n/10.95 + [] [] + [][] \OMS/cmsy/
+m/n/10.95 ^^@ [] [] []
+ []
+
+
+Underfull \vbox (badness 1158) detected at line 940
+ []
+
+
+
+[51
+
+]
+Underfull \vbox (badness 1158) detected at line 940
+ []
+
+
+Overfull \vbox (90.29356pt too high) detected at line 940
+ []
+
+
+
+[52
+
+
+]
+Overfull \hbox (89.86522pt too wide) detected at line 965
+[] [] []\U/msb/m/n/10.95 E[] [][] \OT1/cmss/m/n/10.95 + [] [] + [][] \OMS/cmsy/
+m/n/10.95 ^^@ [] [] []
+ []
+
+
+Overfull \hbox (137.62207pt too wide) detected at line 965
+[] [] []\U/msb/m/n/10.95 E[] [][] \OT1/cmss/m/n/10.95 + [] [] + [][] \OMS/cmsy/
+m/n/10.95 ^^@ [] [] []
+ []
+
+
+Underfull \vbox (badness 1158) detected at line 965
+ []
+
+
+
+[53
+
+]
+Underfull \vbox (badness 1158) detected at line 965
+ []
+
+
+
+[54
+
+
+]
+
+LaTeX Warning: File `.././assets/11.5.png' not found on input line 1003.
+
+
+! Package pdftex.def Error: File `.././assets/11.5.png' not found: using draft 
+setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1003 \end{frame}
+                  
+? 
+
+LaTeX Warning: File `.././assets/11.6.png' not found on input line 1003.
+
+
+! Package pdftex.def Error: File `.././assets/11.6.png' not found: using draft 
+setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1003 \end{frame}
+                  
+? 
+! Undefined control sequence.
+<argument> \hdashrule 
+                      {\textwidth }{0.4pt}{1pt 2pt}
+l.1003 \end{frame}
+                  
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.1003 \end{frame}
+                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.1003 \end{frame}
+                  
+? 
+
+LaTeX Warning: File `.././assets/11.7.png' not found on input line 1003.
+
+
+! Package pdftex.def Error: File `.././assets/11.7.png' not found: using draft 
+setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1003 \end{frame}
+                  
+? 
+
+Underfull \vbox (badness 1158) detected at line 1003
+ []
+
+
+
+[55
+
+]
+Underfull \vbox (badness 1158) detected at line 1003
+ []
+
+
+Overfull \vbox (516.59514pt too high) detected at line 1003
+ []
+
+
+
+[56
+
+
+]
+Overfull \hbox (78.21338pt too wide) detected at line 1023
+[][]
+ []
+
+
+
+[57
+
+] (test4.toc)
+
+[58
+
+]
+Overfull \hbox (137.62207pt too wide) detected at line 1048
+[] [] []\U/msb/m/n/10.95 E[] [][] \OT1/cmss/m/n/10.95 + [] [] + [][] \OMS/cmsy/
+m/n/10.95 ^^@ [] [] []
+ []
+
+
+Overfull \hbox (137.568pt too wide) detected at line 1048
+\OMS/cmsy/m/n/10.95 ^^@ [][] [] [] [] [][] \OT1/cmss/m/n/10.95 + [] [] + [][] \
+OMS/cmsy/m/n/10.95 ^^@ [] [] []
+ []
+
+
+
+[59
+
+]
+Overfull \hbox (134.81567pt too wide) detected at line 1083
+[][]
+ []
+
+
+Overfull \hbox (62.12367pt too wide) detected at line 1083
+[] [] [] [] [] \OML/cmm/m/it/10.95 ;  \OT1/mathkerncmss/m/sl/10.95 Z[]\OML/cmm/
+m/it/10.95 ; [] ; \OT1/mathkerncmss/m/sl/10.95 Z[] \OMS/cmsy/m/n/10.95 ^^X \OT1
+/mathkerncmss/m/sl/10.95 q[] []
+ []
+
+
+Underfull \vbox (badness 1158) detected at line 1083
+ []
+
+
+
+[60
+
+]
+Underfull \vbox (badness 1158) detected at line 1083
+ []
+
+
+Overfull \vbox (99.58043pt too high) detected at line 1083
+ []
+
+
+
+[61
+
+
+] (test4.toc)
+
+[62
+
+]
+
+LaTeX Warning: File `.././assets/11.8.png' not found on input line 1103.
+
+
+! Package pdftex.def Error: File `.././assets/11.8.png' not found: using draft 
+setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1103 \end{frame}
+                  
+? 
+
+LaTeX Warning: File `.././assets/11.9.png' not found on input line 1103.
+
+
+! Package pdftex.def Error: File `.././assets/11.9.png' not found: using draft 
+setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1103 \end{frame}
+                  
+? 
+
+Underfull \vbox (badness 1158) detected at line 1103
+ []
+
+
+
+[63
+
+]
+Underfull \vbox (badness 1158) detected at line 1103
+ []
+
+
+Overfull \vbox (509.93254pt too high) detected at line 1103
+ []
+
+
+
+[64
+
+
+]
+
+LaTeX Warning: File `.././assets/11.10.png' not found on input line 1126.
+
+
+! Package pdftex.def Error: File `.././assets/11.10.png' not found: using draft
+ setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1126 \end{frame}
+                  
+? 
+
+LaTeX Warning: File `.././assets/11.11.png' not found on input line 1126.
+
+
+! Package pdftex.def Error: File `.././assets/11.11.png' not found: using draft
+ setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1126 \end{frame}
+                  
+? 
+
+LaTeX Warning: File `.././assets/11.12.png' not found on input line 1126.
+
+
+! Package pdftex.def Error: File `.././assets/11.12.png' not found: using draft
+ setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1126 \end{frame}
+                  
+? 
+
+Underfull \vbox (badness 1158) detected at line 1126
+ []
+
+
+
+[65
+
+]
+Underfull \vbox (badness 1158) detected at line 1126
+ []
+
+
+Overfull \vbox (597.31973pt too high) detected at line 1126
+ []
+
+
+
+[66
+
+
+]
+
+! LaTeX Error: Unicode character β (U+03B2)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1144 \end{frame}
+                  
+? 
+
+
+[67
+
+]
+\tf@nav=\write6
+\openout6 = `test4.nav'.
+
+\tf@toc=\write7
+\openout7 = `test4.toc'.
+
+\tf@snm=\write8
+\openout8 = `test4.snm'.
+
+ (test4.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+Package rerunfilecheck Info: File `test4.out' has not changed.
+(rerunfilecheck)             Checksum: 08CC672D8059C74C02C78D096E6C6C43;2103.
+ ) 
 Here is how much of TeX's memory you used:
- 21282 strings out of 473530
- 413026 string characters out of 5714794
- 774840 words of memory out of 5000000
- 44077 multiletter control sequences out of 15000+600000
- 565287 words of font info for 59 fonts, out of 8000000 for 9000
+ 22915 strings out of 473530
+ 457117 string characters out of 5714794
+ 819086 words of memory out of 5000000
+ 45479 multiletter control sequences out of 15000+600000
+ 581427 words of font info for 116 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,6n,123p,395b,450s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 128i,23n,123p,511b,846s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/arnol/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmex10.pfb><C:/Users/arnol/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb><C:/Users/arnol/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi12.pfb><C:/Users/arnol/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/arnol/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/arnol/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/arnol/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/arnol/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/
+arnol/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><
+C:/Users/arnol/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cms
+s8.pfb><C:/Users/arnol/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmssbx10.pfb><C:/Users/arnol/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmssi10.pfb><C:/Users/arnol/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/arnol/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/arnol/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/arnol/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/arnol
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Us
+ers/arnol/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msb
+m10.pfb><C:/Users/arnol/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-sup
+er/sfss0600.pfb><C:/Users/arnol/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/cm-super/sfss1095.pfb><C:/Users/arnol/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/cm-super/sfsx1728.pfb><C:/Users/arnol/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/cm-super/sfsx2488.pfb>
+Output written on test4.pdf (67 pages, 797629 bytes).
+PDF statistics:
+ 2684 PDF objects out of 2984 (max. 8388607)
+ 178 named destinations out of 1000 (max. 500000)
+ 1445 words of extra memory for PDF output out of 10000 (max. 10000000)
+

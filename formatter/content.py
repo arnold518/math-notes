@@ -6,6 +6,9 @@ class Content:
             
     def str_latex(self):
         pass
+
+    def str_beamer(self):
+        return self.str_latex()
     
     def str_markdown(self):
         pass
@@ -36,6 +39,23 @@ class ContentList(Content):
             if content != self.contents[-1]:
                 ret += "\n"
         return ret
+    
+    def str_beamer(self):
+        ret = ""
+        flag = False
+        for content in self.contents:
+            flag2 = self.lvl == 0 and not isinstance(content, (Admonition, Title, Section, Subsection))
+            if not flag and flag2:
+                ret += '\n\\begin{frame}[allowframebreaks]\n\n'
+            elif flag and not flag2:                
+                ret += '\\end{frame}\n\n'
+            flag = flag2
+            ret += content.str_beamer()
+            if content != self.contents[-1]:
+                ret += "\n"
+        if flag:
+            ret += '\\end{frame}\n'
+        return ret
 
     def process(self):
         for content in self.contents:
@@ -63,6 +83,18 @@ class UnorderedList(Content):
         ret = ' ' * (self.lvl * 4) + "\\begin{itemize}\n"
         for item in self.items:
             t = item.str_latex()
+            if '\n' in t.strip():
+                ret += ' ' * (self.lvl * 4 + 4) + "\\item\n"
+                ret += t
+            else:
+                ret += ' ' * (self.lvl * 4 + 4) + "\\item " + t.lstrip()
+        ret += ' ' * (self.lvl * 4) + "\\end{itemize}\n"
+        return ret
+    
+    def str_beamer(self):
+        ret = ' ' * (self.lvl * 4) + "\\begin{itemize}\n"
+        for item in self.items:
+            t = item.str_beamer()
             if '\n' in t.strip():
                 ret += ' ' * (self.lvl * 4 + 4) + "\\item\n"
                 ret += t
@@ -105,6 +137,18 @@ class OrderedList(Content):
         ret += ' ' * (self.lvl * 4) + "\\end{enumerate}\n"
         return ret
 
+    def str_beamer(self):
+        ret = ' ' * (self.lvl * 4) + "\\begin{enumerate}\n"
+        for item in self.items:
+            t = item.str_beamer()
+            if '\n' in t.strip():
+                ret += ' ' * (self.lvl * 4 + 4) + "\\item\n"
+                ret += t
+            else:
+                ret += ' ' * (self.lvl * 4 + 4) + "\\item " + t.lstrip()
+        ret += ' ' * (self.lvl * 4) + "\\end{enumerate}\n"
+        return ret
+
     def process(self):
         for item in self.items:
             item.process()
@@ -119,6 +163,9 @@ class Title(Content):
 
     def str_latex(self):
         return '\\chapter{' + self.title.split('. ', 1)[1].split('\n', 1)[0] + '}\n'
+    
+    def str_beamer(self):
+        return '\\section{' + self.title.split('\n', 1)[0] + '}\n'
 
 class Section(Content):
     def __init__(self, title="", lvl=0):
@@ -133,6 +180,12 @@ class Section(Content):
         tex = re.sub(r'(?<!\\)#', r'\\#', tex)
         tex = re.sub(r'(?<!\\)&', r'\\&', tex)
         return '\\section{' + tex + '}\n'
+    
+    def str_beamer(self):
+        tex = self.title.split('\n', 1)[0]
+        tex = re.sub(r'(?<!\\)#', r'\\#', tex)
+        tex = re.sub(r'(?<!\\)&', r'\\&', tex)
+        return '\\subsection{' + tex + '}\n'
 
 class Subsection(Content):
     def __init__(self, title="", lvl=0):
@@ -147,6 +200,12 @@ class Subsection(Content):
         tex = re.sub(r'(?<!\\)#', r'\\#', tex)
         tex = re.sub(r'(?<!\\)&', r'\\&', tex)
         return '\\subsection{' + tex + '}\n'
+    
+    def str_beamer(self):
+        tex = self.title.split('\n', 1)[0]
+        tex = re.sub(r'(?<!\\)#', r'\\#', tex)
+        tex = re.sub(r'(?<!\\)&', r'\\&', tex)
+        return '\\subsubsection{' + tex + '}\n'
 
 def convert_links(text, type):
     """
@@ -277,43 +336,41 @@ class Separator(Content):
         return ' ' * (self.lvl * 4) + '\\par\\noindent\\textcolor{gray}{\\hdashrule{\\textwidth}{0.4pt}{1pt 2pt}}\n'
 
 class Admonition(Content):
-    def __init__(self, chp=0, num=0, title="", lvl=0):
+    def __init__(self, chp=0, num=0, type="", title="", lvl=0):
         super().__init__(lvl)
         self.chp = chp
         self.num = num
+        self.type = type
         self.title = title
         self.contentlist = ContentList(lvl+1)
+
     def str_markdown(self):
         ret = ' ' * (self.lvl * 4)
-        ret += f'!!! {self.__class__.__name__.lower()} "{self.__class__.__name__} {self.chp}.{self.num} <a id=\"{self.__class__.__name__.lower()}-{self.chp}-{self.num}\"></a>: {self.title}"\n'
+        ret += f'!!! {self.type.lower()} "{self.type} {self.chp}.{self.num} <a id=\"{self.type.lower()}-{self.chp}-{self.num}\"></a>: {self.title}"\n'
         ret += self.contentlist.str_markdown()
         return ret
 
     def str_latex(self):
         ret = ' ' * (self.lvl * 4)
-        ret += f'\\begin{{{self.__class__.__name__.lower()}}}[{self.chp}.{self.num}][{self.title}]\n'
+        ret += f'\\begin{{{self.type.lower()}}}[{self.chp}.{self.num}][{self.title}]\n'
         ret += self.contentlist.str_latex()
-        ret += f'\\end{{{self.__class__.__name__.lower()}}}\n'
+        ret += f'\\end{{{self.type.lower()}}}\n'  # Changed to self.type.lower()
+        return ret
+
+    def str_beamer(self):
+        ret = ""
+        if self.lvl == 0:
+            ret += f'\\begin{{frame}}[allowframebreaks]\n\n'
+        ret += ' ' * (self.lvl * 4)
+        ret += f'\\begin{{my{self.type.lower()}block}}{{{self.chp}.{self.num}}}{{{self.title}}}\n'
+        ret += self.contentlist.str_latex()
+        ret += f'\\end{{my{self.type.lower()}block}}\n'
+        if self.lvl == 0:            
+            ret += f'\n\\end{{frame}}\n'
         return ret
 
     def process(self):
         self.contentlist.process()
-
-class Definition(Admonition):
-    def __init__(self, chp=0, num=0, title="", lvl=0):
-        super().__init__(chp, num, title, lvl)
-
-class Theorem(Admonition):
-    def __init__(self, chp=0, num=0, title="", lvl=0):
-        super().__init__(chp, num, title, lvl)
-
-class Concept(Admonition):
-    def __init__(self, chp=0, num=0, title="", lvl=0):
-        super().__init__(chp, num, title, lvl)
-
-class Example(Admonition):
-    def __init__(self, chp=0, num=0, title="", lvl=0):
-        super().__init__(chp, num, title, lvl)
 
 class Proof(Content):
     def __init__(self, lvl=0):
