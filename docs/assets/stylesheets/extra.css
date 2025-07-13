@@ -27,27 +27,12 @@ img.center {
 }
 
 .center-block {
-    text-align: center;
+  text-align: center;
 }
 
 .center-block img {
-    display: block;
-    margin: 0 auto;
-}
-
-.center-block .arithmatex {
-    display: block;
-    text-align: center;
-}
-
-.center-block table {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Prevent table cell content from being overridden by the wrapper */
-.md-typeset .center-block :is(td, th):not([align]) {
-    text-align: initial;
+  display: block;
+  margin: 0 auto;
 }
 
 :root {
