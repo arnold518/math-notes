@@ -19,17 +19,34 @@ table.highlighttable {
   font-size: 100%;
 }
 
+
 img.center {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-/* Center Markdown Tables (requires md_in_html extension) */
-.center-table {
+
+.center-block {
     text-align: center;
 }
-.md-typeset .center-table :is(td,th):not([align]) {
-    /* Reset alignment for table cells */
+
+.center-block img {
+    display: block;
+    margin: 0 auto;
+}
+
+.center-block .arithmatex {
+    display: block;
+    text-align: center;
+}
+
+.center-block table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Prevent table cell content from being overridden by the wrapper */
+.md-typeset .center-block :is(td, th):not([align]) {
     text-align: initial;
 }
 
