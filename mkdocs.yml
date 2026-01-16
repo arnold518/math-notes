@@ -93,6 +93,34 @@ extra:
 
 nav:
   - Home: index.md
+  - Linear Algebra:
+      - linear-algebra/index.md
+      - Ch 1. Vector Spaces:
+          - 1. Introduction : linear-algebra/1.md
+          - 2. Vector Spaces : linear-algebra/2.md
+          - 3. Subspaces : linear-algebra/3.md
+          - 4. Linear Combinations and Systems of Linear Equations : linear-algebra/4.md
+          - 5. Linear Dependence and Linear Independence : linear-algebra/5.md
+          - 6. Bases and Dimension : linear-algebra/6.md
+          - 7. Maximal Linearly Independent Subsets : linear-algebra/7.md
+      - Ch 2. Linear Transformations and Matrices:
+          - 8. Linear Transformations, Null spaces, and Ranges : linear-algebra/8.md
+          - 9. The Matrix Representation of a Linear Transformation : linear-algebra/9.md
+          - 10. Composition of Linear Transformations and Matrix Multiplication : linear-algebra/10.md
+          - 11. Invertibility and Isomorphisms : linear-algebra/11.md
+          - 12. The Change of Coordinate Matrix : linear-algebra/12.md
+          - 13. Dual Spaces : linear-algebra/13.md
+          - 14. Homogeneous Linear Differential Equations with Constant Coefficients : linear-algebra/14.md
+      - Ch 3. Elementary Matrix Operations and Systems of Linear Equations:
+          - 15. Elementary Matrix Operations and Elementary Matrices : linear-algebra/15.md
+          - 16. The Rank of a Matrix and Matrix Inverses : linear-algebra/16.md
+          - 17. Systems of Linear Equations - Theoretical Aspects : linear-algebra/17.md
+          - 18. Systems of Linear Equations - Computational Aspects : linear-algebra/18.md
+      - Ch 4. Determinants:
+          - 19. Determinants of Order 2 : linear-algebra/19.md
+          - 20. Determinants of Order n : linear-algebra/20.md
+          - 21. Properties of Determinants : linear-algebra/21.md
+          - 22. A Characterization of the Determinant : linear-algebra/22.md
   - Abstract Algebra:
       - abstract-algebra/index.md
       - 0. Sets and Relations : abstract-algebra/0.md

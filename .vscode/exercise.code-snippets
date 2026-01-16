@@ -1,0 +1,11 @@
+{
+	"Example Snippet": {
+		"prefix": ["exer", "exercise"],
+		"scope": "markdown",
+		"body": [
+			"!!! exercise \"Exercise $1\"",
+			"\t$2"
+		],
+		"description": "Insert a exercise block"
+	}
+  }
