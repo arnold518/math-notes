@@ -121,6 +121,18 @@ nav:
           - 20. Determinants of Order n : linear-algebra/20.md
           - 21. Properties of Determinants : linear-algebra/21.md
           - 22. A Characterization of the Determinant : linear-algebra/22.md
+      - Ch 5. Diagonalization:
+          - 23. Eigenvalues and Eigenvectors : linear-algebra/23.md
+          - 24. Diagonalizability : linear-algebra/24.md
+          - 25. Matrix Limits and Markov Chains : linear-algebra/25.md
+          - 26. Invariant Subspaces and the Cayley-Hamliton Theorem : linear-algebra/26.md
+      - Ch 6. Inner Product Spaces:
+          - 27. Inner Products and Norms : linear-algebra/27.md
+          - 28. The Gram-Schmidt Orthogonalization Process and Orthogonal Complements : linear-algebra/28.md
+          - 29. The Adjoint of a Linear Operator : linear-algebra/29.md
+          - 30. Normal and Self-Adjoint Operators : linear-algebra/30.md
+          - 31. Unitary and Orthogonal Operators and Their Matrices : linear-algebra/31.md
+          - 32. Orthogonal Projections and the Spectral Theorem : linear-algebra/32.md
   - Abstract Algebra:
       - abstract-algebra/index.md
       - 0. Sets and Relations : abstract-algebra/0.md
