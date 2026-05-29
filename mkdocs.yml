@@ -96,7 +96,6 @@ nav:
   - Linear Algebra:
       - linear-algebra/index.md
       - Ch 1. Vector Spaces:
-          - 1. Introduction : linear-algebra/1.md
           - 2. Vector Spaces : linear-algebra/2.md
           - 3. Subspaces : linear-algebra/3.md
           - 4. Linear Combinations and Systems of Linear Equations : linear-algebra/4.md
@@ -109,8 +108,6 @@ nav:
           - 10. Composition of Linear Transformations and Matrix Multiplication : linear-algebra/10.md
           - 11. Invertibility and Isomorphisms : linear-algebra/11.md
           - 12. The Change of Coordinate Matrix : linear-algebra/12.md
-          - 13. Dual Spaces : linear-algebra/13.md
-          - 14. Homogeneous Linear Differential Equations with Constant Coefficients : linear-algebra/14.md
       - Ch 3. Elementary Matrix Operations and Systems of Linear Equations:
           - 15. Elementary Matrix Operations and Elementary Matrices : linear-algebra/15.md
           - 16. The Rank of a Matrix and Matrix Inverses : linear-algebra/16.md
@@ -120,11 +117,9 @@ nav:
           - 19. Determinants of Order 2 : linear-algebra/19.md
           - 20. Determinants of Order n : linear-algebra/20.md
           - 21. Properties of Determinants : linear-algebra/21.md
-          - 22. A Characterization of the Determinant : linear-algebra/22.md
       - Ch 5. Diagonalization:
           - 23. Eigenvalues and Eigenvectors : linear-algebra/23.md
           - 24. Diagonalizability : linear-algebra/24.md
-          - 25. Matrix Limits and Markov Chains : linear-algebra/25.md
           - 26. Invariant Subspaces and the Cayley-Hamliton Theorem : linear-algebra/26.md
       - Ch 6. Inner Product Spaces:
           - 27. Inner Products and Norms : linear-algebra/27.md
@@ -133,6 +128,7 @@ nav:
           - 30. Normal and Self-Adjoint Operators : linear-algebra/30.md
           - 31. Unitary and Orthogonal Operators and Their Matrices : linear-algebra/31.md
           - 32. Orthogonal Projections and the Spectral Theorem : linear-algebra/32.md
+          - 33. The Singular Value Decomposition and the PseudoInverse : linear-algebra/33.md
   - Abstract Algebra:
       - abstract-algebra/index.md
       - 0. Sets and Relations : abstract-algebra/0.md
