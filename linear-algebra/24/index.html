@@ -1,0 +1,5025 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../23/">
+      
+      
+        <link rel="next" href="../26/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>24. Diagonalizability - Mathematics Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%206a6%206%200%200%201%206%206c0%202.22-1.21%204.16-3%205.2V19a1%201%200%200%201-1%201h-4a1%201%200%200%201-1-1v-1.8c-1.79-1.04-3-2.98-3-5.2a6%206%200%200%201%206-6m2%2015v1a1%201%200%200%201-1%201h-2a1%201%200%200%201-1-1v-1zm6-10h3v2h-3zM1%2011h3v2H1zM13%201v3h-2V1zM4.92%203.5l2.13%202.14-1.42%201.41L3.5%204.93zm12.03%202.13%202.12-2.13%201.43%201.43-2.13%202.12z%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%200a256%20256%200%201%201%200%20512%20256%20256%200%201%201%200-512m-24%20120v136c0%208%204%2015.5%2010.7%2020l96%2064c11%207.4%2025.9%204.4%2033.3-6.7s4.4-25.9-6.7-33.3L280%20243.2V120c0-13.3-10.7-24-24-24s-24%2010.7-24%2024%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#24-diagonalizability" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../.." title="Mathematics Notes" class="md-header__button md-logo" aria-label="Mathematics Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mathematics Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              24. Diagonalizability
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="공유" aria-label="공유" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arnold518/math-notes" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    arnold518/math-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Linear Algebra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../abstract-algebra/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Abstract Algebra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../topology/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Topology
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mathematics Notes" class="md-nav__button md-logo" aria-label="Mathematics Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Mathematics Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arnold518/math-notes" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    arnold518/math-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linear Algebra
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linear Algebra
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 1. Vector Spaces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 1. Vector Spaces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Vector Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Subspaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Linear Combinations and Systems of Linear Equations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Linear Dependence and Linear Independence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Bases and Dimension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Maximal Linearly Independent Subsets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 2. Linear Transformations and Matrices
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 2. Linear Transformations and Matrices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Linear Transformations, Null spaces, and Ranges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. The Matrix Representation of a Linear Transformation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Composition of Linear Transformations and Matrix Multiplication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Invertibility and Isomorphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Change of Coordinate Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 3. Elementary Matrix Operations and Systems of Linear Equations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 3. Elementary Matrix Operations and Systems of Linear Equations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Elementary Matrix Operations and Elementary Matrices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. The Rank of a Matrix and Matrix Inverses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Systems of Linear Equations - Theoretical Aspects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Systems of Linear Equations - Computational Aspects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 4. Determinants
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 4. Determinants
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Determinants of Order 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Determinants of Order n
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Properties of Determinants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 5. Diagonalization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 5. Diagonalization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Eigenvalues and Eigenvectors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Diagonalizability
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Diagonalizability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#algebraic-multiplicity-and-dimension-of-eigenspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Algebraic Multiplicity and Dimension of Eigenspace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-for-diagonalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test for Diagonalization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-sums" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct Sums
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-systems-of-differential-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application : Systems of Differential Equations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Invariant Subspaces and the Cayley-Hamliton Theorem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 6. Inner Product Spaces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 6. Inner Product Spaces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Inner Products and Norms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. The Gram-Schmidt Orthogonalization Process and Orthogonal Complements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. The Adjoint of a Linear Operator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. Normal and Self-Adjoint Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. Unitary and Orthogonal Operators and Their Matrices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. Orthogonal Projections and the Spectral Theorem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. The Singular Value Decomposition and the PseudoInverse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../abstract-algebra/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abstract Algebra
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Abstract Algebra
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0. Sets and Relations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 1. Groups and SubGroups
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 1. Groups and SubGroups
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/1.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction and Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Binary Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Isomorphic Binary Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Subgroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Cyclic Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Generating Sets and Cayley Digraphs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 2. Permutations, Cosets, and Direct Products
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 2. Permutations, Cosets, and Direct Products
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/8.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Groups of Permutations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/9.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Orbits, Cycles, and the Alternating Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/10.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Cosets and the Theorem of Lagrange
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/11.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Direct Products and Finitely Generated Abelian Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/12.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Plane Isometries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 3. Homomorphisms and Factor Groups
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 3. Homomorphisms and Factor Groups
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/13.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Homomorphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/14.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Factor Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/15.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Factor-Group Computations and Simple Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Group Action on a Set
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/17.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Applications of G-Sets to Counting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 4. Rings and Fields
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 4. Rings and Fields
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/18.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Rings and Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/19.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Integral Domains
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/20.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Fermat's and Euler's Theorem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/21.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Field of Quotients of an Integral Domain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/22.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Rings of Polynomials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/23.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Factorization of Polynomials over a Field
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/24.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Noncommutative Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/25.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Ordered Rings and Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../topology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 1. Set Theory and Logic
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 1. Set Theory and Logic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Fundamental Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Relations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. The Integers and the Real Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Cartesian Products
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Finite Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 2. Topological Spaces and Continuous Functions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 2. Topological Spaces and Continuous Functions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Topological Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Basis for a Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. The Order Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. The Product Topology on X ⨯ Y
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. The Subspace Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Closed Sets and Limit Points
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Continuous Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. The Product Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Metric Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Metric Topology (continued)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. The Quotient Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 3. Connectedness and Compactness
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 3. Connectedness and Compactness
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Connected Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Connected Subspaces of the Real Line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Components and Local Connectedness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Compact Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/27/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Compact Subspaces of the Real Line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. Limit Point Compactness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. Local Compactness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#algebraic-multiplicity-and-dimension-of-eigenspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Algebraic Multiplicity and Dimension of Eigenspace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-for-diagonalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test for Diagonalization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-sums" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct Sums
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-systems-of-differential-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application : Systems of Differential Equations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="24-diagonalizability">§ 24. Diagonalizability<a class="headerlink" href="#24-diagonalizability" title="Permanent link">&para;</a></h1>
+<h2 id="algebraic-multiplicity-and-dimension-of-eigenspace">Algebraic Multiplicity and Dimension of Eigenspace<a class="headerlink" href="#algebraic-multiplicity-and-dimension-of-eigenspace" title="Permanent link">&para;</a></h2>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 24.1 : Distinct eigenvalues give linearly independent eigenvectors.</p>
+<p>Let <span class="arithmatex">\(T\)</span> be a linear operator on a vector space <span class="arithmatex">\(V\)</span>, and let <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{k}\)</span> be distinct eigenvalues of <span class="arithmatex">\(T\)</span>.
+If <span class="arithmatex">\(v_{1}, v_{2}, \ldots, v_{k}\)</span> are eigenvectors of <span class="arithmatex">\(T\)</span> such that <span class="arithmatex">\(\lambda_{i}\)</span> corresponds to <span class="arithmatex">\(v_{i}\)</span> <span class="arithmatex">\((1 \leq i \leq k)\)</span>, then <span class="arithmatex">\(\left\{v_{1}, v_{2}, \ldots, v_{k}\right\}\)</span> is linearly independent.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>The proof is by mathematical induction on <span class="arithmatex">\(k\)</span>.
+Suppose that <span class="arithmatex">\(k=1\)</span>.
+Then <span class="arithmatex">\(v_{1} \neq 0\)</span> since <span class="arithmatex">\(v_{1}\)</span> is an eigenvector, and hence <span class="arithmatex">\(\left\{v_{1}\right\}\)</span> is linearly independent.
+Now assume that the theorem holds for <span class="arithmatex">\(k-1\)</span> distinct eigenvalues, where <span class="arithmatex">\(k-1 \geq 1\)</span>, and that we have <span class="arithmatex">\(k\)</span> eigenvectors <span class="arithmatex">\(v_{1}, v_{2}, \ldots, v_{k}\)</span> corresponding to the distinct eigenvalues <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{k}\)</span>.
+We wish to show that <span class="arithmatex">\(\left\{v_{1}, v_{2}, \ldots, v_{k}\right\}\)</span> is linearly independent.
+Suppose that <span class="arithmatex">\(a_{1}, a_{2}, \ldots, a_{k}\)</span> are scalars such that</p>
+<div class="arithmatex">\[
+a_{1} v_{1}+a_{2} v_{2}+\cdots+a_{k} v_{k}=0
+\]</div>
+<p>Applying <span class="arithmatex">\(T-\lambda_{k} I\)</span> to both sides of (1), we obtain</p>
+<div class="arithmatex">\[
+a_{1}\left(\lambda_{1}-\lambda_{k}\right) v_{1}+a_{2}\left(\lambda_{2}-\lambda_{k}\right) v_{2}+\cdots+a_{k-1}\left(\lambda_{k-1}-\lambda_{k}\right) v_{k-1}=0
+\]</div>
+<p>By the induction hypothesis <span class="arithmatex">\(\left\{v_{1}, v_{2}, \ldots, v_{k-1}\right\}\)</span> is linearly independent, and hence</p>
+<div class="arithmatex">\[
+a_{1}\left(\lambda_{1}-\lambda_{k}\right)=a_{2}\left(\lambda_{2}-\lambda_{k}\right)=\cdots=a_{k-1}\left(\lambda_{k-1}-\lambda_{k}\right)=0 .
+\]</div>
+<p>Since <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{k}\)</span> are distinct, it follows that <span class="arithmatex">\(\lambda_{i}-\lambda_{k} \neq 0\)</span> for <span class="arithmatex">\(1 \leq i \leq k-1\)</span>.
+So <span class="arithmatex">\(a_{1}=a_{2}=\cdots=a_{k-1}=0\)</span>, and (1) therefore reduces to <span class="arithmatex">\(a_{k} v_{k}=0\)</span>.
+But <span class="arithmatex">\(v_{k} \neq 0\)</span> and therefore <span class="arithmatex">\(a_{k}=0\)</span>.
+Consequently <span class="arithmatex">\(a_{1}=a_{2}=\cdots=a_{k}=0\)</span>, and it follows that <span class="arithmatex">\(\left\{v_{1}, v_{2}, \ldots, v_{k}\right\}\)</span> is linearly independent.</p>
+</div>
+</div>
+<div class="admonition corollary">
+<p class="admonition-title">Corollary 24.2 : <span class="arithmatex">\(n\)</span> distinct eigenvalues imply diagonalizability.</p>
+<p>Let <span class="arithmatex">\(T\)</span> be a linear operator on an <span class="arithmatex">\(n\)</span>-dimensional vector space <span class="arithmatex">\(V\)</span>.
+If <span class="arithmatex">\(T\)</span> has <span class="arithmatex">\(n\)</span> distinct eigenvalues, then <span class="arithmatex">\(T\)</span> is diagonalizable.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Suppose that <span class="arithmatex">\(T\)</span> has <span class="arithmatex">\(n\)</span> distinct eigenvalues <span class="arithmatex">\(\lambda_{1}, \ldots, \lambda_{n}\)</span>.
+For each <span class="arithmatex">\(i\)</span> choose an eigenvector <span class="arithmatex">\(v_{i}\)</span> corresponding to <span class="arithmatex">\(\lambda_{i}\)</span>.
+By <strong>Theorem 24.1</strong>, <span class="arithmatex">\(\left\{v_{1}, \ldots, v_{n}\right\}\)</span> is linearly independent, and since <span class="arithmatex">\(\operatorname{dim}(V)=n\)</span>, this set is a basis for <span class="arithmatex">\(V\)</span>.
+Thus, by <strong>Theorem 23.3</strong>, <span class="arithmatex">\(T\)</span> is diagonalizable.</p>
+</div>
+</div>
+<p>The converse of <strong>Theorem 24.1</strong> is false.
+That is, it is not true that if <span class="arithmatex">\(T\)</span> is diagonalizable, then it has <span class="arithmatex">\(n\)</span> distinct eigenvalues.</p>
+<div class="admonition definition">
+<p class="admonition-title">Definition 24.3 : Polynomial Splitting over a Field</p>
+<p>A polynomial <span class="arithmatex">\(f(t)\)</span> in <span class="arithmatex">\(\mathrm{P}(F)\)</span> <strong>splits over <span class="arithmatex">\(F\)</span></strong> if there are scalars <span class="arithmatex">\(c, a_{1}, \ldots, a_{n}\)</span> (not necessarily distinct) in <span class="arithmatex">\(F\)</span> such that</p>
+<div class="arithmatex">\[
+f(t)=c\left(t-a_{1}\right)\left(t-a_{2}\right) \cdots\left(t-a_{n}\right)
+\]</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 24.4 : Characteristic polynomial of a diagonalizable operator splits.</p>
+<p>The characteristic polynomial of any diagonalizable linear operator splits.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Let <span class="arithmatex">\(T\)</span> be a diagonalizable linear operator on the <span class="arithmatex">\(n\)</span>-dimensional vector space <span class="arithmatex">\(V\)</span>, and let <span class="arithmatex">\(\beta\)</span> be an ordered basis for <span class="arithmatex">\(V\)</span> such that <span class="arithmatex">\([T]_{\beta}=D\)</span> is a diagonal matrix.
+Suppose that</p>
+<div class="arithmatex">\[
+D=\left(\begin{array}{cccc}
+\lambda_{1} &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; \lambda_{2} &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; \lambda_{n}
+\end{array}\right)
+\]</div>
+<p>and let <span class="arithmatex">\(f(t)\)</span> be the characteristic polynomial of <span class="arithmatex">\(T\)</span>.
+Then</p>
+<div class="arithmatex">\[
+\begin{aligned}
+f(t) &amp; =\operatorname{det}(D-t I)=\operatorname{det}\left(\begin{array}{cccc}
+\lambda_{1}-t &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; \lambda_{2}-t &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; \lambda_{n}-t
+\end{array}\right) \\
+&amp; =\left(\lambda_{1}-t\right)\left(\lambda_{2}-t\right) \cdots\left(\lambda_{n}-t\right)=(-1)^{n}\left(t-\lambda_{1}\right)\left(t-\lambda_{2}\right) \cdots\left(t-\lambda_{n}\right) .
+\end{aligned}
+\]</div>
+</div>
+</div>
+<p>The converse of <strong>Theorem 24.4</strong> is false; that is, the characteristic polynomial of <span class="arithmatex">\(T\)</span> may split, but <span class="arithmatex">\(T\)</span> need not be diagonalizable.</p>
+<div class="admonition definition">
+<p class="admonition-title">Definition 24.5 : Algebraic Multiplicity of an Eigenvalue</p>
+<p>Let <span class="arithmatex">\(\lambda\)</span> be an eigenvalue of a linear operator or matrix with characteristic polynomial <span class="arithmatex">\(f(t)\)</span>.
+The <strong>(algebraic) multiplicity</strong> of <span class="arithmatex">\(\lambda\)</span> is the largest positive integer <span class="arithmatex">\(k\)</span> for which <span class="arithmatex">\((t-\lambda)^{k}\)</span> is a factor of <span class="arithmatex">\(f(t)\)</span>.</p>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">Definition 24.6 : Eigenspace</p>
+<p>Let <span class="arithmatex">\(T\)</span> be a linear operator on a vector space <span class="arithmatex">\(V\)</span>, and let <span class="arithmatex">\(\lambda\)</span> be an eigenvalue of <span class="arithmatex">\(T\)</span>.
+Define <span class="arithmatex">\(E_{\lambda}=\{x \in V: T(x)=\lambda x\}=\mathrm{N}\left(T-\lambda I_{V}\right)\)</span>.
+The set <span class="arithmatex">\(E_{\lambda}\)</span> is called the <strong>eigenspace</strong> of <span class="arithmatex">\(T\)</span> corresponding to the eigenvalue <span class="arithmatex">\(\lambda\)</span>.</p>
+<p>Analogously, we define the <strong>eigenspace</strong> of a square matrix <span class="arithmatex">\(A\)</span> to be the eigenspace of <span class="arithmatex">\(L_{A}\)</span>.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 24.7 : Eigenspace dimension is at most its multiplicity.</p>
+<p>Let <span class="arithmatex">\(T\)</span> be a linear operator on a finite-dimensional vector space <span class="arithmatex">\(V\)</span>, and let <span class="arithmatex">\(\lambda\)</span> be an eigenvalue of <span class="arithmatex">\(T\)</span> having multiplicity <span class="arithmatex">\(m\)</span>.
+Then <span class="arithmatex">\(1 \leq \operatorname{dim}\left(E_{\lambda}\right) \leq m\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Choose an ordered basis <span class="arithmatex">\(\left\{v_{1}, v_{2}, \ldots, v_{p}\right\}\)</span> for <span class="arithmatex">\(E_{\lambda}\)</span>, extend it to an ordered basis <span class="arithmatex">\(\beta=\left\{v_{1}, v_{2}, \ldots, v_{p}, v_{p+1}, \ldots, v_{n}\right\}\)</span> for <span class="arithmatex">\(V\)</span>, and let <span class="arithmatex">\(A=[T]_{\beta}\)</span>.
+Observe that <span class="arithmatex">\(v_{i}\)</span> <span class="arithmatex">\((1 \leq i \leq p)\)</span> is an eigenvector of <span class="arithmatex">\(T\)</span> corresponding to <span class="arithmatex">\(\lambda\)</span>, and therefore</p>
+<div class="arithmatex">\[
+A=\left(\begin{array}{cc}
+\lambda I_{p} &amp; B \\
+O &amp; C
+\end{array}\right)
+\]</div>
+<p>By <strong>Exercise 21.21</strong>, the characteristic polynomial of <span class="arithmatex">\(T\)</span> is</p>
+<div class="arithmatex">\[
+\begin{aligned}
+f(t) &amp; =\operatorname{det}\left(A-t I_{n}\right)=\operatorname{det}\left(\begin{array}{cc}
+(\lambda-t) I_{p} &amp; B \\
+O &amp; C-t I_{n-p}
+\end{array}\right) \\
+&amp; =\operatorname{det}\left((\lambda-t) I_{p}\right) \operatorname{det}\left(C-t I_{n-p}\right) \\
+&amp; =(\lambda-t)^{p} g(t)
+\end{aligned}
+\]</div>
+<p>where <span class="arithmatex">\(g(t)\)</span> is a polynomial.
+Thus <span class="arithmatex">\((\lambda-t)^{p}\)</span> is a factor of <span class="arithmatex">\(f(t)\)</span>, and hence the multiplicity of <span class="arithmatex">\(\lambda\)</span> is at least <span class="arithmatex">\(p\)</span>.
+But <span class="arithmatex">\(\operatorname{dim}\left(E_{\lambda}\right)=p\)</span>, and so <span class="arithmatex">\(\operatorname{dim}\left(E_{\lambda}\right) \leq m\)</span>.</p>
+</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Lemma 24.8</p>
+<p>Let <span class="arithmatex">\(T\)</span> be a linear operator, and let <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{k}\)</span> be distinct eigenvalues of <span class="arithmatex">\(T\)</span>.
+For each <span class="arithmatex">\(i=1,2, \ldots, k\)</span>, let <span class="arithmatex">\(v_{i} \in E_{\lambda_{i}}\)</span>, the eigenspace corresponding to <span class="arithmatex">\(\lambda_{i}\)</span>.
+If</p>
+<div class="arithmatex">\[
+v_{1}+v_{2}+\cdots+v_{k}=0
+\]</div>
+<p>then <span class="arithmatex">\(v_{i}=0\)</span> for all <span class="arithmatex">\(i\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Suppose otherwise.
+By renumbering if necessary, suppose that, for <span class="arithmatex">\(1 \leq m \leq k\)</span>, we have <span class="arithmatex">\(v_{i} \neq 0\)</span> for <span class="arithmatex">\(1 \leq i \leq m\)</span>, and <span class="arithmatex">\(v_{i}=0\)</span> for <span class="arithmatex">\(i&gt;m\)</span>.
+Then, for each <span class="arithmatex">\(i \leq m\)</span>, <span class="arithmatex">\(v_{i}\)</span> is an eigenvector of <span class="arithmatex">\(T\)</span> corresponding to <span class="arithmatex">\(\lambda_{i}\)</span> and</p>
+<div class="arithmatex">\[
+v_{1}+v_{2}+\cdots+v_{m}=0
+\]</div>
+<p>But this contradicts <strong>Theorem 24.1</strong>, which states that these <span class="arithmatex">\(v_{i}\)</span> s are linearly independent.
+We conclude, therefore, that <span class="arithmatex">\(v_{i}=0\)</span> for all <span class="arithmatex">\(i\)</span>.</p>
+</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 24.9 : Union of linearly independent eigenspace subsets is independent.</p>
+<p>Let <span class="arithmatex">\(T\)</span> be a linear operator on a vector space <span class="arithmatex">\(V\)</span>, and let <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{k}\)</span> be distinct eigenvalues of <span class="arithmatex">\(T\)</span>.
+For each <span class="arithmatex">\(i=1,2, \ldots, k\)</span>, let <span class="arithmatex">\(S_{i}\)</span> be a finite linearly independent subset of the eigenspace <span class="arithmatex">\(E_{\lambda_{i}}\)</span>.
+Then <span class="arithmatex">\(S=S_{1} \cup S_{2} \cup \cdots \cup S_{k}\)</span> is a linearly independent subset of <span class="arithmatex">\(V\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Suppose that for each <span class="arithmatex">\(i\)</span></p>
+<div class="arithmatex">\[
+S_{i}=\left\{v_{i 1}, v_{i 2}, \ldots, v_{i n_{i}}\right\}
+\]</div>
+<p>Then <span class="arithmatex">\(S=\left\{v_{i j}: 1 \leq j \leq n_{i}, 1 \leq i \leq k\right\}\)</span>.
+Consider any scalars <span class="arithmatex">\(\left\{a_{i j}\right\}\)</span> such that</p>
+<div class="arithmatex">\[
+\sum_{i=1}^{k} \sum_{j=1}^{n_{i}} a_{i j} v_{i j}=0
+\]</div>
+<p>For each <span class="arithmatex">\(i\)</span>, let</p>
+<div class="arithmatex">\[
+w_{i}=\sum_{j=1}^{n_{i}} a_{i j} v_{i j} .
+\]</div>
+<p>Then <span class="arithmatex">\(w_{i} \in E_{\lambda_{i}}\)</span> for each <span class="arithmatex">\(i\)</span>, and <span class="arithmatex">\(w_{1}+\cdots+w_{k}=0\)</span>.
+Therefore, by <strong>Lemma 24.8</strong>, <span class="arithmatex">\(w_{i}=0\)</span> for all <span class="arithmatex">\(i\)</span>.
+But each <span class="arithmatex">\(S_{i}\)</span> is linearly independent, and hence <span class="arithmatex">\(a_{i j}=0\)</span> for all <span class="arithmatex">\(j\)</span>.
+We conclude that <span class="arithmatex">\(S\)</span> is linearly independent.</p>
+</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 24.10 : Diagonalizability is characterized by eigenspace dimensions.</p>
+<p>Let <span class="arithmatex">\(T\)</span> be a linear operator on a finite-dimensional vector space <span class="arithmatex">\(V\)</span> such that the characteristic polynomial of <span class="arithmatex">\(T\)</span> splits.
+Let <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{k}\)</span> be the distinct eigenvalues of <span class="arithmatex">\(T\)</span>.
+Then</p>
+<ul>
+<li>(a) <span class="arithmatex">\(T\)</span> is diagonalizable if and only if the multiplicity of <span class="arithmatex">\(\lambda_{i}\)</span> is equal to <span class="arithmatex">\(\operatorname{dim}\left(E_{\lambda_{i}}\right)\)</span> for all <span class="arithmatex">\(i\)</span>.</li>
+<li>(b) If <span class="arithmatex">\(T\)</span> is diagonalizable and <span class="arithmatex">\(\beta_{i}\)</span> is an ordered basis for <span class="arithmatex">\(E_{\lambda_{i}}\)</span> for each <span class="arithmatex">\(i\)</span>, then <span class="arithmatex">\(\beta=\beta_{1} \cup \beta_{2} \cup \cdots \cup \beta_{k}\)</span> is an ordered basis for <span class="arithmatex">\(V\)</span> consisting of eigenvectors of <span class="arithmatex">\(T\)</span>.</li>
+</ul>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>For each <span class="arithmatex">\(i\)</span>, let <span class="arithmatex">\(m_{i}\)</span> denote the multiplicity of <span class="arithmatex">\(\lambda_{i}\)</span>, <span class="arithmatex">\(d_{i}=\operatorname{dim}\left(E_{\lambda_{i}}\right)\)</span>, and <span class="arithmatex">\(n=\operatorname{dim}(V)\)</span>.</p>
+<p>First, suppose that <span class="arithmatex">\(T\)</span> is diagonalizable.
+Let <span class="arithmatex">\(\beta\)</span> be a basis for <span class="arithmatex">\(V\)</span> consisting of eigenvectors of <span class="arithmatex">\(T\)</span>.
+For each <span class="arithmatex">\(i\)</span>, let <span class="arithmatex">\(\beta_{i}=\beta \cap E_{\lambda_{i}}\)</span>, the set of vectors in <span class="arithmatex">\(\beta\)</span> that are eigenvectors corresponding to <span class="arithmatex">\(\lambda_{i}\)</span>, and let <span class="arithmatex">\(n_{i}\)</span> denote the number of vectors in <span class="arithmatex">\(\beta_{i}\)</span>.
+Then <span class="arithmatex">\(n_{i} \leq d_{i}\)</span> for each <span class="arithmatex">\(i\)</span> because <span class="arithmatex">\(\beta_{i}\)</span> is a linearly independent subset of a subspace of dimension <span class="arithmatex">\(d_{i}\)</span>, and <span class="arithmatex">\(d_{i} \leq m_{i}\)</span> by <strong>Theorem 24.7</strong>.
+The <span class="arithmatex">\(n_{i}\)</span> 's sum to <span class="arithmatex">\(n\)</span> because <span class="arithmatex">\(\beta\)</span> contains <span class="arithmatex">\(n\)</span> vectors.
+The <span class="arithmatex">\(m_{i}\)</span> 's also sum to <span class="arithmatex">\(n\)</span> because the degree of the characteristic polynomial of <span class="arithmatex">\(T\)</span> is equal to the sum of the multiplicities of the eigenvalues.
+Thus</p>
+<div class="arithmatex">\[
+n=\sum_{i=1}^{k} n_{i} \leq \sum_{i=1}^{k} d_{i} \leq \sum_{i=1}^{k} m_{i}=n
+\]</div>
+<p>It follows that</p>
+<div class="arithmatex">\[
+\sum_{i=1}^{k}\left(m_{i}-d_{i}\right)=0
+\]</div>
+<p>Since <span class="arithmatex">\(\left(m_{i}-d_{i}\right) \geq 0\)</span> for all <span class="arithmatex">\(i\)</span>, we conclude that <span class="arithmatex">\(m_{i}=d_{i}\)</span> for all <span class="arithmatex">\(i\)</span>.</p>
+<p>Conversely, suppose that <span class="arithmatex">\(m_{i}=d_{i}\)</span> for all <span class="arithmatex">\(i\)</span>.
+We simultaneously show that <span class="arithmatex">\(T\)</span> is diagonalizable and prove (b).
+For each <span class="arithmatex">\(i\)</span>, let <span class="arithmatex">\(\beta_{i}\)</span> be an ordered basis for <span class="arithmatex">\(E_{\lambda_{i}}\)</span>, and let <span class="arithmatex">\(\beta=\beta_{1} \cup \beta_{2} \cup \cdots \cup \beta_{k}\)</span>.
+By <strong>Theorem 24.9</strong>, <span class="arithmatex">\(\beta\)</span> is linearly independent.
+Furthermore, since <span class="arithmatex">\(d_{i}=m_{i}\)</span> for all <span class="arithmatex">\(i\)</span>, <span class="arithmatex">\(\beta\)</span> contains</p>
+<div class="arithmatex">\[
+\sum_{i=1}^{k} d_{i}=\sum_{i=1}^{k} m_{i}=n
+\]</div>
+<p>vectors.
+Therefore <span class="arithmatex">\(\beta\)</span> is an ordered basis for <span class="arithmatex">\(V\)</span> consisting of eigenvectors of <span class="arithmatex">\(T\)</span>, and we conclude that <span class="arithmatex">\(T\)</span> is diagonalizable.</p>
+</div>
+</div>
+<h2 id="test-for-diagonalization">Test for Diagonalization<a class="headerlink" href="#test-for-diagonalization" title="Permanent link">&para;</a></h2>
+<div class="admonition concept">
+<p class="admonition-title">Concept 24.11 : Test for diagonalization</p>
+<p>Let <span class="arithmatex">\(T\)</span> be a linear operator on an <span class="arithmatex">\(n\)</span>-dimensional vector space <span class="arithmatex">\(V\)</span>.
+Then <span class="arithmatex">\(T\)</span> is diagonalizable if and only if both of the following conditions hold.</p>
+<ol>
+<li>The characteristic polynomial of <span class="arithmatex">\(T\)</span> splits.</li>
+<li>For each eigenvalue <span class="arithmatex">\(\lambda\)</span> of <span class="arithmatex">\(T\)</span>, the multiplicity of <span class="arithmatex">\(\lambda\)</span> equals <span class="arithmatex">\(n-\operatorname{rank}(T-\lambda I)\)</span>.</li>
+</ol>
+<p>These same conditions can be used to test if a square matrix <span class="arithmatex">\(A\)</span> is diagonalizable because diagonalizability of <span class="arithmatex">\(A\)</span> is equivalent to diagonalizability of the operator <span class="arithmatex">\(L_{A}\)</span>.</p>
+<p>If <span class="arithmatex">\(T\)</span> is a diagonalizable operator and <span class="arithmatex">\(\beta_{1}, \beta_{2}, \ldots, \beta_{k}\)</span> are ordered bases for the eigenspaces of <span class="arithmatex">\(T\)</span>, then the union <span class="arithmatex">\(\beta=\beta_{1} \cup \beta_{2} \cup \cdots \cup \beta_{k}\)</span> is an ordered basis for <span class="arithmatex">\(V\)</span> consisting of eigenvectors of <span class="arithmatex">\(T\)</span>, and hence <span class="arithmatex">\([T]_{\beta}\)</span> is a diagonal matrix.</p>
+<p>When testing <span class="arithmatex">\(T\)</span> for diagonalizability, it is usually easiest to choose a convenient basis <span class="arithmatex">\(\alpha\)</span> for <span class="arithmatex">\(V\)</span> and work with <span class="arithmatex">\(B=[T]_{\alpha}\)</span>.
+If the characteristic polynomial of <span class="arithmatex">\(B\)</span> splits, then use condition 2 above to check if the multiplicity of each repeated eigenvalue of <span class="arithmatex">\(B\)</span> equals <span class="arithmatex">\(n-\operatorname{rank}(B-\lambda I)\)</span>.
+(By <strong>Theorem 24.7</strong>, condition 2 is automatically satisfied for eigenvalues of multiplicity 1.)
+If so, then <span class="arithmatex">\(B\)</span>, and hence <span class="arithmatex">\(T\)</span>, is diagonalizable.</p>
+<p>If <span class="arithmatex">\(T\)</span> is diagonalizable and a basis <span class="arithmatex">\(\beta\)</span> for <span class="arithmatex">\(V\)</span> consisting of eigenvectors of <span class="arithmatex">\(T\)</span> is desired, then we first find a basis for each eigenspace of <span class="arithmatex">\(B\)</span>.
+The union of these bases is a basis <span class="arithmatex">\(\gamma\)</span> for <span class="arithmatex">\(F^{n}\)</span> consisting of eigenvectors of <span class="arithmatex">\(B\)</span>.
+Each vector in <span class="arithmatex">\(\gamma\)</span> is the coordinate vector relative to <span class="arithmatex">\(\alpha\)</span> of an eigenvector of <span class="arithmatex">\(T\)</span>.
+The set consisting of these <span class="arithmatex">\(n\)</span> eigenvectors of <span class="arithmatex">\(T\)</span> is the desired basis <span class="arithmatex">\(\beta\)</span>.</p>
+<p>Furthermore, if <span class="arithmatex">\(A\)</span> is an <span class="arithmatex">\(n \times n\)</span> diagonalizable matrix, we can use <strong>Corollary 12.9</strong> to find an invertible <span class="arithmatex">\(n \times n\)</span> matrix <span class="arithmatex">\(Q\)</span> and a diagonal <span class="arithmatex">\(n \times n\)</span> matrix <span class="arithmatex">\(D\)</span> such that <span class="arithmatex">\(Q^{-1} A Q=D\)</span>.
+The matrix <span class="arithmatex">\(Q\)</span> has as its columns the vectors in a basis of eigenvectors of <span class="arithmatex">\(A\)</span>, and <span class="arithmatex">\(D\)</span> has as its <span class="arithmatex">\(j\)</span> th diagonal entry the eigenvalue of <span class="arithmatex">\(A\)</span> corresponding to the <span class="arithmatex">\(j\)</span> th column of <span class="arithmatex">\(Q\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 24.12 : Testing a matrix for diagonalizability</p>
+<p>We test the matrix</p>
+<div class="arithmatex">\[
+A=\left(\begin{array}{lll}
+3 &amp; 1 &amp; 0 \\
+0 &amp; 3 &amp; 0 \\
+0 &amp; 0 &amp; 4
+\end{array}\right) \in \mathrm{M}_{3 \times 3}(\mathbb{R})
+\]</div>
+<p>for diagonalizability.</p>
+<p>The characteristic polynomial of <span class="arithmatex">\(A\)</span> is <span class="arithmatex">\(\operatorname{det}(A-t I)=-(t-4)(t-3)^{2}\)</span>, which splits, and so condition 1 of the test for diagonalization is satisfied.
+Also <span class="arithmatex">\(A\)</span> has eigenvalues <span class="arithmatex">\(\lambda_{1}=4\)</span> and <span class="arithmatex">\(\lambda_{2}=3\)</span> with multiplicities 1 and 2, respectively.
+Since <span class="arithmatex">\(\lambda_{1}\)</span> has multiplicity 1, condition 2 is satisfied for <span class="arithmatex">\(\lambda_{1}\)</span>.
+Thus we need only test condition 2 for <span class="arithmatex">\(\lambda_{2}\)</span>.
+Because</p>
+<div class="arithmatex">\[
+A-\lambda_{2} I=\left(\begin{array}{lll}
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{array}\right)
+\]</div>
+<p>has rank 2, we see that <span class="arithmatex">\(3-\operatorname{rank}\left(A-\lambda_{2} I\right)=1\)</span>, which is not the multiplicity of <span class="arithmatex">\(\lambda_{2}\)</span>.
+Thus condition 2 fails for <span class="arithmatex">\(\lambda_{2}\)</span>, and <span class="arithmatex">\(A\)</span> is therefore not diagonalizable.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 24.13 : Testing a linear operator for diagonalizability</p>
+<p>Let <span class="arithmatex">\(T\)</span> be the linear operator on <span class="arithmatex">\(\mathrm{P}_{2}(\mathbb{R})\)</span> defined by</p>
+<div class="arithmatex">\[
+T(f(x))=f(1)+f^{\prime}(0) x+\left(f^{\prime}(0)+f^{\prime \prime}(0)\right) x^{2}
+\]</div>
+<p>We first test <span class="arithmatex">\(T\)</span> for diagonalizability.
+Let <span class="arithmatex">\(\alpha\)</span> denote the standard ordered basis for <span class="arithmatex">\(\mathrm{P}_{2}(\mathbb{R})\)</span> and <span class="arithmatex">\(B=[T]_{\alpha}\)</span>.
+Then</p>
+<div class="arithmatex">\[
+B=\left(\begin{array}{lll}
+1 &amp; 1 &amp; 1 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 2
+\end{array}\right)
+\]</div>
+<p>The characteristic polynomial of <span class="arithmatex">\(B\)</span>, and hence of <span class="arithmatex">\(T\)</span>, is <span class="arithmatex">\(-(t-1)^{2}(t-2)\)</span>, which splits.
+Hence condition 1 of the test for diagonalization is satisfied.
+Also <span class="arithmatex">\(B\)</span> has the eigenvalues <span class="arithmatex">\(\lambda_{1}=1\)</span> and <span class="arithmatex">\(\lambda_{2}=2\)</span> with multiplicities 2 and 1, respectively.
+Condition 2 is satisfied for <span class="arithmatex">\(\lambda_{2}\)</span> because it has multiplicity 1.
+So we need only verify condition 2 for <span class="arithmatex">\(\lambda_{1}=1\)</span>.
+For this case,</p>
+<div class="arithmatex">\[
+3-\operatorname{rank}\left(B-\lambda_{1} I\right)=3-\operatorname{rank}\left(\begin{array}{lll}
+0 &amp; 1 &amp; 1 \\
+0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 1
+\end{array}\right)=3-1=2
+\]</div>
+<p>which is equal to the multiplicity of <span class="arithmatex">\(\lambda_{1}\)</span>.
+Therefore <span class="arithmatex">\(T\)</span> is diagonalizable.
+We now find an ordered basis <span class="arithmatex">\(\gamma\)</span> for <span class="arithmatex">\(\mathbb{R}^{3}\)</span> of eigenvectors of <span class="arithmatex">\(B\)</span>.
+We consider each eigenvalue separately.</p>
+<p>The eigenspace corresponding to <span class="arithmatex">\(\lambda_{1}=1\)</span> is</p>
+<div class="arithmatex">\[
+E_{\lambda_{1}}=\left\{\left(\begin{array}{l}
+x_{1} \\
+x_{2} \\
+x_{3}
+\end{array}\right) \in \mathbb{R}^{3}:\left(\begin{array}{lll}
+0 &amp; 1 &amp; 1 \\
+0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 1
+\end{array}\right)\left(\begin{array}{l}
+x_{1} \\
+x_{2} \\
+x_{3}
+\end{array}\right)=0\right\}
+\]</div>
+<p>which is the solution space for the system</p>
+<div class="arithmatex">\[
+x_{2}+x_{3}=0
+\]</div>
+<p>and has</p>
+<div class="arithmatex">\[
+\gamma_{1}=\left\{\left(\begin{array}{l}
+1 \\
+0 \\
+0
+\end{array}\right),\left(\begin{array}{r}
+0 \\
+-1 \\
+1
+\end{array}\right)\right\}
+\]</div>
+<p>as a basis.
+The eigenspace corresponding to <span class="arithmatex">\(\lambda_{2}=2\)</span> is</p>
+<div class="arithmatex">\[
+E_{\lambda_{2}}=\left\{\left(\begin{array}{l}
+x_{1} \\
+x_{2} \\
+x_{3}
+\end{array}\right) \in \mathbb{R}^{3}:\left(\begin{array}{rrr}
+-1 &amp; 1 &amp; 1 \\
+0 &amp; -1 &amp; 0 \\
+0 &amp; 1 &amp; 0
+\end{array}\right)\left(\begin{array}{l}
+x_{1} \\
+x_{2} \\
+x_{3}
+\end{array}\right)=0\right\}
+\]</div>
+<p>which is the solution space for the system</p>
+<div class="arithmatex">\[
+\begin{aligned}
+-x_{1}+x_{2}+x_{3} &amp; =0 \\
+x_{2} &amp; =0,
+\end{aligned}
+\]</div>
+<p>and has</p>
+<div class="arithmatex">\[
+\gamma_{2}=\left\{\left(\begin{array}{l}
+1 \\
+0 \\
+1
+\end{array}\right)\right\}
+\]</div>
+<p>as a basis.
+Let</p>
+<div class="arithmatex">\[
+\gamma=\gamma_{1} \cup \gamma_{2}=\left\{\left(\begin{array}{l}
+1 \\
+0 \\
+0
+\end{array}\right),\left(\begin{array}{r}
+0 \\
+-1 \\
+1
+\end{array}\right),\left(\begin{array}{l}
+1 \\
+0 \\
+1
+\end{array}\right)\right\} .
+\]</div>
+<p>Then <span class="arithmatex">\(\gamma\)</span> is an ordered basis for <span class="arithmatex">\(\mathbb{R}^{3}\)</span> consisting of eigenvectors of <span class="arithmatex">\(B\)</span>.
+Finally, observe that the vectors in <span class="arithmatex">\(\gamma\)</span> are the coordinate vectors relative to <span class="arithmatex">\(\alpha\)</span> of the vectors in the set</p>
+<div class="arithmatex">\[
+\beta=\left\{1,-x+x^{2}, 1+x^{2}\right\}
+\]</div>
+<p>which is an ordered basis for <span class="arithmatex">\(\mathrm{P}_{2}(\mathbb{R})\)</span> consisting of eigenvectors of <span class="arithmatex">\(T\)</span>.
+Thus</p>
+<div class="arithmatex">\[
+[T]_{\beta}=\left(\begin{array}{lll}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 2
+\end{array}\right)
+\]</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 24.14 : Computing the power of a matrix using diagonalization</p>
+<p>Let</p>
+<div class="arithmatex">\[
+A=\left(\begin{array}{rr}
+0 &amp; -2 \\
+1 &amp; 3
+\end{array}\right)
+\]</div>
+<p>We show that <span class="arithmatex">\(A\)</span> is diagonalizable and find a <span class="arithmatex">\(2 \times 2\)</span> matrix <span class="arithmatex">\(Q\)</span> such that <span class="arithmatex">\(Q^{-1} A Q\)</span> is a diagonal matrix.
+We then show how to use this result to compute <span class="arithmatex">\(A^{n}\)</span> for any positive integer <span class="arithmatex">\(n\)</span>.</p>
+<p>First observe that the characteristic polynomial of <span class="arithmatex">\(A\)</span> is <span class="arithmatex">\((t-1)(t-2)\)</span>, and hence <span class="arithmatex">\(A\)</span> has two distinct eigenvalues, <span class="arithmatex">\(\lambda_{1}=1\)</span> and <span class="arithmatex">\(\lambda_{2}=2\)</span>.
+By applying the corollary to <strong>Theorem 24.1</strong> to the operator <span class="arithmatex">\(L_{A}\)</span>, we see that <span class="arithmatex">\(A\)</span> is diagonalizable.
+Moreover,</p>
+<div class="arithmatex">\[
+\gamma_{1}=\left\{\binom{-2}{1}\right\} \quad \text { and } \quad \gamma_{2}=\left\{\binom{-1}{1}\right\}
+\]</div>
+<p>are bases for the eigenspaces <span class="arithmatex">\(E_{\lambda_{1}}\)</span> and <span class="arithmatex">\(E_{\lambda_{2}}\)</span>, respectively.
+Therefore</p>
+<div class="arithmatex">\[
+\gamma=\gamma_{1} \cup \gamma_{2}=\left\{\binom{-2}{1},\binom{-1}{1}\right\}
+\]</div>
+<p>is an ordered basis for <span class="arithmatex">\(\mathbb{R}^{2}\)</span> consisting of eigenvectors of <span class="arithmatex">\(A\)</span>.
+Let</p>
+<div class="arithmatex">\[
+Q=\left(\begin{array}{rr}
+-2 &amp; -1 \\
+1 &amp; 1
+\end{array}\right)
+\]</div>
+<p>the matrix whose columns are the vectors in <span class="arithmatex">\(\gamma\)</span>.
+Then, by the corollary to <strong>Theorem 12.6</strong>,</p>
+<div class="arithmatex">\[
+D=Q^{-1} A Q=\left[L_{A}\right]_{\beta}=\left(\begin{array}{ll}
+1 &amp; 0 \\
+0 &amp; 2
+\end{array}\right)
+\]</div>
+<p>To find <span class="arithmatex">\(A^{n}\)</span> for any positive integer <span class="arithmatex">\(n\)</span>, observe that <span class="arithmatex">\(A=Q D Q^{-1}\)</span>.
+Therefore</p>
+<div class="arithmatex">\[
+\begin{aligned}
+A^{n} &amp; =\left(Q D Q^{-1}\right)^{n} \\
+&amp; =\left(Q D Q^{-1}\right)\left(Q D Q^{-1}\right) \cdots\left(Q D Q^{-1}\right) \\
+&amp; =Q D^{n} Q^{-1} \\
+&amp; =Q\left(\begin{array}{rr}
+1^{n} &amp; 0 \\
+0 &amp; 2^{n}
+\end{array}\right) Q^{-1} \\
+&amp; =\left(\begin{array}{rr}
+-2 &amp; -1 \\
+1 &amp; 1
+\end{array}\right)\left(\begin{array}{rr}
+1 &amp; 0 \\
+0 &amp; 2^{n}
+\end{array}\right)\left(\begin{array}{rr}
+-1 &amp; -1 \\
+1 &amp; 2
+\end{array}\right)=\left(\begin{array}{rr}
+2-2^{n} &amp; 2-2^{n+1} \\
+-1+2^{n} &amp; -1+2^{n+1}
+\end{array}\right) .
+\end{aligned}
+\]</div>
+</div>
+<h2 id="direct-sums">Direct Sums<a class="headerlink" href="#direct-sums" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">Definition 24.15 : Sum of Subspaces</p>
+<p>Let <span class="arithmatex">\(W_{1}, W_{2}, \ldots, W_{k}\)</span> be subspaces of a vector space <span class="arithmatex">\(V\)</span>.
+We define the <strong>sum</strong> of these subspaces to be the set</p>
+<div class="arithmatex">\[
+\left\{v_{1}+v_{2}+\cdots+v_{k}: v_{i} \in W_{i} \text { for } 1 \leq i \leq k\right\}
+\]</div>
+<p>which we denote by <span class="arithmatex">\(W_{1}+W_{2}+\cdots+W_{k}\)</span> or <span class="arithmatex">\(\sum_{i=1}^{k} W_{i}\)</span>.</p>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">Definition 24.16 : Direct Sum of Subspaces</p>
+<p>Let <span class="arithmatex">\(W_{1}, W_{2}, \ldots, W_{k}\)</span> be subspaces of a vector space <span class="arithmatex">\(V\)</span>.
+We call <span class="arithmatex">\(V\)</span> the <strong>direct sum</strong> of the subspaces <span class="arithmatex">\(W_{1}, W_{2}, \ldots, W_{k}\)</span> and write <span class="arithmatex">\(V=W_{1} \oplus W_{2} \oplus \cdots \oplus W_{k}\)</span>, if</p>
+<div class="arithmatex">\[
+V=\sum_{i=1}^{k} W_{i}
+\]</div>
+<p>and</p>
+<div class="arithmatex">\[
+W_{j} \cap \sum_{i \neq j} W_{i}=\{0\} \quad \text { for each } j(1 \leq j \leq k)
+\]</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 24.17 : Equivalent conditions to a direct sum</p>
+<p>Let <span class="arithmatex">\(W_{1}, W_{2}, \ldots, W_{k}\)</span> be subspaces of a finite-dimensional vector space <span class="arithmatex">\(V\)</span>.
+The following conditions are equivalent.</p>
+<ul>
+<li>(a) <span class="arithmatex">\(V=W_{1} \oplus W_{2} \oplus \cdots \oplus W_{k}\)</span>.</li>
+<li>(b) <span class="arithmatex">\(V=\sum_{i=1}^{k} W_{i}\)</span> and, for any vectors <span class="arithmatex">\(v_{1}, v_{2}, \ldots, v_{k}\)</span> such that <span class="arithmatex">\(v_{i} \in W_{i}\)</span> <span class="arithmatex">\((1 \leq i \leq k)\)</span>, if <span class="arithmatex">\(v_{1}+v_{2}+\cdots+v_{k}=0\)</span>, then <span class="arithmatex">\(v_{i}=0\)</span> for all <span class="arithmatex">\(i\)</span>.</li>
+<li>(c) Each vector <span class="arithmatex">\(v \in V\)</span> can be uniquely written as <span class="arithmatex">\(v=v_{1}+v_{2}+\cdots+v_{k}\)</span>, where <span class="arithmatex">\(v_{i} \in W_{i}\)</span>.</li>
+<li>(d) If <span class="arithmatex">\(\gamma_{i}\)</span> is an ordered basis for <span class="arithmatex">\(W_{i}\)</span> <span class="arithmatex">\((1 \leq i \leq k)\)</span>, then <span class="arithmatex">\(\gamma_{1} \cup \gamma_{2} \cup \cdots \cup \gamma_{k}\)</span> is an ordered basis for <span class="arithmatex">\(V\)</span>.</li>
+<li>(e) For each <span class="arithmatex">\(i=1,2, \ldots, k\)</span>, there exists an ordered basis <span class="arithmatex">\(\gamma_{i}\)</span> for <span class="arithmatex">\(W_{i}\)</span> such that <span class="arithmatex">\(\gamma_{1} \cup \gamma_{2} \cup \cdots \cup \gamma_{k}\)</span> is an ordered basis for <span class="arithmatex">\(V\)</span>.</li>
+</ul>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Assume (a).
+We prove (b).
+Clearly</p>
+<div class="arithmatex">\[
+V=\sum_{i=1}^{k} W_{i}
+\]</div>
+<p>Now suppose that <span class="arithmatex">\(v_{1}, v_{2}, \ldots, v_{k}\)</span> are vectors such that <span class="arithmatex">\(v_{i} \in W_{i}\)</span> for all <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(v_{1}+v_{2}+\cdots+v_{k}=0\)</span>.
+Then for any <span class="arithmatex">\(j\)</span></p>
+<div class="arithmatex">\[
+-v_{j}=\sum_{i \neq j} v_{i} \in \sum_{i \neq j} W_{i}
+\]</div>
+<p>But <span class="arithmatex">\(-v_{j} \in W_{j}\)</span> and hence</p>
+<div class="arithmatex">\[
+-v_{j} \in W_{j} \cap \sum_{i \neq j} W_{i}=\{0\}
+\]</div>
+<p>So <span class="arithmatex">\(v_{j}=0\)</span>, proving (b).
+Now assume (b).
+We prove (c).
+Let <span class="arithmatex">\(v \in V\)</span>.
+By (b), there exist vectors <span class="arithmatex">\(v_{1}, v_{2}, \ldots, v_{k}\)</span> such that <span class="arithmatex">\(v_{i} \in W_{i}\)</span> and <span class="arithmatex">\(v=v_{1}+v_{2}+\cdots+v_{k}\)</span>.
+We must show that this representation is unique.
+Suppose also that <span class="arithmatex">\(v=w_{1}+w_{2}+\cdots+w_{k}\)</span>, where <span class="arithmatex">\(w_{i} \in W_{i}\)</span> for all <span class="arithmatex">\(i\)</span>.
+Then</p>
+<div class="arithmatex">\[
+\left(v_{1}-w_{1}\right)+\left(v_{2}-w_{2}\right)+\cdots+\left(v_{k}-w_{k}\right)=0
+\]</div>
+<p>But <span class="arithmatex">\(v_{i}-w_{i} \in W_{i}\)</span> for all <span class="arithmatex">\(i\)</span>, and therefore <span class="arithmatex">\(v_{i}-w_{i}=0\)</span> for all <span class="arithmatex">\(i\)</span> by (b).
+Thus <span class="arithmatex">\(v_{i}=w_{i}\)</span> for all <span class="arithmatex">\(i\)</span>, proving the uniqueness of the representation.</p>
+<p>Now assume (c).
+We prove (d).
+For each <span class="arithmatex">\(i\)</span>, let <span class="arithmatex">\(\gamma_{i}\)</span> be an ordered basis for <span class="arithmatex">\(W_{i}\)</span>.
+Since</p>
+<div class="arithmatex">\[
+V=\sum_{i=1}^{k} W_{i}
+\]</div>
+<p>by (c), it follows that <span class="arithmatex">\(\gamma_{1} \cup \gamma_{2} \cup \cdots \cup \gamma_{k}\)</span> generates <span class="arithmatex">\(V\)</span>.
+To show that this set is linearly independent, consider vectors <span class="arithmatex">\(v_{i j} \in \gamma_{i}\)</span> <span class="arithmatex">\((j=1,2, \ldots, m_{i})\)</span> and <span class="arithmatex">\((i=1,2, \ldots, k)\)</span> and scalars <span class="arithmatex">\(a_{i j}\)</span> such that</p>
+<div class="arithmatex">\[
+\sum_{i, j} a_{i j} v_{i j}=0
+\]</div>
+<p>For each <span class="arithmatex">\(i\)</span>, set</p>
+<div class="arithmatex">\[
+w_{i}=\sum_{j=1}^{m_{i}} a_{i j} v_{i j} .
+\]</div>
+<p>Then for each <span class="arithmatex">\(i\)</span>, <span class="arithmatex">\(w_{i} \in \operatorname{span}\left(\gamma_{i}\right)=W_{i}\)</span> and</p>
+<div class="arithmatex">\[
+w_{1}+w_{2}+\cdots+w_{k}=\sum_{i, j} a_{i j} v_{i j}=0
+\]</div>
+<p>Since <span class="arithmatex">\(0 \in W_{i}\)</span> for each <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(0+0+\cdots+0=w_{1}+w_{2}+\cdots+w_{k}\)</span>, (c) implies that <span class="arithmatex">\(w_{i}=0\)</span> for all <span class="arithmatex">\(i\)</span>.
+Thus</p>
+<div class="arithmatex">\[
+0=w_{i}=\sum_{j=1}^{m_{i}} a_{i j} v_{i j}
+\]</div>
+<p>for each <span class="arithmatex">\(i\)</span>.
+But each <span class="arithmatex">\(\gamma_{i}\)</span> is linearly independent, and hence <span class="arithmatex">\(a_{i j}=0\)</span> for all <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span>.
+Consequently <span class="arithmatex">\(\gamma_{1} \cup \gamma_{2} \cup \cdots \cup \gamma_{k}\)</span> is linearly independent and therefore is a basis for <span class="arithmatex">\(V\)</span>.</p>
+<p>Clearly (e) follows immediately from (d).
+Finally, we assume (e) and prove (a).
+For each <span class="arithmatex">\(i\)</span>, let <span class="arithmatex">\(\gamma_{i}\)</span> be an ordered basis for <span class="arithmatex">\(W_{i}\)</span> such that <span class="arithmatex">\(\gamma_{1} \cup \gamma_{2} \cup \cdots \cup \gamma_{k}\)</span> is an ordered basis for <span class="arithmatex">\(V\)</span>.
+Then</p>
+<div class="arithmatex">\[
+V=\operatorname{span}\left(\gamma_{1} \cup \gamma_{2} \cup \cdots \cup \gamma_{k}\right)
+\]</div>
+<div class="arithmatex">\[
+=\operatorname{span}\left(\gamma_{1}\right)+\operatorname{span}\left(\gamma_{2}\right)+\cdots+\operatorname{span}\left(\gamma_{k}\right)=\sum_{i=1}^{k} W_{i}
+\]</div>
+<p>by repeated applications of <strong>Exercise 4.14</strong>.
+Fix <span class="arithmatex">\(j(1 \leq j \leq k)\)</span>, and suppose that, for some nonzero vector <span class="arithmatex">\(v \in V\)</span>,</p>
+<div class="arithmatex">\[
+v \in W_{j} \cap \sum_{i \neq j} W_{i}
+\]</div>
+<p>Then</p>
+<div class="arithmatex">\[
+v \in W_{j}=\operatorname{span}\left(\gamma_{j}\right) \quad \text { and } \quad v \in \sum_{i \neq j} W_{i}=\operatorname{span}\left(\bigcup_{i \neq j} \gamma_{i}\right) .
+\]</div>
+<p>Hence <span class="arithmatex">\(v\)</span> is a nontrivial linear combination of both <span class="arithmatex">\(\gamma_{j}\)</span> and <span class="arithmatex">\(\left(\bigcup_{i \neq j} \gamma_{i}\right)\)</span>, so that <span class="arithmatex">\(v\)</span> can be expressed as a linear combination of <span class="arithmatex">\(\gamma_{1} \cup \gamma_{2} \cup \cdots \cup \gamma_{k}\)</span> in more than one way.
+But these representations contradict <strong>Theorem 6.2</strong>, and so we conclude that</p>
+<div class="arithmatex">\[
+W_{j} \cap \sum_{i \neq j} W_{i}=\{0\}
+\]</div>
+<p>proving (a).</p>
+</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 24.18 : A linear operator is diagonalizable if and only if the space is a direct sum of eigenspaces.</p>
+<p>A linear operator <span class="arithmatex">\(T\)</span> on a finite-dimensional vector space <span class="arithmatex">\(V\)</span> is diagonalizable if and only if <span class="arithmatex">\(V\)</span> is the direct sum of the eigenspaces of <span class="arithmatex">\(T\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Let <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{k}\)</span> be the distinct eigenvalues of <span class="arithmatex">\(T\)</span>.
+First suppose that <span class="arithmatex">\(T\)</span> is diagonalizable, and for each <span class="arithmatex">\(i\)</span> choose an ordered basis <span class="arithmatex">\(\gamma_{i}\)</span> for the eigenspace <span class="arithmatex">\(E_{\lambda_{i}}\)</span>.
+By <strong>Theorem 24.10</strong>, <span class="arithmatex">\(\gamma_{1} \cup \gamma_{2} \cup \cdots \cup \gamma_{k}\)</span> is a basis for <span class="arithmatex">\(V\)</span>, and hence <span class="arithmatex">\(V\)</span> is a direct sum of the <span class="arithmatex">\(E_{\lambda_{i}}\)</span> 's by <strong>Theorem 24.17</strong>.</p>
+<p>Conversely, suppose that <span class="arithmatex">\(V\)</span> is a direct sum of the eigenspaces of <span class="arithmatex">\(T\)</span>.
+For each <span class="arithmatex">\(i\)</span>, choose an ordered basis <span class="arithmatex">\(\gamma_{i}\)</span> of <span class="arithmatex">\(E_{\lambda_{i}}\)</span>.
+By <strong>Theorem 24.17</strong>, the union <span class="arithmatex">\(\gamma_{1} \cup \gamma_{2} \cup \cdots \cup \gamma_{k}\)</span> is a basis for <span class="arithmatex">\(V\)</span>.
+Since this basis consists of eigenvectors of <span class="arithmatex">\(T\)</span>, we conclude that <span class="arithmatex">\(T\)</span> is diagonalizable.</p>
+</div>
+</div>
+<h2 id="application-systems-of-differential-equations">Application : Systems of Differential Equations<a class="headerlink" href="#application-systems-of-differential-equations" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">Example 24.19 : Solving a system of differential equations by diagonalization</p>
+<p>Consider the system of differential equations</p>
+<div class="arithmatex">\[
+\begin{aligned}
+x_{1}^{\prime} &amp; =3 x_{1}+x_{2}+x_{3} \\
+x_{2}^{\prime} &amp; =2 x_{1}+4 x_{2}+2 x_{3} \\
+x_{3}^{\prime} &amp; =-x_{1}-x_{2}+x_{3},
+\end{aligned}
+\]</div>
+<p>where, for each <span class="arithmatex">\(i, x_{i}=x_{i}(t)\)</span> is a differentiable real-valued function of the real variable <span class="arithmatex">\(t\)</span>.
+Clearly, this system has a solution, namely, the solution in which each <span class="arithmatex">\(x_{i}(t)\)</span> is the zero function.
+We determine all of the solutions to this system.</p>
+<p>Let <span class="arithmatex">\(x: \mathbb{R} \rightarrow \mathbb{R}^{3}\)</span> be the function defined by</p>
+<div class="arithmatex">\[
+x(t)=\left(\begin{array}{l}
+x_{1}(t) \\
+x_{2}(t) \\
+x_{3}(t)
+\end{array}\right)
+\]</div>
+<p>The derivative of <span class="arithmatex">\(x\)</span>, denoted <span class="arithmatex">\(x^{\prime}\)</span>, is defined by</p>
+<div class="arithmatex">\[
+x^{\prime}(t)=\left(\begin{array}{c}
+x_{1}^{\prime}(t) \\
+x_{2}^{\prime}(t) \\
+x_{3}^{\prime}(t)
+\end{array}\right)
+\]</div>
+<p>Let</p>
+<div class="arithmatex">\[
+A=\left(\begin{array}{rrr}
+3 &amp; 1 &amp; 1 \\
+2 &amp; 4 &amp; 2 \\
+-1 &amp; -1 &amp; 1
+\end{array}\right)
+\]</div>
+<p>be the coefficient matrix of the given system, so that we can rewrite the system as the matrix equation <span class="arithmatex">\(x^{\prime}=A x\)</span>.</p>
+<p>It can be verified that for</p>
+<div class="arithmatex">\[
+Q=\left(\begin{array}{rrr}
+-1 &amp; 0 &amp; -1 \\
+0 &amp; -1 &amp; -2 \\
+1 &amp; 1 &amp; 1
+\end{array}\right) \quad \text { and } \quad D=\left(\begin{array}{lll}
+2 &amp; 0 &amp; 0 \\
+0 &amp; 2 &amp; 0 \\
+0 &amp; 0 &amp; 4
+\end{array}\right)
+\]</div>
+<p>we have <span class="arithmatex">\(Q^{-1} A Q=D\)</span>.
+Substitute <span class="arithmatex">\(A=Q D Q^{-1}\)</span> into <span class="arithmatex">\(x^{\prime}=A x\)</span> to obtain <span class="arithmatex">\(x^{\prime}=Q D Q^{-1} x\)</span> or, equivalently, <span class="arithmatex">\(Q^{-1} x^{\prime}=D Q^{-1} x\)</span>.
+The function <span class="arithmatex">\(y: \mathbb{R} \rightarrow \mathbb{R}^{3}\)</span> defined by <span class="arithmatex">\(y(t)=Q^{-1} x(t)\)</span> can be shown to be differentiable (see <strong>Exercise 24.16</strong>), and <span class="arithmatex">\(y^{\prime}=Q^{-1} x^{\prime}\)</span>.
+Hence the original system can be written as <span class="arithmatex">\(y^{\prime}=D y\)</span>.</p>
+<p>Since <span class="arithmatex">\(D\)</span> is a diagonal matrix, the system <span class="arithmatex">\(y^{\prime}=D y\)</span> is easy to solve.
+Setting</p>
+<div class="arithmatex">\[
+y(t)=\left(\begin{array}{l}
+y_{1}(t) \\
+y_{2}(t) \\
+y_{3}(t)
+\end{array}\right)
+\]</div>
+<p>we can rewrite <span class="arithmatex">\(y^{\prime}=D y\)</span> as</p>
+<div class="arithmatex">\[
+\left(\begin{array}{l}
+y_{1}^{\prime}(t) \\
+y_{2}^{\prime}(t) \\
+y_{3}^{\prime}(t)
+\end{array}\right)=\left(\begin{array}{lll}
+2 &amp; 0 &amp; 0 \\
+0 &amp; 2 &amp; 0 \\
+0 &amp; 0 &amp; 4
+\end{array}\right)\left(\begin{array}{l}
+y_{1}(t) \\
+y_{2}(t) \\
+y_{3}(t)
+\end{array}\right)=\left(\begin{array}{l}
+2 y_{1}(t) \\
+2 y_{2}(t) \\
+4 y_{3}(t)
+\end{array}\right)
+\]</div>
+<p>The three equations</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp; y_{1}^{\prime}=2 y_{1} \\
+&amp; y_{2}^{\prime}=2 y_{2} \\
+&amp; y_{3}^{\prime}=4 y_{3}
+\end{aligned}
+\]</div>
+<p>are independent of each other, and thus can be solved individually.
+It is easily seen that the general solution to these equations is <span class="arithmatex">\(y_{1}(t)=c_{1} e^{2 t}, y_{2}(t)=c_{2} e^{2 t}\)</span>, and <span class="arithmatex">\(y_{3}(t)=c_{3} e^{4 t}\)</span>, where <span class="arithmatex">\(c_{1}, c_{2}\)</span>, and <span class="arithmatex">\(c_{3}\)</span> are arbitrary constants.
+Finally,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\left(\begin{array}{l}
+x_{1}(t) \\
+x_{2}(t) \\
+x_{3}(t)
+\end{array}\right) &amp; =x(t)=Q y(t)=\left(\begin{array}{rrr}
+-1 &amp; 0 &amp; -1 \\
+0 &amp; -1 &amp; -2 \\
+1 &amp; 1 &amp; 1
+\end{array}\right)\left(\begin{array}{l}
+c_{1} e^{2 t} \\
+c_{2} e^{2 t} \\
+c_{3} e^{4 t}
+\end{array}\right) \\
+&amp; =\binom{-c_{1} e^{2 t}-c_{2} e^{2 t}-2 c_{3} e^{4 t} e^{4 t}}{c_{1} e^{2 t}+c_{2} e^{2 t}+c_{3} e^{4 t}}
+\end{aligned}
+\]</div>
+<p>yields the general solution of the original system.
+Note that this solution can be written as</p>
+<div class="arithmatex">\[
+x(t)=e^{2 t}\left[c_{1}\left(\begin{array}{r}
+-1 \\
+0 \\
+1
+\end{array}\right)+c_{2}\left(\begin{array}{r}
+0 \\
+-1 \\
+1
+\end{array}\right)\right]+e^{4 t}\left[c_{3}\left(\begin{array}{r}
+-1 \\
+-2 \\
+1
+\end{array}\right)\right]
+\]</div>
+<p>The expressions in brackets are arbitrary vectors in <span class="arithmatex">\(E_{\lambda_{1}}\)</span> and <span class="arithmatex">\(E_{\lambda_{2}}\)</span>, respectively, where <span class="arithmatex">\(\lambda_{1}=2\)</span> and <span class="arithmatex">\(\lambda_{2}=4\)</span>.
+Thus the general solution of the original system is <span class="arithmatex">\(x(t)=e^{2 t} z_{1}+e^{4 t} z_{2}\)</span>, where <span class="arithmatex">\(z_{1} \in E_{\lambda_{1}}\)</span> and <span class="arithmatex">\(z_{2} \in E_{\lambda_{2}}\)</span>.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 24.20 : Generalization of solving a system of differential equations by diagonalization</p>
+<p>Let</p>
+<div class="arithmatex">\[
+A=\left(\begin{array}{cccc}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1 n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2 n} \\
+\vdots &amp; \vdots &amp; &amp; \vdots \\
+a_{n 1} &amp; a_{n 2} &amp; \cdots &amp; a_{n n}
+\end{array}\right)
+\]</div>
+<p>be the coefficient matrix of the system of differential equations</p>
+<div class="arithmatex">\[
+\begin{aligned}
+x_{1}^{\prime} &amp; =a_{11} x_{1}+a_{12} x_{2}+\cdots+a_{1 n} x_{n} \\
+x_{2}^{\prime} &amp; =a_{21} x_{1}+a_{22} x_{2}+\cdots+a_{2 n} x_{n} \\
+\vdots &amp; \\
+x_{n}^{\prime} &amp; =a_{n 1} x_{1}+a_{n 2} x_{2}+\cdots+a_{n n} x_{n} .
+\end{aligned}
+\]</div>
+<p>Suppose that <span class="arithmatex">\(A\)</span> is diagonalizable and that the distinct eigenvalues of <span class="arithmatex">\(A\)</span> are <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{k}\)</span>.
+Then a differentiable function <span class="arithmatex">\(x: \mathbb{R} \rightarrow \mathbb{R}^{n}\)</span> is a solution to the system if and only if <span class="arithmatex">\(x\)</span> is of the form</p>
+<div class="arithmatex">\[
+x(t)=e^{\lambda_{1} t} z_{1}+e^{\lambda_{2} t} z_{2}+\cdots+e^{\lambda_{k} t} z_{k}
+\]</div>
+<p>where <span class="arithmatex">\(z_{i} \in E_{\lambda_{i}}\)</span> for <span class="arithmatex">\(i=1,2, \ldots, k\)</span>.
+Moreover, the set of solutions to the system is an <span class="arithmatex">\(n\)</span>-dimensional real vector space.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Let <span class="arithmatex">\(V=\mathbb{R}^{n}\)</span> and view <span class="arithmatex">\(A\)</span> as the matrix of the linear operator <span class="arithmatex">\(T=L_{A}:V\rightarrow V\)</span>.
+The system can be written compactly as</p>
+<div class="arithmatex">\[
+x^{\prime}(t)=A x(t).
+\]</div>
+<ul>
+<li>
+<p>(<strong>Only if</strong>)<br />
+    Assume <span class="arithmatex">\(x:\mathbb{R}\to\mathbb{R}^{n}\)</span> is a differentiable solution of <span class="arithmatex">\(x^{\prime}=Ax\)</span>.
+    Since <span class="arithmatex">\(A\)</span> is diagonalizable and has distinct eigenvalues <span class="arithmatex">\(\lambda_{1},\ldots,\lambda_{k}\)</span>, we have a direct-sum decomposition</p>
+<div class="arithmatex">\[
+\mathbb{R}^{n}=E_{\lambda_{1}}\oplus E_{\lambda_{2}}\oplus\cdots\oplus E_{\lambda_{k}} .
+\]</div>
+<p>Therefore, for each <span class="arithmatex">\(t\)</span>, there exist unique vectors <span class="arithmatex">\(x_{i}(t)\in E_{\lambda_{i}}\)</span> such that</p>
+<div class="arithmatex">\[
+x(t)=x_{1}(t)+x_{2}(t)+\cdots+x_{k}(t).
+\]</div>
+<p>Let <span class="arithmatex">\(P_{i}:\mathbb{R}^{n}\to E_{\lambda_{i}}\)</span> denote the projection onto <span class="arithmatex">\(E_{\lambda_{i}}\)</span> along the direct sum of the other eigenspaces, so that <span class="arithmatex">\(x_{i}(t)=P_{i}(x(t))\)</span>.
+Because <span class="arithmatex">\(P_{i}\)</span> is linear, we have</p>
+<div class="arithmatex">\[
+x_{i}^{\prime}(t)=(P_{i}x)^{\prime}(t)=P_{i}(x^{\prime}(t))=P_{i}(A x(t)).
+\]</div>
+<p>Also, each <span class="arithmatex">\(P_{i}\)</span> commutes with <span class="arithmatex">\(A\)</span>.
+To see this, let <span class="arithmatex">\(v=v_{1}+\cdots+v_{k}\)</span> with <span class="arithmatex">\(v_{j}\in E_{\lambda_{j}}\)</span>.
+Then</p>
+<div class="arithmatex">\[
+A(P_{i}v)=A(v_{i})=\lambda_{i}v_{i}
+\]</div>
+<p>and</p>
+<div class="arithmatex">\[
+P_{i}(Av)=P_{i}\!\left(\sum_{j=1}^{k}A(v_{j})\right)=P_{i}\!\left(\sum_{j=1}^{k}\lambda_{j}v_{j}\right)=\lambda_{i}v_{i}.
+\]</div>
+<p>Hence <span class="arithmatex">\(P_{i}A=AP_{i}\)</span>, and therefore</p>
+<div class="arithmatex">\[
+x_{i}^{\prime}(t)=P_{i}(A x(t))=A(P_{i}x(t))=A x_{i}(t).
+\]</div>
+<p>But <span class="arithmatex">\(x_{i}(t)\in E_{\lambda_{i}}\)</span>, so <span class="arithmatex">\(A x_{i}(t)=\lambda_{i}x_{i}(t)\)</span>.
+Thus</p>
+<div class="arithmatex">\[
+x_{i}^{\prime}(t)=\lambda_{i}x_{i}(t).
+\]</div>
+<p>Define <span class="arithmatex">\(z_{i}(t)=e^{-\lambda_{i}t}x_{i}(t)\)</span>.
+Then</p>
+<div class="arithmatex">\[
+z_{i}^{\prime}(t)= -\lambda_{i}e^{-\lambda_{i}t}x_{i}(t)+e^{-\lambda_{i}t}x_{i}^{\prime}(t)
+=e^{-\lambda_{i}t}\bigl(x_{i}^{\prime}(t)-\lambda_{i}x_{i}(t)\bigr)=0.
+\]</div>
+<p>Hence each <span class="arithmatex">\(z_{i}(t)\)</span> is constant, say <span class="arithmatex">\(z_{i}(t)\equiv z_{i}\)</span>, and <span class="arithmatex">\(z_{i}\in E_{\lambda_{i}}\)</span> because <span class="arithmatex">\(x_{i}(t)\in E_{\lambda_{i}}\)</span> for all <span class="arithmatex">\(t\)</span>.
+Therefore <span class="arithmatex">\(x_{i}(t)=e^{\lambda_{i}t}z_{i}\)</span> and</p>
+<div class="arithmatex">\[
+x(t)=\sum_{i=1}^{k}x_{i}(t)=\sum_{i=1}^{k}e^{\lambda_{i}t}z_{i}.
+\]</div>
+</li>
+<li>
+<p>(<strong>If</strong>)<br />
+    Conversely, suppose</p>
+<div class="arithmatex">\[
+x(t)=\sum_{i=1}^{k}e^{\lambda_{i}t}z_{i}
+\]</div>
+<p>where each <span class="arithmatex">\(z_{i}\in E_{\lambda_{i}}\)</span>.
+Then <span class="arithmatex">\(A z_{i}=\lambda_{i}z_{i}\)</span>, and differentiating term-by-term gives</p>
+<div class="arithmatex">\[
+x^{\prime}(t)=\sum_{i=1}^{k}\lambda_{i}e^{\lambda_{i}t}z_{i}
+=\sum_{i=1}^{k}e^{\lambda_{i}t}(\lambda_{i}z_{i})
+=\sum_{i=1}^{k}e^{\lambda_{i}t}(A z_{i})
+=A\sum_{i=1}^{k}e^{\lambda_{i}t}z_{i}
+=A x(t).
+\]</div>
+<p>Hence <span class="arithmatex">\(x\)</span> is a solution.</p>
+</li>
+<li>
+<p>(<strong>Vector space and dimension</strong>)<br />
+    Let <span class="arithmatex">\(\mathcal{S}\)</span> denote the set of all solutions <span class="arithmatex">\(x:\mathbb{R}\to\mathbb{R}^{n}\)</span> of <span class="arithmatex">\(x^{\prime}=Ax\)</span>.
+    If <span class="arithmatex">\(x,y\in\mathcal{S}\)</span> and <span class="arithmatex">\(c\in\mathbb{R}\)</span>, then <span class="arithmatex">\((x+y)^{\prime}=x^{\prime}+y^{\prime}=Ax+Ay=A(x+y)\)</span> and <span class="arithmatex">\((c x)^{\prime}=c x^{\prime}=cAx=A(cx)\)</span>, so <span class="arithmatex">\(\mathcal{S}\)</span> is a real vector space.</p>
+<p>Define a map <span class="arithmatex">\(\Psi:\mathcal{S}\to\mathbb{R}^{n}\)</span> by <span class="arithmatex">\(\Psi(x)=x(0)\)</span>.
+This map is linear.
+By the representation proved above, for any solution <span class="arithmatex">\(x(t)=\sum_{i=1}^{k}e^{\lambda_{i}t}z_{i}\)</span> we have</p>
+<div class="arithmatex">\[
+\Psi(x)=x(0)=\sum_{i=1}^{k}z_{i}.
+\]</div>
+<p>Because <span class="arithmatex">\(\mathbb{R}^{n}=E_{\lambda_{1}}\oplus\cdots\oplus E_{\lambda_{k}}\)</span>, every vector <span class="arithmatex">\(v\in\mathbb{R}^{n}\)</span> can be written uniquely as <span class="arithmatex">\(v=\sum_{i=1}^{k}z_{i}\)</span> with <span class="arithmatex">\(z_{i}\in E_{\lambda_{i}}\)</span>.
+For such <span class="arithmatex">\(v\)</span>, define</p>
+<div class="arithmatex">\[
+x_{v}(t)=\sum_{i=1}^{k}e^{\lambda_{i}t}z_{i}.
+\]</div>
+<p>Then <span class="arithmatex">\(x_{v}\in\mathcal{S}\)</span> and <span class="arithmatex">\(\Psi(x_{v})=v\)</span>, so <span class="arithmatex">\(\Psi\)</span> is onto.
+Also, if <span class="arithmatex">\(\Psi(x)=0\)</span>, then <span class="arithmatex">\(x(0)=0\)</span>, so <span class="arithmatex">\(\sum_{i=1}^{k}z_{i}=0\)</span>, which implies each <span class="arithmatex">\(z_{i}=0\)</span> by uniqueness of the direct-sum decomposition, hence <span class="arithmatex">\(x(t)\equiv 0\)</span>; thus <span class="arithmatex">\(\Psi\)</span> is one-to-one.
+Therefore <span class="arithmatex">\(\Psi\)</span> is an isomorphism, and</p>
+<div class="arithmatex">\[
+\operatorname{dim}(\mathcal{S})=\operatorname{dim}(\mathbb{R}^{n})=n.
+\]</div>
+</li>
+</ul>
+</div>
+</div>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 24.9</p>
+<p>Let <span class="arithmatex">\(T\)</span> be a linear operator on a finite-dimensional vector space <span class="arithmatex">\(V\)</span>, and suppose there exists an ordered basis <span class="arithmatex">\(\beta\)</span> for <span class="arithmatex">\(V\)</span> such that <span class="arithmatex">\([T]_{\beta}\)</span> is an upper triangular matrix.</p>
+<ul>
+<li>(a) Prove that the characteristic polynomial for <span class="arithmatex">\(T\)</span> splits.</li>
+<li>(b) State and prove an analogous result for matrices.</li>
+</ul>
+<p>The converse of (a) is treated in <strong>Exercise 26.32</strong>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 24.10</p>
+<p>Let <span class="arithmatex">\(T\)</span> be a linear operator on a finite-dimensional vector space <span class="arithmatex">\(V\)</span> with the distinct eigenvalues <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{k}\)</span> and corresponding multiplicities <span class="arithmatex">\(m_{1}, m_{2}, \ldots, m_{k}\)</span>.
+Suppose that <span class="arithmatex">\(\beta\)</span> is a basis for <span class="arithmatex">\(V\)</span> such that <span class="arithmatex">\([T]_{\beta}\)</span> is an upper triangular matrix.
+Prove that the diagonal entries of <span class="arithmatex">\([T]_{\beta}\)</span> are <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{k}\)</span> and that each <span class="arithmatex">\(\lambda_{i}\)</span> occurs <span class="arithmatex">\(m_{i}\)</span> times <span class="arithmatex">\((1 \leq i \leq k)\)</span>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 24.11</p>
+<p>Let <span class="arithmatex">\(A\)</span> be an <span class="arithmatex">\(n \times n\)</span> matrix that is similar to an upper triangular matrix and has the distinct eigenvalues <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{k}\)</span> with corresponding multiplicities <span class="arithmatex">\(m_{1}, m_{2}, \ldots, m_{k}\)</span>.
+Prove the following statements.</p>
+<ul>
+<li>(a) <span class="arithmatex">\(\operatorname{tr}(A)=\sum_{i=1}^{k} m_{i} \lambda_{i}\)</span></li>
+<li>(b) <span class="arithmatex">\(\operatorname{det}(A)=\left(\lambda_{1}\right)^{m_{1}}\left(\lambda_{2}\right)^{m_{2}} \cdots\left(\lambda_{k}\right)^{m_{k}}\)</span>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 24.12</p>
+<p>Let <span class="arithmatex">\(T\)</span> be an invertible linear operator on a finite-dimensional vector space <span class="arithmatex">\(V\)</span>.</p>
+<ul>
+<li>(a) Recall that for any eigenvalue <span class="arithmatex">\(\lambda\)</span> of <span class="arithmatex">\(T\)</span>, <span class="arithmatex">\(\lambda^{-1}\)</span> is an eigenvalue of <span class="arithmatex">\(T^{-1}\)</span> (<strong>Exercise 23.8</strong>).
+    Prove that the eigenspace of <span class="arithmatex">\(T\)</span> corresponding to <span class="arithmatex">\(\lambda\)</span> is the same as the eigenspace of <span class="arithmatex">\(T^{-1}\)</span> corresponding to <span class="arithmatex">\(\lambda^{-1}\)</span>.</li>
+<li>(b) Prove that if <span class="arithmatex">\(T\)</span> is diagonalizable, then <span class="arithmatex">\(T^{-1}\)</span> is diagonalizable.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 24.13</p>
+<p>Let <span class="arithmatex">\(A \in \mathrm{M}_{n \times n}(F)\)</span>.
+Recall from <strong>Exercise 23.14</strong> that <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(A^{t}\)</span> have the same characteristic polynomial and hence share the same eigenvalues with the same multiplicities.
+For any eigenvalue <span class="arithmatex">\(\lambda\)</span> of <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(A^{t}\)</span>, let <span class="arithmatex">\(E_{\lambda}\)</span> and <span class="arithmatex">\(E_{\lambda}^{\prime}\)</span> denote the corresponding eigenspaces for <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(A^{t}\)</span>, respectively.</p>
+<ul>
+<li>(a) Show by way of example that for a given common eigenvalue, these two eigenspaces need not be the same.</li>
+<li>(b) Prove that for any eigenvalue <span class="arithmatex">\(\lambda\)</span>, <span class="arithmatex">\(\operatorname{dim}\left(E_{\lambda}\right)=\operatorname{dim}\left(E_{\lambda}^{\prime}\right)\)</span>.</li>
+<li>(c) Prove that if <span class="arithmatex">\(A\)</span> is diagonalizable, then <span class="arithmatex">\(A^{t}\)</span> is also diagonalizable.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 24.16</p>
+<p>Let <span class="arithmatex">\(C \in \mathrm{M}_{m \times n}(\mathbb{R})\)</span>, and let <span class="arithmatex">\(Y\)</span> be an <span class="arithmatex">\(n \times p\)</span> matrix of differentiable functions.
+Prove <span class="arithmatex">\((C Y)^{\prime}=C Y^{\prime}\)</span>, where <span class="arithmatex">\(\left(Y^{\prime}\right)_{i j}=Y_{i j}^{\prime}\)</span> for all <span class="arithmatex">\(i, j\)</span>.</p>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">Definition 24.21 : Simultaneous Diagonalizability</p>
+<p>Two linear operators <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(U\)</span> on a finite-dimensional vector space <span class="arithmatex">\(V\)</span> are called <strong>simultaneously diagonalizable</strong> if there exists an ordered basis <span class="arithmatex">\(\beta\)</span> for <span class="arithmatex">\(V\)</span> such that both <span class="arithmatex">\([T]_{\beta}\)</span> and <span class="arithmatex">\([U]_{\beta}\)</span> are diagonal matrices.</p>
+<p>Similarly, <span class="arithmatex">\(A, B \in \mathrm{M}_{n \times n}(F)\)</span> are called <strong>simultaneously diagonalizable</strong> if there exists an invertible matrix <span class="arithmatex">\(Q \in \mathrm{M}_{n \times n}(F)\)</span> such that both <span class="arithmatex">\(Q^{-1} A Q\)</span> and <span class="arithmatex">\(Q^{-1} B Q\)</span> are diagonal matrices.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 24.17</p>
+<ul>
+<li>(a) Prove that if <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(U\)</span> are simultaneously diagonalizable linear operators on a finite-dimensional vector space <span class="arithmatex">\(V\)</span>, then the matrices <span class="arithmatex">\([T]_{\beta}\)</span> and <span class="arithmatex">\([U]_{\beta}\)</span> are simultaneously diagonalizable for any ordered basis <span class="arithmatex">\(\beta\)</span>.</li>
+<li>(b) Prove that if <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> are simultaneously diagonalizable matrices, then <span class="arithmatex">\(L_{A}\)</span> and <span class="arithmatex">\(L_{B}\)</span> are simultaneously diagonalizable linear operators.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 24.18</p>
+<ul>
+<li>(a) Prove that if <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(U\)</span> are simultaneously diagonalizable operators, then <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(U\)</span> commute (i.e., <span class="arithmatex">\(T U=U T\)</span>).</li>
+<li>(b) Show that if <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> are simultaneously diagonalizable matrices, then <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> commute.
+The converses of (a) and (b) are established in <strong>Exercise 26.25</strong>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 24.19</p>
+<p>Let <span class="arithmatex">\(T\)</span> be a diagonalizable linear operator on a finite-dimensional vector space, and let <span class="arithmatex">\(m\)</span> be any positive integer.
+Prove that <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(T^{m}\)</span> are simultaneously diagonalizable.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 24.22</p>
+<p>Let <span class="arithmatex">\(T\)</span> be a linear operator on a finite-dimensional vector space <span class="arithmatex">\(V\)</span>, and suppose that the distinct eigenvalues of <span class="arithmatex">\(T\)</span> are <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{k}\)</span>.
+Prove that</p>
+<div class="arithmatex">\[
+\operatorname{span}(\{x \in V: x \text { is an eigenvector of } T\})=E_{\lambda_{1}} \oplus E_{\lambda_{2}} \oplus \cdots \oplus E_{\lambda_{k}} .
+\]</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/arnold518" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

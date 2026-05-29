@@ -1,0 +1,4825 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../28/">
+      
+      
+        <link rel="next" href="../30/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>29. The Adjoint of a Linear Operator - Mathematics Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%206a6%206%200%200%201%206%206c0%202.22-1.21%204.16-3%205.2V19a1%201%200%200%201-1%201h-4a1%201%200%200%201-1-1v-1.8c-1.79-1.04-3-2.98-3-5.2a6%206%200%200%201%206-6m2%2015v1a1%201%200%200%201-1%201h-2a1%201%200%200%201-1-1v-1zm6-10h3v2h-3zM1%2011h3v2H1zM13%201v3h-2V1zM4.92%203.5l2.13%202.14-1.42%201.41L3.5%204.93zm12.03%202.13%202.12-2.13%201.43%201.43-2.13%202.12z%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%200a256%20256%200%201%201%200%20512%20256%20256%200%201%201%200-512m-24%20120v136c0%208%204%2015.5%2010.7%2020l96%2064c11%207.4%2025.9%204.4%2033.3-6.7s4.4-25.9-6.7-33.3L280%20243.2V120c0-13.3-10.7-24-24-24s-24%2010.7-24%2024%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#29-the-adjoint-of-a-linear-operator" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../.." title="Mathematics Notes" class="md-header__button md-logo" aria-label="Mathematics Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mathematics Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              29. The Adjoint of a Linear Operator
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="공유" aria-label="공유" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arnold518/math-notes" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    arnold518/math-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Linear Algebra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../abstract-algebra/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Abstract Algebra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../topology/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Topology
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mathematics Notes" class="md-nav__button md-logo" aria-label="Mathematics Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Mathematics Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arnold518/math-notes" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    arnold518/math-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linear Algebra
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linear Algebra
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 1. Vector Spaces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 1. Vector Spaces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Vector Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Subspaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Linear Combinations and Systems of Linear Equations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Linear Dependence and Linear Independence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Bases and Dimension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Maximal Linearly Independent Subsets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 2. Linear Transformations and Matrices
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 2. Linear Transformations and Matrices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Linear Transformations, Null spaces, and Ranges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. The Matrix Representation of a Linear Transformation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Composition of Linear Transformations and Matrix Multiplication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Invertibility and Isomorphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Change of Coordinate Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 3. Elementary Matrix Operations and Systems of Linear Equations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 3. Elementary Matrix Operations and Systems of Linear Equations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Elementary Matrix Operations and Elementary Matrices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. The Rank of a Matrix and Matrix Inverses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Systems of Linear Equations - Theoretical Aspects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Systems of Linear Equations - Computational Aspects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 4. Determinants
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 4. Determinants
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Determinants of Order 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Determinants of Order n
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Properties of Determinants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 5. Diagonalization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 5. Diagonalization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Eigenvalues and Eigenvectors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Diagonalizability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Invariant Subspaces and the Cayley-Hamliton Theorem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 6. Inner Product Spaces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 6. Inner Product Spaces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Inner Products and Norms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. The Gram-Schmidt Orthogonalization Process and Orthogonal Complements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. The Adjoint of a Linear Operator
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. The Adjoint of a Linear Operator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-adjoint-of-a-linear-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Adjoint of a Linear Operator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#least-squares-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Least Squares Approximation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimal-solutions-to-systems-of-linear-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimal Solutions to Systems of Linear Equations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. Normal and Self-Adjoint Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. Unitary and Orthogonal Operators and Their Matrices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. Orthogonal Projections and the Spectral Theorem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. The Singular Value Decomposition and the PseudoInverse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../abstract-algebra/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abstract Algebra
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Abstract Algebra
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0. Sets and Relations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 1. Groups and SubGroups
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 1. Groups and SubGroups
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/1.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction and Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Binary Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Isomorphic Binary Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Subgroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Cyclic Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Generating Sets and Cayley Digraphs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 2. Permutations, Cosets, and Direct Products
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 2. Permutations, Cosets, and Direct Products
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/8.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Groups of Permutations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/9.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Orbits, Cycles, and the Alternating Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/10.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Cosets and the Theorem of Lagrange
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/11.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Direct Products and Finitely Generated Abelian Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/12.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Plane Isometries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 3. Homomorphisms and Factor Groups
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 3. Homomorphisms and Factor Groups
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/13.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Homomorphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/14.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Factor Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/15.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Factor-Group Computations and Simple Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Group Action on a Set
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/17.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Applications of G-Sets to Counting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 4. Rings and Fields
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 4. Rings and Fields
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/18.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Rings and Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/19.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Integral Domains
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/20.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Fermat's and Euler's Theorem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/21.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Field of Quotients of an Integral Domain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/22.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Rings of Polynomials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/23.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Factorization of Polynomials over a Field
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/24.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Noncommutative Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/25.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Ordered Rings and Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../topology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 1. Set Theory and Logic
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 1. Set Theory and Logic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Fundamental Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Relations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. The Integers and the Real Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Cartesian Products
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Finite Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 2. Topological Spaces and Continuous Functions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 2. Topological Spaces and Continuous Functions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Topological Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Basis for a Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. The Order Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. The Product Topology on X ⨯ Y
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. The Subspace Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Closed Sets and Limit Points
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Continuous Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. The Product Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Metric Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Metric Topology (continued)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. The Quotient Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 3. Connectedness and Compactness
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 3. Connectedness and Compactness
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Connected Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Connected Subspaces of the Real Line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Components and Local Connectedness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Compact Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/27/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Compact Subspaces of the Real Line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. Limit Point Compactness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. Local Compactness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-adjoint-of-a-linear-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Adjoint of a Linear Operator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#least-squares-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Least Squares Approximation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimal-solutions-to-systems-of-linear-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimal Solutions to Systems of Linear Equations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="29-the-adjoint-of-a-linear-operator">§ 29. The Adjoint of a Linear Operator<a class="headerlink" href="#29-the-adjoint-of-a-linear-operator" title="Permanent link">&para;</a></h1>
+<p>We assume that all vector spaces are over the field <span class="arithmatex">\(F\)</span>, where <span class="arithmatex">\(F\)</span> denotes either <span class="arithmatex">\(\mathbb{R}\)</span> or <span class="arithmatex">\(\mathbb{C}\)</span>.</p>
+<p>For a linear operator <span class="arithmatex">\(T\)</span> on an inner product space <span class="arithmatex">\(V\)</span>, we now define a related linear operator on <span class="arithmatex">\(V\)</span> called the adjoint of <span class="arithmatex">\(T\)</span>, whose matrix representation with respect to any orthonormal basis <span class="arithmatex">\(\beta\)</span> for <span class="arithmatex">\(V\)</span> is <span class="arithmatex">\([T]_{\beta}^{*}\)</span>.
+The analogy between conjugation of complex numbers and adjoints of linear operators will become apparent.</p>
+<h2 id="the-adjoint-of-a-linear-operator">The Adjoint of a Linear Operator<a class="headerlink" href="#the-adjoint-of-a-linear-operator" title="Permanent link">&para;</a></h2>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 29.1 : Representation of linear functionals by inner products</p>
+<p>Let <span class="arithmatex">\(V\)</span> be a finite-dimensional inner product space over <span class="arithmatex">\(F\)</span>, and let <span class="arithmatex">\(g: V \rightarrow F\)</span> be a linear transformation.
+Then there exists a unique vector <span class="arithmatex">\(y \in V\)</span> such that <span class="arithmatex">\(g(x)=\langle x, y\rangle\)</span> for all <span class="arithmatex">\(x \in V\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Let <span class="arithmatex">\(\beta=\left\{v_{1}, v_{2}, \ldots, v_{n}\right\}\)</span> be an orthonormal basis for <span class="arithmatex">\(V\)</span>, and let</p>
+<div class="arithmatex">\[
+y=\sum_{i=1}^{n} \overline{g\left(v_{i}\right)} v_{i} .
+\]</div>
+<p>Define <span class="arithmatex">\(h: V \rightarrow F\)</span> by <span class="arithmatex">\(h(x)=\langle x, y\rangle\)</span>, which is clearly linear.
+Furthermore, for <span class="arithmatex">\(1 \leq j \leq n\)</span> we have</p>
+<div class="arithmatex">\[
+\begin{aligned}
+h\left(v_{j}\right)
+=\left\langle v_{j}, y\right\rangle
+=\left\langle v_{j}, \sum_{i=1}^{n} \overline{g\left(v_{i}\right)} v_{i}\right\rangle
+&amp; =\sum_{i=1}^{n} g\left(v_{i}\right)\left\langle v_{j}, v_{i}\right\rangle \\
+&amp; =\sum_{i=1}^{n} g\left(v_{i}\right) \delta_{j i}=g\left(v_{j}\right) .
+\end{aligned}
+\]</div>
+<p>Since <span class="arithmatex">\(g\)</span> and <span class="arithmatex">\(h\)</span> both agree on <span class="arithmatex">\(\beta\)</span>, we have <span class="arithmatex">\(g=h\)</span> by the corollary to <strong>Theorem 2.6</strong>.</p>
+<p>To show that <span class="arithmatex">\(y\)</span> is unique, suppose that <span class="arithmatex">\(g(x)=\left\langle x, y^{\prime}\right\rangle\)</span> for all <span class="arithmatex">\(x\)</span>.
+Then <span class="arithmatex">\(\langle x, y\rangle=\left\langle x, y^{\prime}\right\rangle\)</span> for all <span class="arithmatex">\(x\)</span>.
+So by <strong>Theorem 27.10</strong>(e), we have <span class="arithmatex">\(y=y^{\prime}\)</span>.</p>
+</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 29.2 : Existence and uniqueness of adjoint</p>
+<p>Let <span class="arithmatex">\(V\)</span> be a finite-dimensional inner product space, and let <span class="arithmatex">\(T\)</span> be a linear operator on <span class="arithmatex">\(V\)</span>.
+Then there exists a unique function <span class="arithmatex">\(T^{*}: V \rightarrow V\)</span> such that <span class="arithmatex">\(\langle T(x), y\rangle=\left\langle x, T^{*}(y)\right\rangle\)</span> for all <span class="arithmatex">\(x, y \in V\)</span>.
+Furthermore, <span class="arithmatex">\(T^{*}\)</span> is linear.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Let <span class="arithmatex">\(y \in V\)</span>.
+Define <span class="arithmatex">\(g: V \rightarrow F\)</span> by <span class="arithmatex">\(g(x)=\langle T(x), y\rangle\)</span> for all <span class="arithmatex">\(x \in V\)</span>.
+We first show that <span class="arithmatex">\(g\)</span> is linear.
+Let <span class="arithmatex">\(x_{1}, x_{2} \in V\)</span> and <span class="arithmatex">\(c \in F\)</span>.
+Then</p>
+<div class="arithmatex">\[
+\begin{aligned}
+g\left(c x_{1}+x_{2}\right)
+&amp; =\left\langle T\left(c x_{1}+x_{2}\right), y\right\rangle
+=\left\langle c T\left(x_{1}\right)+T\left(x_{2}\right), y\right\rangle \\
+&amp; =c\left\langle T\left(x_{1}\right), y\right\rangle+\left\langle T\left(x_{2}\right), y\right\rangle
+=c g\left(x_{1}\right)+g\left(x_{2}\right) .
+\end{aligned}
+\]</div>
+<p>Hence <span class="arithmatex">\(g\)</span> is linear.
+We now apply <strong>Theorem 29.1</strong> to obtain a unique vector <span class="arithmatex">\(y^{\prime} \in V\)</span> such that <span class="arithmatex">\(g(x)=\left\langle x, y^{\prime}\right\rangle\)</span>.
+That is, <span class="arithmatex">\(\langle T(x), y\rangle=\left\langle x, y^{\prime}\right\rangle\)</span> for all <span class="arithmatex">\(x \in V\)</span>.
+Define <span class="arithmatex">\(T^{*}: V \rightarrow V\)</span> by <span class="arithmatex">\(T^{*}(y)=y^{\prime}\)</span>.
+Then <span class="arithmatex">\(\langle T(x), y\rangle=\left\langle x, T^{*}(y)\right\rangle\)</span>.</p>
+<p>To show that <span class="arithmatex">\(T^{*}\)</span> is linear, let <span class="arithmatex">\(y_{1}, y_{2} \in V\)</span> and <span class="arithmatex">\(c \in F\)</span>.
+For any <span class="arithmatex">\(x \in V\)</span>, we have</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\left\langle x, T^{*}\left(c y_{1}+y_{2}\right)\right\rangle
+&amp; =\left\langle T(x), c y_{1}+y_{2}\right\rangle \\
+&amp; =\overline{c}\left\langle T(x), y_{1}\right\rangle+\left\langle T(x), y_{2}\right\rangle \\
+&amp; =\overline{c}\left\langle x, T^{*}\left(y_{1}\right)\right\rangle+\left\langle x, T^{*}\left(y_{2}\right)\right\rangle \\
+&amp; =\left\langle x, c T^{*}\left(y_{1}\right)+T^{*}\left(y_{2}\right)\right\rangle .
+\end{aligned}
+\]</div>
+<p>Since <span class="arithmatex">\(x\)</span> is arbitrary, <span class="arithmatex">\(T^{*}\left(c y_{1}+y_{2}\right)=c T^{*}\left(y_{1}\right)+T^{*}\left(y_{2}\right)\)</span> by <strong>Theorem 27.10</strong>(e).</p>
+<p>Finally, we show uniqueness.
+Suppose that <span class="arithmatex">\(U: V \rightarrow V\)</span> is linear and satisfies <span class="arithmatex">\(\langle T(x), y\rangle=\langle x, U(y)\rangle\)</span> for all <span class="arithmatex">\(x, y \in V\)</span>.
+Then <span class="arithmatex">\(\left\langle x, T^{*}(y)\right\rangle=\langle x, U(y)\rangle\)</span> for all <span class="arithmatex">\(x, y \in V\)</span>.
+So <span class="arithmatex">\(T^{*}=U\)</span> by <strong>Theorem 27.10</strong>(e).</p>
+</div>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">Definition 29.3 : Adjoint</p>
+<p>The linear operator <span class="arithmatex">\(T^{*}\)</span> described in <strong>Theorem 29.2</strong> is called the <strong>adjoint</strong> of the operator <span class="arithmatex">\(T\)</span>.
+The symbol <span class="arithmatex">\(T^{*}\)</span> is read "<span class="arithmatex">\(T\)</span> star."</p>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 29.4 : Symbolic meaning of adjoint</p>
+<p><span class="arithmatex">\(T^{*}\)</span> is the unique operator on <span class="arithmatex">\(V\)</span> satisfying <span class="arithmatex">\(\langle T(x), y\rangle=\left\langle x, T^{*}(y)\right\rangle\)</span> for all <span class="arithmatex">\(x, y \in V\)</span>.
+Note that we also have</p>
+<div class="arithmatex">\[
+\left\langle x, T(y)\right\rangle=\overline{\langle T(y), x\rangle}=\overline{\left\langle y, T^{*}(x)\right\rangle}=\left\langle T^{*}(x), y\right\rangle .
+\]</div>
+<p>So <span class="arithmatex">\(\langle x, T(y)\rangle=\left\langle T^{*}(x), y\right\rangle\)</span> for all <span class="arithmatex">\(x, y \in V\)</span>.</p>
+<p>We may view these equations symbolically as adding a <span class="arithmatex">\(*\)</span> to <span class="arithmatex">\(T\)</span> when shifting its position inside the inner product.</p>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 29.5 : Adjoint in infinite-dimensional spaces</p>
+<p>For an infinite-dimensional inner product space, the adjoint of a linear operator <span class="arithmatex">\(T\)</span> may be defined to be the function <span class="arithmatex">\(T^{*}\)</span> such that <span class="arithmatex">\(\langle T(x), y\rangle=\left\langle x, T^{*}(y)\right\rangle\)</span> for all <span class="arithmatex">\(x, y \in V\)</span>, provided it exists.
+Although the uniqueness and linearity of <span class="arithmatex">\(T^{*}\)</span> follow as before, the existence of the adjoint is not guaranteed.
+The reader should observe the necessity of the finite-dimensional hypothesis in the proof of <strong>Theorem 29.1</strong>.</p>
+</div>
+<p>Many theorems about adjoints do not depend on <span class="arithmatex">\(V\)</span> being finite-dimensional.
+Thus, unless stated otherwise, for the remainder of this chapter we adopt the convention that a reference to the adjoint of a linear operator on an infinite-dimensional inner product space assumes its existence.</p>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 29.6 : Matrix of the adjoint in an orthonormal basis</p>
+<p>Let <span class="arithmatex">\(V\)</span> be a finite-dimensional inner product space, and let <span class="arithmatex">\(\beta\)</span> be an orthonormal basis for <span class="arithmatex">\(V\)</span>.
+If <span class="arithmatex">\(T\)</span> is a linear operator on <span class="arithmatex">\(V\)</span>, then</p>
+<div class="arithmatex">\[
+\left[T^{*}\right]_{\beta}=[T]_{\beta}^{*} .
+\]</div>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Let <span class="arithmatex">\(A=[T]_{\beta}\)</span>, <span class="arithmatex">\(B=\left[T^{*}\right]_{\beta}\)</span>, and <span class="arithmatex">\(\beta=\left\{v_{1}, v_{2}, \ldots, v_{n}\right\}\)</span>.
+Then from <strong>Corollary 28.10</strong>, we have</p>
+<div class="arithmatex">\[
+B_{i j}=\left\langle T^{*}\left(v_{j}\right), v_{i}\right\rangle=\overline{\left\langle v_{i}, T^{*}\left(v_{j}\right)\right\rangle}=\overline{\left\langle T\left(v_{i}\right), v_{j}\right\rangle}=\overline{A_{j i}}=\left(A^{*}\right)_{i j} .
+\]</div>
+<p>Hence <span class="arithmatex">\(B=A^{*}\)</span>.</p>
+</div>
+</div>
+<div class="admonition corollary">
+<p class="admonition-title">Corollary 29.7 : Adjoint of <span class="arithmatex">\(L_A\)</span></p>
+<p>Let <span class="arithmatex">\(A\)</span> be an <span class="arithmatex">\(n \times n\)</span> matrix.
+Then <span class="arithmatex">\(L_{A^{*}}=\left(L_{A}\right)^{*}\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>If <span class="arithmatex">\(\beta\)</span> is the standard ordered basis for <span class="arithmatex">\(F^{n}\)</span>, then by <strong>Theorem 10.16</strong>(a), we have <span class="arithmatex">\(\left[L_{A}\right]_{\beta}=A\)</span>.
+Hence</p>
+<div class="arithmatex">\[
+\left[\left(L_{A}\right)^{*}\right]_{\beta}=\left[L_{A}\right]_{\beta}^{*}=A^{*}=\left[L_{A^{*}}\right]_{\beta} .
+\]</div>
+<p>So <span class="arithmatex">\(\left(L_{A}\right)^{*}=L_{A^{*}}\)</span>.</p>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 29.8 : Computing an adjoint on <span class="arithmatex">\(\mathbb{C}^{2}\)</span></p>
+<p>Let <span class="arithmatex">\(T\)</span> be the linear operator on <span class="arithmatex">\(\mathbb{C}^{2}\)</span> defined by <span class="arithmatex">\(T\left(a_{1}, a_{2}\right)=\left(2 i a_{1}+3 a_{2}, a_{1}-a_{2}\right)\)</span>.
+If <span class="arithmatex">\(\beta\)</span> is the standard ordered basis for <span class="arithmatex">\(\mathbb{C}^{2}\)</span>, then</p>
+<div class="arithmatex">\[
+[T]_{\beta}=\left(\begin{array}{rr}
+2 i &amp; 3 \\
+1 &amp; -1
+\end{array}\right) .
+\]</div>
+<p>So</p>
+<div class="arithmatex">\[
+\left[T^{*}\right]_{\beta}=[T]_{\beta}^{*}=\left(\begin{array}{rr}
+-2 i &amp; 1 \\
+3 &amp; -1
+\end{array}\right) .
+\]</div>
+<p>Hence</p>
+<div class="arithmatex">\[
+T^{*}\left(a_{1}, a_{2}\right)=\left(-2 i a_{1}+a_{2}, 3 a_{1}-a_{2}\right) .
+\]</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 29.9 : Algebraic properties of adjoints</p>
+<p>Let <span class="arithmatex">\(V\)</span> be an inner product space, and let <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(U\)</span> be linear operators on <span class="arithmatex">\(V\)</span>.
+Then</p>
+<ul>
+<li>(a) <span class="arithmatex">\((T+U)^{*}=T^{*}+U^{*}\)</span>.</li>
+<li>(b) <span class="arithmatex">\((c T)^{*}=\overline{c}\, T^{*}\)</span> for any <span class="arithmatex">\(c \in F\)</span>.</li>
+<li>(c) <span class="arithmatex">\((T U)^{*}=U^{*} T^{*}\)</span>.</li>
+<li>(d) <span class="arithmatex">\(T^{* *}=T\)</span>.</li>
+<li>(e) <span class="arithmatex">\(I^{*}=I\)</span>.</li>
+</ul>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Let <span class="arithmatex">\(x, y \in V\)</span>.</p>
+<ul>
+<li>
+<p>(a)<br />
+    We show that <span class="arithmatex">\(T^{*}+U^{*}\)</span> satisfies the defining property of <span class="arithmatex">\((T+U)^{*}\)</span>.
+    Using linearity of <span class="arithmatex">\(T+U\)</span> and linearity of the inner product in the first variable,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\left\langle (T+U)(x), y\right\rangle
+&amp; =\langle T(x)+U(x), y\rangle \\
+&amp; =\langle T(x), y\rangle+\langle U(x), y\rangle \\
+&amp; =\left\langle x, T^{*}(y)\right\rangle+\left\langle x, U^{*}(y)\right\rangle \\
+&amp; =\left\langle x,\, T^{*}(y)+U^{*}(y)\right\rangle \\
+&amp; =\left\langle x,\,(T^{*}+U^{*})(y)\right\rangle .
+\end{aligned}
+\]</div>
+<p>Hence <span class="arithmatex">\(T^{*}+U^{*}\)</span> has the defining property of the adjoint of <span class="arithmatex">\(T+U\)</span>.
+By uniqueness of adjoints, <span class="arithmatex">\((T+U)^{*}=T^{*}+U^{*}\)</span>.</p>
+</li>
+<li>
+<p>(b)<br />
+    We show that <span class="arithmatex">\(\overline{c}\,T^{*}\)</span> satisfies the defining property of <span class="arithmatex">\((cT)^{*}\)</span>.
+    Using linearity of <span class="arithmatex">\(T\)</span> and conjugate-linearity in the second variable,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\langle (cT)(x), y\rangle
+&amp; =\langle c\,T(x), y\rangle
+=c\,\langle T(x), y\rangle \\
+&amp; =c\,\langle x, T^{*}(y)\rangle
+=\langle x, \overline{c}\,T^{*}(y)\rangle
+=\left\langle x, (\overline{c}\,T^{*})(y)\right\rangle .
+\end{aligned}
+\]</div>
+<p>Therefore, by uniqueness of adjoints, <span class="arithmatex">\((cT)^{*}=\overline{c}\,T^{*}\)</span>.</p>
+</li>
+<li>
+<p>(c)<br />
+    We show that <span class="arithmatex">\(U^{*}T^{*}\)</span> satisfies the defining property of <span class="arithmatex">\((TU)^{*}\)</span>.
+    Using the defining property of adjoints twice,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\langle (TU)(x), y\rangle
+&amp; =\langle T(U(x)), y\rangle
+=\langle U(x), T^{*}(y)\rangle \\
+&amp; =\left\langle x, U^{*}(T^{*}(y))\right\rangle
+=\left\langle x, (U^{*}T^{*})(y)\right\rangle .
+\end{aligned}
+\]</div>
+<p>Hence, by uniqueness of adjoints, <span class="arithmatex">\((TU)^{*}=U^{*}T^{*}\)</span>.</p>
+</li>
+<li>
+<p>(d)<br />
+    We show that <span class="arithmatex">\(T\)</span> satisfies the defining property of <span class="arithmatex">\((T^{*})^{*}\)</span>.
+    Using the defining property of <span class="arithmatex">\(T^{*}\)</span>,</p>
+<div class="arithmatex">\[
+\langle T(x), y\rangle=\langle x, T^{*}(y)\rangle .
+\]</div>
+<p>Now apply the defining property of <span class="arithmatex">\((T^{*})^{*}\)</span> to the operator <span class="arithmatex">\(T^{*}\)</span> (with <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> swapped):</p>
+<div class="arithmatex">\[
+\langle x, T^{*}(y)\rangle=\left\langle (T^{*})^{*}(x), y\right\rangle .
+\]</div>
+<p>Combining these equalities gives</p>
+<div class="arithmatex">\[
+\langle T(x), y\rangle=\left\langle (T^{*})^{*}(x), y\right\rangle
+\]</div>
+<p>for all <span class="arithmatex">\(x, y \in V\)</span>.
+Hence <span class="arithmatex">\(T(x)=(T^{*})^{*}(x)\)</span> for all <span class="arithmatex">\(x\)</span>, so <span class="arithmatex">\(T^{**}=T\)</span>.</p>
+</li>
+<li>
+<p>(e)<br />
+    We show that <span class="arithmatex">\(I\)</span> satisfies the defining property of <span class="arithmatex">\(I^{*}\)</span>.
+    For all <span class="arithmatex">\(x, y \in V\)</span>,</p>
+<div class="arithmatex">\[
+\langle I(x), y\rangle=\langle x, y\rangle=\langle x, I(y)\rangle .
+\]</div>
+<p>Thus <span class="arithmatex">\(I\)</span> has the defining property of the adjoint of <span class="arithmatex">\(I\)</span>.
+By uniqueness of adjoints, <span class="arithmatex">\(I^{*}=I\)</span>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="admonition corollary">
+<p class="admonition-title">Corollary 29.10 : Conjugate-transpose identities</p>
+<p>Let <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> be <span class="arithmatex">\(n \times n\)</span> matrices.
+Then</p>
+<ul>
+<li>(a) <span class="arithmatex">\((A+B)^{*}=A^{*}+B^{*}\)</span>.</li>
+<li>(b) <span class="arithmatex">\((c A)^{*}=\overline{c} A^{*}\)</span> for all <span class="arithmatex">\(c \in F\)</span>.</li>
+<li>(c) <span class="arithmatex">\((A B)^{*}=B^{*} A^{*}\)</span>.</li>
+<li>(d) <span class="arithmatex">\(A^{* *}=A\)</span>.</li>
+<li>(e) <span class="arithmatex">\(I^{*}=I\)</span>.</li>
+</ul>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>View matrices as linear operators on <span class="arithmatex">\(F^{n}\)</span> via left multiplication.
+For any <span class="arithmatex">\(n \times n\)</span> matrix <span class="arithmatex">\(M\)</span>, the adjoint of <span class="arithmatex">\(L_{M}\)</span> is <span class="arithmatex">\(L_{M^{*}}\)</span>, because for all <span class="arithmatex">\(x, y \in F^{n}\)</span>,</p>
+<div class="arithmatex">\[
+\langle L_{M}(x), y\rangle=\langle Mx, y\rangle=\langle x, M^{*}y\rangle=\langle x, L_{M^{*}}(y)\rangle .
+\]</div>
+<p>Therefore <span class="arithmatex">\((L_{M})^{*}=L_{M^{*}}\)</span>.</p>
+<p>Now apply <strong>Theorem 29.9</strong> to the operators <span class="arithmatex">\(L_{A}\)</span> and <span class="arithmatex">\(L_{B}\)</span>:</p>
+<ul>
+<li>
+<p>(a)  </p>
+<div class="arithmatex">\[
+L_{(A+B)^{*}}=(L_{A+B})^{*}=(L_{A}+L_{B})^{*}=(L_{A})^{*}+(L_{B})^{*}=L_{A^{*}}+L_{B^{*}}=L_{A^{*}+B^{*}} .
+\]</div>
+<p>Hence <span class="arithmatex">\((A+B)^{*}=A^{*}+B^{*}\)</span>.</p>
+</li>
+<li>
+<p>(b)  </p>
+<div class="arithmatex">\[
+L_{(cA)^{*}}=(L_{cA})^{*}=(cL_{A})^{*}=\overline{c}\,(L_{A})^{*}=\overline{c}\,L_{A^{*}}=L_{\overline{c}\,A^{*}} .
+\]</div>
+<p>Hence <span class="arithmatex">\((cA)^{*}=\overline{c}\,A^{*}\)</span>.</p>
+</li>
+<li>
+<p>(c)  </p>
+<div class="arithmatex">\[
+L_{(AB)^{*}}=(L_{AB})^{*}=(L_{A}L_{B})^{*}=(L_{B})^{*}(L_{A})^{*}=L_{B^{*}}L_{A^{*}}=L_{B^{*}A^{*}} .
+\]</div>
+<p>Hence <span class="arithmatex">\((AB)^{*}=B^{*}A^{*}\)</span>.</p>
+</li>
+<li>
+<p>(d)  </p>
+<div class="arithmatex">\[
+L_{A^{**}}=(L_{A^{*}})^{*}=\big((L_{A})^{*}\big)^{*}=L_{A}
+\]</div>
+<p>by <strong>Theorem 29.9</strong>(d).
+Hence <span class="arithmatex">\(A^{**}=A\)</span>.</p>
+</li>
+<li>
+<p>(e)<br />
+    Since <span class="arithmatex">\(L_{I}=I\)</span> on <span class="arithmatex">\(F^{n}\)</span>, <strong>Theorem 29.9</strong>(e) gives <span class="arithmatex">\((L_{I})^{*}=L_{I}\)</span>.
+    Thus <span class="arithmatex">\(L_{I^{*}}=L_{I}\)</span>, and hence <span class="arithmatex">\(I^{*}=I\)</span>.</p>
+</li>
+</ul>
+</div>
+</div>
+<h2 id="least-squares-approximation">Least Squares Approximation<a class="headerlink" href="#least-squares-approximation" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">Definition 29.11 : Least squares approximation problem</p>
+<p>Consider the following problem.
+An experimenter collects data by taking measurements <span class="arithmatex">\(y_{1}, y_{2}, \ldots, y_{m}\)</span> at times <span class="arithmatex">\(t_{1}, t_{2}, \ldots, t_{m}\)</span>, respectively.
+For example, he or she may be measuring unemployment at various times during some period.
+Suppose that the data <span class="arithmatex">\(\left(t_{1}, y_{1}\right),\left(t_{2}, y_{2}\right), \ldots,\left(t_{m}, y_{m}\right)\)</span> are plotted as points in the plane.
+From this plot, the experimenter feels that there exists an essentially linear relationship between <span class="arithmatex">\(y\)</span> and <span class="arithmatex">\(t\)</span>, say <span class="arithmatex">\(y=c t+d\)</span>, and would like to find the constants <span class="arithmatex">\(c\)</span> and <span class="arithmatex">\(d\)</span> so that the line <span class="arithmatex">\(y=c t+d\)</span> represents the best possible fit to the data collected.
+One such estimate of fit is to calculate the error <span class="arithmatex">\(E\)</span> that represents the sum of the squares of the vertical distances from the points to the line, that is,</p>
+<div class="arithmatex">\[
+E=\sum_{i=1}^{m}\left(y_i-c t_i-d\right)^{2} .
+\]</div>
+<figure>
+<p><img alt="" class="center" src="../assets/29.1.jpg" style="width:70%;" /></p>
+<figcaption>
+<p>Figure 29.1.</p>
+</figcaption>
+</figure>
+<p>Thus the problem is reduced to finding the constants <span class="arithmatex">\(c\)</span> and <span class="arithmatex">\(d\)</span> that minimize <span class="arithmatex">\(E\)</span>. (This problem is called <strong>least squares approximation</strong>, and the line <span class="arithmatex">\(y=c t+d\)</span> is called the <strong>least-squares line</strong>.)</p>
+<p>If we let</p>
+<div class="arithmatex">\[
+A=\left(\begin{array}{cc}
+t_{1} &amp; 1 \\
+t_{2} &amp; 1 \\
+\vdots &amp; \vdots \\
+t_{m} &amp; 1
+\end{array}\right), \quad x=\binom{c}{d}, \quad \text { and } \quad y=\left(\begin{array}{c}
+y_{1} \\
+y_{2} \\
+\vdots \\
+y_{m}
+\end{array}\right),
+\]</div>
+<p>then it follows that <span class="arithmatex">\(E=\|y-A x\|^{2}\)</span>.</p>
+<p>We develop a general method for finding an explicit vector <span class="arithmatex">\(x_{0} \in F^{n}\)</span> that minimizes <span class="arithmatex">\(E\)</span> in <strong>Theorem 29.15</strong>.
+That is, given an <span class="arithmatex">\(m \times n\)</span> matrix <span class="arithmatex">\(A\)</span>, we find <span class="arithmatex">\(x_{0} \in F^{n}\)</span> such that <span class="arithmatex">\(\left\|y-A x_{0}\right\| \leq\|y-A x\|\)</span> for all vectors <span class="arithmatex">\(x \in F^{n}\)</span>.
+This method not only allows us to find the linear function that best fits the data, but also, for any positive integer <span class="arithmatex">\(k\)</span>, the best fit using a polynomial of degree at most <span class="arithmatex">\(k\)</span>.</p>
+</div>
+<p>For <span class="arithmatex">\(x, y \in F^{n}\)</span>, let <span class="arithmatex">\(\langle x, y\rangle_{n}\)</span> denote the standard inner product of <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> in <span class="arithmatex">\(F^{n}\)</span>.
+Recall that if <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> are regarded as column vectors, then <span class="arithmatex">\(\langle x, y\rangle_{n}=y^{*} x\)</span>.</p>
+<div class="admonition theorem">
+<p class="admonition-title">Lemma 29.12</p>
+<p>Let <span class="arithmatex">\(A \in \mathrm{M}_{m \times n}(F)\)</span>, <span class="arithmatex">\(x \in F^{n}\)</span>, and <span class="arithmatex">\(y \in F^{m}\)</span>.
+Then</p>
+<div class="arithmatex">\[
+\langle A x, y\rangle_{m}=\left\langle x, A^{*} y\right\rangle_{n} .
+\]</div>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>By a generalization of the corollary to <strong>Theorem 29.9</strong>, we have</p>
+<div class="arithmatex">\[
+\langle A x, y\rangle_{m}=y^{*}(A x)=\left(y^{*} A\right) x=\left(A^{*} y\right)^{*} x=\left\langle x, A^{*} y\right\rangle_{n} .
+\]</div>
+</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Lemma 29.13</p>
+<p>Let <span class="arithmatex">\(A \in \mathrm{M}_{m \times n}(F)\)</span>.
+Then <span class="arithmatex">\(\operatorname{rank}\left(A^{*} A\right)=\operatorname{rank}(A)\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>By the dimension theorem, we need only show that, for <span class="arithmatex">\(x \in F^{n}\)</span>, we have <span class="arithmatex">\(A^{*} A x=0\)</span> if and only if <span class="arithmatex">\(A x=0\)</span>.
+Clearly, <span class="arithmatex">\(A x=0\)</span> implies that <span class="arithmatex">\(A^{*} A x=0\)</span>.
+So assume that <span class="arithmatex">\(A^{*} A x=0\)</span>.
+Then</p>
+<div class="arithmatex">\[
+0=\left\langle A^{*} A x, x\right\rangle_{n}=\left\langle A x, A^{* *} x\right\rangle_{m}=\langle A x, A x\rangle_{m},
+\]</div>
+<p>so <span class="arithmatex">\(A x=0\)</span>.</p>
+</div>
+</div>
+<div class="admonition corollary">
+<p class="admonition-title">Corollary 29.14</p>
+<p>If <span class="arithmatex">\(A\)</span> is an <span class="arithmatex">\(m \times n\)</span> matrix such that <span class="arithmatex">\(\operatorname{rank}(A)=n\)</span>, then <span class="arithmatex">\(A^{*} A\)</span> is invertible.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 29.15 : Least squares approximation</p>
+<p>Let <span class="arithmatex">\(A \in \mathrm{M}_{m \times n}(F)\)</span> and <span class="arithmatex">\(y \in F^{m}\)</span>.
+Then there exists <span class="arithmatex">\(x_{0} \in F^{n}\)</span> such that <span class="arithmatex">\(\left(A^{*} A\right) x_{0}=A^{*} y\)</span> and <span class="arithmatex">\(\left\|A x_{0}-y\right\| \leq\|A x-y\|\)</span> for all <span class="arithmatex">\(x \in F^{n}\)</span>.
+Furthermore, if <span class="arithmatex">\(\operatorname{rank}(A)=n\)</span>, then <span class="arithmatex">\(x_{0}=\left(A^{*} A\right)^{-1} A^{*} y\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Let <span class="arithmatex">\(A\)</span> be an <span class="arithmatex">\(m \times n\)</span> matrix and <span class="arithmatex">\(y \in F^{m}\)</span>.
+Define <span class="arithmatex">\(W=\left\{A x: x \in F^{n}\right\}\)</span>.
+That is, <span class="arithmatex">\(W=R\left(L_{A}\right)\)</span>.
+By <strong>Corollary 28.18</strong>, there exists a unique vector in <span class="arithmatex">\(W\)</span> that is closest to <span class="arithmatex">\(y\)</span>.
+Call this vector <span class="arithmatex">\(A x_{0}\)</span>, where <span class="arithmatex">\(x_{0} \in F^{n}\)</span>.
+Then <span class="arithmatex">\(\left\|A x_{0}-y\right\| \leq\|A x-y\|\)</span> for all <span class="arithmatex">\(x \in F^{n}\)</span>.</p>
+<p>To develop a practical method for finding such an <span class="arithmatex">\(x_{0}\)</span>, we note from <strong>Theorem 28.17</strong> and <strong>Corollary 28.18</strong> that <span class="arithmatex">\(A x_{0}-y \in W^{\perp}\)</span>, so <span class="arithmatex">\(\langle A x, A x_{0}-y\rangle_{m}=0\)</span> for all <span class="arithmatex">\(x \in F^{n}\)</span>.
+Thus, by <strong>Lemma 29.12</strong>, we have</p>
+<div class="arithmatex">\[
+\left\langle x, A^{*}\left(A x_{0}-y\right)\right\rangle_{n}=0
+\]</div>
+<p>for all <span class="arithmatex">\(x \in F^{n}\)</span>.
+That is, <span class="arithmatex">\(A^{*}\left(A x_{0}-y\right)=0\)</span>.
+So we need only find a solution <span class="arithmatex">\(x_{0}\)</span> to <span class="arithmatex">\(A^{*} A x=A^{*} y\)</span>.
+If, in addition, we assume that <span class="arithmatex">\(\operatorname{rank}(A)=n\)</span>, then by <strong>Lemma 29.13</strong> we have <span class="arithmatex">\(x_{0}=\left(A^{*} A\right)^{-1} A^{*} y\)</span>.</p>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 29.16 : Computation of least squares approximation</p>
+<p>To return to our experimenter, let us suppose that the data collected are <span class="arithmatex">\((1,2)\)</span>, <span class="arithmatex">\((2,3)\)</span>, <span class="arithmatex">\((3,5)\)</span>, and <span class="arithmatex">\((4,7)\)</span>.
+Then</p>
+<div class="arithmatex">\[
+A=\left(\begin{array}{ll}
+1 &amp; 1 \\
+2 &amp; 1 \\
+3 &amp; 1 \\
+4 &amp; 1
+\end{array}\right) \quad \text { and } \quad y=\left(\begin{array}{l}
+2 \\
+3 \\
+5 \\
+7
+\end{array}\right),
+\]</div>
+<p>hence</p>
+<div class="arithmatex">\[
+A^{*} A=\left(\begin{array}{llll}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+1 &amp; 1 &amp; 1 &amp; 1
+\end{array}\right)\left(\begin{array}{ll}
+1 &amp; 1 \\
+2 &amp; 1 \\
+3 &amp; 1 \\
+4 &amp; 1
+\end{array}\right)=\left(\begin{array}{rr}
+30 &amp; 10 \\
+10 &amp; 4
+\end{array}\right) .
+\]</div>
+<p>Thus</p>
+<div class="arithmatex">\[
+\left(A^{*} A\right)^{-1}=\frac{1}{20}\left(\begin{array}{rr}
+4 &amp; -10 \\
+-10 &amp; 30
+\end{array}\right) .
+\]</div>
+<p>Therefore</p>
+<div class="arithmatex">\[
+\binom{c}{d}=x_{0}=\frac{1}{20}\left(\begin{array}{rr}
+4 &amp; -10 \\
+-10 &amp; 30
+\end{array}\right)\left(\begin{array}{llll}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+1 &amp; 1 &amp; 1 &amp; 1
+\end{array}\right)\left(\begin{array}{l}
+2 \\
+3 \\
+5 \\
+7
+\end{array}\right)=\binom{1.7}{0} .
+\]</div>
+<p>It follows that the line <span class="arithmatex">\(y=1.7 t\)</span> is the least-squares line.
+The error <span class="arithmatex">\(E\)</span> may be computed directly as <span class="arithmatex">\(\left\|A x_{0}-y\right\|^{2}=0.3\)</span>.</p>
+<p>Suppose that the experimenter chose the times <span class="arithmatex">\(t_{i}\)</span> (<span class="arithmatex">\(1 \leq i \leq m\)</span>) to satisfy</p>
+<div class="arithmatex">\[
+\sum_{i=1}^{m} t_{i}=0 .
+\]</div>
+<p>Then the two columns of <span class="arithmatex">\(A\)</span> would be orthogonal, so <span class="arithmatex">\(A^{*} A\)</span> would be a diagonal matrix (see <strong>Exercise 19</strong>).
+In this case, the computations are greatly simplified.</p>
+<p>In practice, the <span class="arithmatex">\(m \times 2\)</span> matrix <span class="arithmatex">\(A\)</span> in this least-squares application has rank equal to two, and hence <span class="arithmatex">\(A^{*} A\)</span> is invertible by <strong>Corollary 29.14</strong>.
+For otherwise, the first column of <span class="arithmatex">\(A\)</span> is a multiple of the second column, which consists only of ones.
+But this would occur only if the experimenter collects all the data at exactly one time.</p>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 29.17 : Polynomial least squares approximation</p>
+<p>Finally, the method above may also be applied if, for some <span class="arithmatex">\(k\)</span>, the experimenter wants to fit a polynomial of degree at most <span class="arithmatex">\(k\)</span> to the data.
+For instance, if a polynomial <span class="arithmatex">\(y=c t^{2}+d t+e\)</span> of degree at most <span class="arithmatex">\(2\)</span> is desired, the appropriate model is</p>
+<div class="arithmatex">\[
+x=\left(\begin{array}{c}
+c \\
+d \\
+e
+\end{array}\right), \quad y=\left(\begin{array}{c}
+y_{1} \\
+y_{2} \\
+\vdots \\
+y_{m}
+\end{array}\right), \quad \text { and } \quad A=\left(\begin{array}{ccc}
+t_{1}^{2} &amp; t_{1} &amp; 1 \\
+\vdots &amp; \vdots &amp; \vdots \\
+t_{m}^{2} &amp; t_{m} &amp; 1
+\end{array}\right) .
+\]</div>
+</div>
+<h2 id="minimal-solutions-to-systems-of-linear-equations">Minimal Solutions to Systems of Linear Equations<a class="headerlink" href="#minimal-solutions-to-systems-of-linear-equations" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">Definition 29.18 : Minimal solutions to systems of linear equations</p>
+<p>Even when a system of linear equations <span class="arithmatex">\(A x=b\)</span> is consistent, there may be no unique solution.
+In such cases, it may be desirable to find a solution of minimal norm.
+A solution <span class="arithmatex">\(s\)</span> to <span class="arithmatex">\(A x=b\)</span> is called a <strong>minimal solution</strong> if <span class="arithmatex">\(\|s\| \leq\|u\|\)</span> for all other solutions <span class="arithmatex">\(u\)</span>.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 29.19 : Unique minimal solution for a consistent system</p>
+<p>Let <span class="arithmatex">\(A \in \mathrm{M}_{m \times n}(F)\)</span> and <span class="arithmatex">\(b \in F^{m}\)</span>.
+Suppose that <span class="arithmatex">\(A x=b\)</span> is consistent.
+Then the following statements are true.</p>
+<ul>
+<li>(a) There exists exactly one minimal solution <span class="arithmatex">\(s\)</span> of <span class="arithmatex">\(A x=b\)</span>, and <span class="arithmatex">\(s \in R\left(L_{A^{*}}\right)\)</span>.</li>
+<li>(b) The vector <span class="arithmatex">\(s\)</span> is the only solution to <span class="arithmatex">\(A x=b\)</span> that lies in <span class="arithmatex">\(R\left(L_{A^{*}}\right)\)</span>.
+That is, if <span class="arithmatex">\(u\)</span> satisfies <span class="arithmatex">\(\left(A A^{*}\right) u=b\)</span>, then <span class="arithmatex">\(s=A^{*} u\)</span>.</li>
+</ul>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>For simplicity of notation, let <span class="arithmatex">\(W=R\left(L_{A^{*}}\right)\)</span> and <span class="arithmatex">\(W^{\prime}=N\left(L_{A}\right)\)</span>.</p>
+<p>We claim that <span class="arithmatex">\(W^{\perp}=W^{\prime}\)</span>.
+To prove this, let <span class="arithmatex">\(x \in F^{n}\)</span>.</p>
+<p>First suppose that <span class="arithmatex">\(x \in W^{\perp}\)</span>.
+Then <span class="arithmatex">\(\langle x, z\rangle=0\)</span> for all <span class="arithmatex">\(z \in W\)</span>.
+In particular, for every <span class="arithmatex">\(y \in F^{m}\)</span> we have <span class="arithmatex">\(A^{*}y \in W\)</span>, so</p>
+<div class="arithmatex">\[
+0=\langle x, A^{*}y\rangle=\langle Ax, y\rangle .
+\]</div>
+<p>Since this holds for all <span class="arithmatex">\(y \in F^{m}\)</span>, it follows that <span class="arithmatex">\(Ax=0\)</span>, so <span class="arithmatex">\(x \in N(L_{A})=W^{\prime}\)</span>.</p>
+<p>Conversely, suppose that <span class="arithmatex">\(x \in W^{\prime}=N(L_{A})\)</span>.
+Then <span class="arithmatex">\(Ax=0\)</span>.
+For any <span class="arithmatex">\(z \in W\)</span> there exists <span class="arithmatex">\(y \in F^{m}\)</span> such that <span class="arithmatex">\(z=A^{*}y\)</span>, and hence</p>
+<div class="arithmatex">\[
+\langle x, z\rangle=\langle x, A^{*}y\rangle=\langle Ax, y\rangle=\langle 0, y\rangle=0 .
+\]</div>
+<p>Thus <span class="arithmatex">\(x\)</span> is orthogonal to every vector in <span class="arithmatex">\(W\)</span>, so <span class="arithmatex">\(x \in W^{\perp}\)</span>.</p>
+<p>This proves <span class="arithmatex">\(W^{\perp}=W^{\prime}\)</span>.</p>
+<p>Now, let <span class="arithmatex">\(x\)</span> be any solution to <span class="arithmatex">\(A x=b\)</span>.
+By <strong>Theorem 28.17</strong>, <span class="arithmatex">\(x=s+y\)</span> for some <span class="arithmatex">\(s \in W\)</span> and <span class="arithmatex">\(y \in W^{\perp}\)</span>.
+But <span class="arithmatex">\(W^{\perp}=W^{\prime}\)</span>, and therefore <span class="arithmatex">\(b=A x=A s+A y=A s\)</span>.
+So <span class="arithmatex">\(s\)</span> is a solution to <span class="arithmatex">\(A x=b\)</span> that lies in <span class="arithmatex">\(W\)</span>.</p>
+<ul>
+<li>
+<p>To prove (a), we need only show that <span class="arithmatex">\(s\)</span> is the unique minimal solution.
+    Let <span class="arithmatex">\(v\)</span> be any solution to <span class="arithmatex">\(A x=b\)</span>.
+    By <strong>Theorem 3.9</strong>, we have <span class="arithmatex">\(v=s+u\)</span>, where <span class="arithmatex">\(u \in W^{\prime}\)</span>.
+    Since <span class="arithmatex">\(s \in W\)</span>, which equals <span class="arithmatex">\(W^{\prime\perp}\)</span>, we have</p>
+<div class="arithmatex">\[
+\|v\|^{2}=\|s+u\|^{2}=\|s\|^{2}+\|u\|^{2} \geq\|s\|^{2}
+\]</div>
+<p>by <strong>Exercise 27.10</strong>.
+Thus <span class="arithmatex">\(s\)</span> is a minimal solution.
+We can also see from the preceding calculation that if <span class="arithmatex">\(\|v\|=\|s\|\)</span>, then <span class="arithmatex">\(u=0\)</span>.
+Hence <span class="arithmatex">\(v=s\)</span>.
+Therefore <span class="arithmatex">\(s\)</span> is the unique minimal solution to <span class="arithmatex">\(A x=b\)</span>, proving (a).</p>
+</li>
+<li>
+<p>For (b), assume that <span class="arithmatex">\(v\)</span> is also a solution to <span class="arithmatex">\(A x=b\)</span> that lies in <span class="arithmatex">\(W\)</span>.
+    Then</p>
+<div class="arithmatex">\[
+v-s \in W \cap W^{\prime}=W \cap W^{\perp}=\{0\},
+\]</div>
+<p>so <span class="arithmatex">\(v=s\)</span>.
+Finally, suppose that <span class="arithmatex">\(\left(A A^{*}\right) u=b\)</span>, and let <span class="arithmatex">\(v=A^{*} u\)</span>.
+Then <span class="arithmatex">\(v \in W\)</span> and <span class="arithmatex">\(A v=b\)</span>.
+Therefore <span class="arithmatex">\(s=v=A^{*} u\)</span> by the discussion above.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 29.20 : Minimal solution of a system</p>
+<p>Consider the system</p>
+<div class="arithmatex">\[
+\begin{aligned}
+x+2 y+z &amp; =4 \\
+x-y+2 z &amp; =-11 \\
+x+5 y &amp; =19 .
+\end{aligned}
+\]</div>
+<p>Let</p>
+<div class="arithmatex">\[
+A=\left(\begin{array}{rrr}
+1 &amp; 2 &amp; 1 \\
+1 &amp; -1 &amp; 2 \\
+1 &amp; 5 &amp; 0
+\end{array}\right) \quad \text { and } \quad b=\left(\begin{array}{r}
+4 \\
+-11 \\
+19
+\end{array}\right) .
+\]</div>
+<p>To find the minimal solution to this system, we must first find some solution <span class="arithmatex">\(u\)</span> to <span class="arithmatex">\(A A^{*} x=b\)</span>.
+Now</p>
+<div class="arithmatex">\[
+A A^{*}=\left(\begin{array}{rrr}
+6 &amp; 1 &amp; 11 \\
+1 &amp; 6 &amp; -4 \\
+11 &amp; -4 &amp; 26
+\end{array}\right),
+\]</div>
+<p>so we consider the system</p>
+<div class="arithmatex">\[
+\begin{aligned}
+6 x+y+11 z &amp; =4 \\
+x+6 y-4 z &amp; =-11 \\
+11 x-4 y+26 z &amp; =19 .
+\end{aligned}
+\]</div>
+<p>One solution is</p>
+<div class="arithmatex">\[
+u=\left(\begin{array}{r}
+1 \\
+-2 \\
+0
+\end{array}\right) .
+\]</div>
+<p>(Any solution will suffice.)
+Hence</p>
+<div class="arithmatex">\[
+s=A^{*} u=\left(\begin{array}{r}
+-1 \\
+4 \\
+-3
+\end{array}\right)
+\]</div>
+<p>is the minimal solution to the given system.</p>
+</div>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 29.8</p>
+<p>Let <span class="arithmatex">\(V\)</span> be a finite-dimensional inner product space, and let <span class="arithmatex">\(T\)</span> be a linear operator on <span class="arithmatex">\(V\)</span>.
+Prove that if <span class="arithmatex">\(T\)</span> is invertible, then <span class="arithmatex">\(T^{*}\)</span> is invertible and <span class="arithmatex">\(\left(T^{*}\right)^{-1}=\left(T^{-1}\right)^{*}\)</span>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 29.9</p>
+<p>Prove that if <span class="arithmatex">\(V=W \oplus W^{\perp}\)</span> and <span class="arithmatex">\(T\)</span> is the projection on <span class="arithmatex">\(W\)</span> along <span class="arithmatex">\(W^{\perp}\)</span>, then <span class="arithmatex">\(T=T^{*}\)</span>.</p>
+<p>Hint: Recall that <span class="arithmatex">\(N(T)=W^{\perp}\)</span>.
+(For definitions, see the exercises of <strong>Section 3</strong> and <strong>Section 8</strong>.)</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 29.10</p>
+<p>Let <span class="arithmatex">\(T\)</span> be a linear operator on an inner product space <span class="arithmatex">\(V\)</span>.
+Prove that <span class="arithmatex">\(\|T(x)\|=\|x\|\)</span> for all <span class="arithmatex">\(x \in V\)</span> if and only if <span class="arithmatex">\(\langle T(x), T(y)\rangle=\langle x, y\rangle\)</span> for all <span class="arithmatex">\(x, y \in V\)</span>.</p>
+<p>Hint: Use <strong>Exercise 27.20</strong>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 29.11</p>
+<p>For a linear operator <span class="arithmatex">\(T\)</span> on an inner product space <span class="arithmatex">\(V\)</span>, prove that <span class="arithmatex">\(T^{*} T=T_{0}\)</span> implies <span class="arithmatex">\(T=T_{0}\)</span>.
+Is the same result true if we assume that <span class="arithmatex">\(T^{*}=T_{0}\)</span>?</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 29.12</p>
+<p>Let <span class="arithmatex">\(V\)</span> be an inner product space, and let <span class="arithmatex">\(T\)</span> be a linear operator on <span class="arithmatex">\(V\)</span>.
+Prove the following results.</p>
+<ul>
+<li>(a) <span class="arithmatex">\(R\left(T^{*}\right)^{\perp}=N(T)\)</span>.</li>
+<li>
+<p>(b) If <span class="arithmatex">\(V\)</span> is finite-dimensional, then <span class="arithmatex">\(R\left(T^{*}\right)=N(T)^{\perp}\)</span>.</p>
+<p>Hint: Use <strong>Exercise 28.13</strong>(c).</p>
+</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 29.13</p>
+<p>Let <span class="arithmatex">\(T\)</span> be a linear operator on a finite-dimensional inner product space <span class="arithmatex">\(V\)</span>.
+Prove the following results.</p>
+<ul>
+<li>(a) <span class="arithmatex">\(N\left(T^{*} T\right)=N(T)\)</span>.
+    Deduce that <span class="arithmatex">\(\operatorname{rank}\left(T^{*} T\right)=\operatorname{rank}(T)\)</span>.</li>
+<li>(b) <span class="arithmatex">\(\operatorname{rank}(T)=\operatorname{rank}\left(T^{*}\right)\)</span>.
+    Deduce from (a) that <span class="arithmatex">\(\operatorname{rank}\left(T T^{*}\right)=\operatorname{rank}(T)\)</span>.</li>
+<li>(c) For any <span class="arithmatex">\(n \times n\)</span> matrix <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(\operatorname{rank}\left(A^{*} A\right)=\operatorname{rank}\left(A A^{*}\right)=\operatorname{rank}(A)\)</span>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 29.14</p>
+<p>Let <span class="arithmatex">\(V\)</span> be an inner product space, and let <span class="arithmatex">\(y, z \in V\)</span>.
+Define <span class="arithmatex">\(T: V \rightarrow V\)</span> by <span class="arithmatex">\(T(x)=\langle x, y\rangle z\)</span> for all <span class="arithmatex">\(x \in V\)</span>.
+First prove that <span class="arithmatex">\(T\)</span> is linear.
+Then show that <span class="arithmatex">\(T^{*}\)</span> exists, and find an explicit expression for it.</p>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">Definition 29.21 : Extended Definition for Adjoint of a Linear Transformation</p>
+<p>Let <span class="arithmatex">\(T: V \rightarrow W\)</span> be a linear transformation, where <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> are finite-dimensional inner product spaces with inner products <span class="arithmatex">\(\langle\cdot, \cdot\rangle_{1}\)</span> and <span class="arithmatex">\(\langle\cdot, \cdot\rangle_{2}\)</span>, respectively.
+A function <span class="arithmatex">\(T^{*}: W \rightarrow V\)</span> is called an adjoint of <span class="arithmatex">\(T\)</span> if <span class="arithmatex">\(\langle T(x), y\rangle_{2}=\left\langle x, T^{*}(y)\right\rangle_{1}\)</span> for all <span class="arithmatex">\(x \in V\)</span> and <span class="arithmatex">\(y \in W\)</span>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 29.15</p>
+<p>Let <span class="arithmatex">\(T: V \rightarrow W\)</span> be a linear transformation, where <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> are finite-dimensional inner product spaces with inner products <span class="arithmatex">\(\langle\cdot, \cdot\rangle_{1}\)</span> and <span class="arithmatex">\(\langle\cdot, \cdot\rangle_{2}\)</span>, respectively.
+Prove the following results.</p>
+<ul>
+<li>(a) There is a unique adjoint <span class="arithmatex">\(T^{*}\)</span> of <span class="arithmatex">\(T\)</span>, and <span class="arithmatex">\(T^{*}\)</span> is linear.</li>
+<li>(b) If <span class="arithmatex">\(\beta\)</span> and <span class="arithmatex">\(\gamma\)</span> are orthonormal bases for <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span>, respectively, then <span class="arithmatex">\(\left[T^{*}\right]_{\gamma}^{\beta}=\left([T]_{\beta}^{\gamma}\right)^{*}\)</span>.</li>
+<li>(c) <span class="arithmatex">\(\operatorname{rank}\left(T^{*}\right)=\operatorname{rank}(T)\)</span>.</li>
+<li>(d) <span class="arithmatex">\(\left\langle T^{*}(x), y\right\rangle_{1}=\langle x, T(y)\rangle_{2}\)</span> for all <span class="arithmatex">\(x \in W\)</span> and <span class="arithmatex">\(y \in V\)</span>.</li>
+<li>(e) For all <span class="arithmatex">\(x \in V\)</span>, <span class="arithmatex">\(T^{*} T(x)=0\)</span> if and only if <span class="arithmatex">\(T(x)=0\)</span>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 29.16</p>
+<p>State and prove a result that extends the first four parts of <strong>Theorem 29.9</strong> using <strong>Definition 29.21</strong>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 29.17</p>
+<p>Let <span class="arithmatex">\(T: V \rightarrow W\)</span> be a linear transformation, where <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> are finite-dimensional inner product spaces.
+Prove that <span class="arithmatex">\(\left(R\left(T^{*}\right)\right)^{\perp}=N(T)\)</span>, using <strong>Definition 29.21</strong>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 29.18</p>
+<p><span class="arithmatex">\({ }^{\dagger}\)</span> Let <span class="arithmatex">\(A\)</span> be an <span class="arithmatex">\(n \times n\)</span> matrix.
+Prove that <span class="arithmatex">\(\operatorname{det}\left(A^{*}\right)=\overline{\operatorname{det}(A)}\)</span>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 29.19</p>
+<p>Suppose that <span class="arithmatex">\(A\)</span> is an <span class="arithmatex">\(m \times n\)</span> matrix in which no two columns are identical.
+Prove that <span class="arithmatex">\(A^{*} A\)</span> is a diagonal matrix if and only if every pair of columns of <span class="arithmatex">\(A\)</span> is orthogonal.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 29.23</p>
+<p>Consider the problem of finding the least squares line <span class="arithmatex">\(y=c t+d\)</span> corresponding to the <span class="arithmatex">\(m\)</span> observations <span class="arithmatex">\(\left(t_{1}, y_{1}\right),\left(t_{2}, y_{2}\right), \ldots,\left(t_{m}, y_{m}\right)\)</span>.</p>
+<ul>
+<li>
+<p>(a) Show that the equation <span class="arithmatex">\(\left(A^{*} A\right) x_{0}=A^{*} y\)</span> of <strong>Theorem 29.15</strong> takes the form of the normal equations:</p>
+<div class="arithmatex">\[
+\left(\sum_{i=1}^{m} t_{i}^{2}\right) c+\left(\sum_{i=1}^{m} t_{i}\right) d=\sum_{i=1}^{m} t_{i} y_{i}
+\]</div>
+<p>and</p>
+<div class="arithmatex">\[
+\left(\sum_{i=1}^{m} t_{i}\right) c+m d=\sum_{i=1}^{m} y_{i} .
+\]</div>
+<p>These equations may also be obtained from the error <span class="arithmatex">\(E\)</span> by setting the partial derivatives of <span class="arithmatex">\(E\)</span> with respect to both <span class="arithmatex">\(c\)</span> and <span class="arithmatex">\(d\)</span> equal to zero.</p>
+</li>
+<li>
+<p>(b) Use the second normal equation of (a) to show that the least squares line must pass through the center of mass, <span class="arithmatex">\((\bar{t}, \bar{y})\)</span>, where</p>
+<div class="arithmatex">\[
+\bar{t}=\frac{1}{m} \sum_{i=1}^{m} t_{i} \quad \text { and } \quad \bar{y}=\frac{1}{m} \sum_{i=1}^{m} y_{i} .
+\]</div>
+</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 29.24</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(\left\{e_{1}, e_{2}, \ldots\right\}\)</span> be defined as in <strong>Exercise 28.23</strong>.
+Define <span class="arithmatex">\(T: V \rightarrow V\)</span> by</p>
+<div class="arithmatex">\[
+T(\sigma)(k)=\sum_{i=k}^{\infty} \sigma(i) \quad \text { for every positive integer } k .
+\]</div>
+<p>Notice that the infinite series in the definition of <span class="arithmatex">\(T\)</span> converges because <span class="arithmatex">\(\sigma(i) \neq 0\)</span> for only finitely many <span class="arithmatex">\(i\)</span>.</p>
+<ul>
+<li>(a) Prove that <span class="arithmatex">\(T\)</span> is a linear operator on <span class="arithmatex">\(V\)</span>.</li>
+<li>(b) Prove that for any positive integer <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(T\left(e_{n}\right)=\sum_{i=1}^{n} e_{i}\)</span>.</li>
+<li>(c) Prove that <span class="arithmatex">\(T\)</span> has no adjoint.
+    Hint: By way of contradiction, suppose that <span class="arithmatex">\(T^{*}\)</span> exists.
+    Prove that for any positive integer <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(T^{*}\left(e_{n}\right)(k) \neq 0\)</span> for infinitely many <span class="arithmatex">\(k\)</span>.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/arnold518" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

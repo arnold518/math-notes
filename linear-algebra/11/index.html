@@ -1,0 +1,4457 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../10/">
+      
+      
+        <link rel="next" href="../12/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>11. Invertibility and Isomorphisms - Mathematics Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%206a6%206%200%200%201%206%206c0%202.22-1.21%204.16-3%205.2V19a1%201%200%200%201-1%201h-4a1%201%200%200%201-1-1v-1.8c-1.79-1.04-3-2.98-3-5.2a6%206%200%200%201%206-6m2%2015v1a1%201%200%200%201-1%201h-2a1%201%200%200%201-1-1v-1zm6-10h3v2h-3zM1%2011h3v2H1zM13%201v3h-2V1zM4.92%203.5l2.13%202.14-1.42%201.41L3.5%204.93zm12.03%202.13%202.12-2.13%201.43%201.43-2.13%202.12z%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%200a256%20256%200%201%201%200%20512%20256%20256%200%201%201%200-512m-24%20120v136c0%208%204%2015.5%2010.7%2020l96%2064c11%207.4%2025.9%204.4%2033.3-6.7s4.4-25.9-6.7-33.3L280%20243.2V120c0-13.3-10.7-24-24-24s-24%2010.7-24%2024%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#11-invertibility-and-isomorphisms" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../.." title="Mathematics Notes" class="md-header__button md-logo" aria-label="Mathematics Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mathematics Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              11. Invertibility and Isomorphisms
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="공유" aria-label="공유" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arnold518/math-notes" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    arnold518/math-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Linear Algebra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../abstract-algebra/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Abstract Algebra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../topology/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Topology
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mathematics Notes" class="md-nav__button md-logo" aria-label="Mathematics Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Mathematics Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arnold518/math-notes" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    arnold518/math-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linear Algebra
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linear Algebra
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 1. Vector Spaces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 1. Vector Spaces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Vector Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Subspaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Linear Combinations and Systems of Linear Equations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Linear Dependence and Linear Independence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Bases and Dimension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Maximal Linearly Independent Subsets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 2. Linear Transformations and Matrices
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 2. Linear Transformations and Matrices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Linear Transformations, Null spaces, and Ranges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. The Matrix Representation of a Linear Transformation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Composition of Linear Transformations and Matrix Multiplication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Invertibility and Isomorphisms
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Invertibility and Isomorphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inverse-of-linear-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inverse of Linear Transformation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inverse-of-a-matrix-and-its-analogy-with-the-inverse-of-linear-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inverse of a Matrix and its Analogy with the Inverse of Linear Transformation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isomorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isomorphism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Change of Coordinate Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 3. Elementary Matrix Operations and Systems of Linear Equations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 3. Elementary Matrix Operations and Systems of Linear Equations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Elementary Matrix Operations and Elementary Matrices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. The Rank of a Matrix and Matrix Inverses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Systems of Linear Equations - Theoretical Aspects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Systems of Linear Equations - Computational Aspects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 4. Determinants
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 4. Determinants
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Determinants of Order 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Determinants of Order n
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Properties of Determinants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 5. Diagonalization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 5. Diagonalization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Eigenvalues and Eigenvectors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Diagonalizability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Invariant Subspaces and the Cayley-Hamliton Theorem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 6. Inner Product Spaces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 6. Inner Product Spaces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Inner Products and Norms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. The Gram-Schmidt Orthogonalization Process and Orthogonal Complements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. The Adjoint of a Linear Operator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. Normal and Self-Adjoint Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. Unitary and Orthogonal Operators and Their Matrices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. Orthogonal Projections and the Spectral Theorem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. The Singular Value Decomposition and the PseudoInverse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../abstract-algebra/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abstract Algebra
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Abstract Algebra
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0. Sets and Relations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 1. Groups and SubGroups
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 1. Groups and SubGroups
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/1.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction and Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Binary Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Isomorphic Binary Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Subgroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Cyclic Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Generating Sets and Cayley Digraphs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 2. Permutations, Cosets, and Direct Products
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 2. Permutations, Cosets, and Direct Products
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/8.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Groups of Permutations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/9.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Orbits, Cycles, and the Alternating Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/10.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Cosets and the Theorem of Lagrange
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/11.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Direct Products and Finitely Generated Abelian Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/12.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Plane Isometries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 3. Homomorphisms and Factor Groups
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 3. Homomorphisms and Factor Groups
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/13.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Homomorphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/14.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Factor Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/15.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Factor-Group Computations and Simple Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Group Action on a Set
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/17.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Applications of G-Sets to Counting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 4. Rings and Fields
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 4. Rings and Fields
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/18.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Rings and Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/19.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Integral Domains
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/20.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Fermat's and Euler's Theorem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/21.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Field of Quotients of an Integral Domain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/22.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Rings of Polynomials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/23.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Factorization of Polynomials over a Field
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/24.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Noncommutative Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/25.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Ordered Rings and Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../topology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 1. Set Theory and Logic
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 1. Set Theory and Logic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Fundamental Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Relations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. The Integers and the Real Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Cartesian Products
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Finite Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 2. Topological Spaces and Continuous Functions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 2. Topological Spaces and Continuous Functions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Topological Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Basis for a Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. The Order Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. The Product Topology on X ⨯ Y
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. The Subspace Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Closed Sets and Limit Points
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Continuous Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. The Product Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Metric Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Metric Topology (continued)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. The Quotient Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 3. Connectedness and Compactness
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 3. Connectedness and Compactness
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Connected Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Connected Subspaces of the Real Line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Components and Local Connectedness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Compact Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/27/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Compact Subspaces of the Real Line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. Limit Point Compactness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. Local Compactness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inverse-of-linear-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inverse of Linear Transformation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inverse-of-a-matrix-and-its-analogy-with-the-inverse-of-linear-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inverse of a Matrix and its Analogy with the Inverse of Linear Transformation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isomorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isomorphism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="11-invertibility-and-isomorphisms">§ 11. Invertibility and Isomorphisms<a class="headerlink" href="#11-invertibility-and-isomorphisms" title="Permanent link">&para;</a></h1>
+<h2 id="inverse-of-linear-transformation">Inverse of Linear Transformation<a class="headerlink" href="#inverse-of-linear-transformation" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">Definition 11.1 : Inverse of a Linear Transformation</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be vector spaces, and let <span class="arithmatex">\(T: V \rightarrow W\)</span> be linear.
+A function <span class="arithmatex">\(U: W \rightarrow V\)</span> is said to be an <strong>inverse</strong> of <span class="arithmatex">\(T\)</span> if <span class="arithmatex">\(TU=I_{W}\)</span> and <span class="arithmatex">\(UT=I_{V}\)</span>.
+If <span class="arithmatex">\(T\)</span> has an inverse, then <span class="arithmatex">\(T\)</span> is said to be <strong>invertible</strong>.</p>
+<p>If <span class="arithmatex">\(T\)</span> is invertible, then the inverse of <span class="arithmatex">\(T\)</span> is unique and is denoted by <span class="arithmatex">\(T^{-1}\)</span>.</p>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 11.2 : Properties of invertible transformations</p>
+<p>The following facts hold for invertible functions <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(U\)</span>.</p>
+<ul>
+<li><span class="arithmatex">\((TU)^{-1}=U^{-1} T^{-1}\)</span>.</li>
+<li><span class="arithmatex">\(\left(T^{-1}\right)^{-1}=T\)</span>; in particular, <span class="arithmatex">\(T^{-1}\)</span> is invertible.</li>
+</ul>
+<p>We often use the fact that a function is invertible if and only if it is both one-to-one and onto.
+We can therefore restate <strong>Theorem 8.15</strong> as follows.</p>
+<ul>
+<li>Let <span class="arithmatex">\(T: V \rightarrow W\)</span> be a linear transformation, where <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> are finite-dimensional spaces of equal dimension.
+    Then <span class="arithmatex">\(T\)</span> is invertible if and only if <span class="arithmatex">\(\operatorname{rank}(T)=\operatorname{dim}(V)\)</span>.</li>
+</ul>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 11.3 : Inverse of an invertible linear transformation is linear.</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be vector spaces, and let <span class="arithmatex">\(T: V \rightarrow W\)</span> be linear and invertible.
+Then <span class="arithmatex">\(T^{-1}: W \rightarrow V\)</span> is linear.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Let <span class="arithmatex">\(y_{1}, y_{2} \in W\)</span> and <span class="arithmatex">\(c \in F\)</span>.
+Since <span class="arithmatex">\(T\)</span> is onto and one-to-one, there exist unique vectors <span class="arithmatex">\(x_{1}\)</span> and <span class="arithmatex">\(x_{2}\)</span> such that <span class="arithmatex">\(T\left(x_{1}\right)=y_{1}\)</span> and <span class="arithmatex">\(T\left(x_{2}\right)=y_{2}\)</span>.
+Thus <span class="arithmatex">\(x_{1}=T^{-1}\left(y_{1}\right)\)</span> and <span class="arithmatex">\(x_{2}=T^{-1}\left(y_{2}\right)\)</span>; so</p>
+<div class="arithmatex">\[
+\begin{aligned}
+T^{-1}\left(c y_{1}+y_{2}\right) &amp; =T^{-1}\left[c T\left(x_{1}\right)+T\left(x_{2}\right)\right]=T^{-1}\left[T\left(c x_{1}+x_{2}\right)\right] \\
+&amp; =c x_{1}+x_{2}=c T^{-1}\left(y_{1}\right)+T^{-1}\left(y_{2}\right) .
+\end{aligned}
+\]</div>
+</div>
+</div>
+<h2 id="inverse-of-a-matrix-and-its-analogy-with-the-inverse-of-linear-transformation">Inverse of a Matrix and its Analogy with the Inverse of Linear Transformation<a class="headerlink" href="#inverse-of-a-matrix-and-its-analogy-with-the-inverse-of-linear-transformation" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">Definition 11.4 : Invertible Matrix, Inverse of a Matrix</p>
+<p>Let <span class="arithmatex">\(A\)</span> be an <span class="arithmatex">\(n \times n\)</span> matrix.
+Then <span class="arithmatex">\(A\)</span> is <strong>invertible</strong> if there exists an <span class="arithmatex">\(n \times n\)</span> matrix <span class="arithmatex">\(B\)</span> such that <span class="arithmatex">\(AB=BA=I\)</span>.</p>
+<p>If <span class="arithmatex">\(A\)</span> is invertible, then the matrix <span class="arithmatex">\(B\)</span> such that <span class="arithmatex">\(A B=B A=I\)</span> is unique.
+(If <span class="arithmatex">\(C\)</span> were another such matrix, then <span class="arithmatex">\(C=C I=C(A B)=(C A) B=I B=B\)</span>.)
+The matrix <span class="arithmatex">\(B\)</span> is called the <strong>inverse</strong> of <span class="arithmatex">\(A\)</span> and is denoted by <span class="arithmatex">\(A^{-1}\)</span>.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 11.5 : Invertible linear transformations preserve dimension.</p>
+<p>Let <span class="arithmatex">\(T\)</span> be an invertible linear transformation from <span class="arithmatex">\(V\)</span> to <span class="arithmatex">\(W\)</span>.
+Then <span class="arithmatex">\(V\)</span> is finite-dimensional if and only if <span class="arithmatex">\(W\)</span> is finite-dimensional.
+In this case, <span class="arithmatex">\(\operatorname{dim}(V)=\operatorname{dim}(W)\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Suppose that <span class="arithmatex">\(V\)</span> is finite-dimensional.
+Let <span class="arithmatex">\(\beta=\left\{x_{1}, x_{2}, \ldots, x_{n}\right\}\)</span> be a basis for <span class="arithmatex">\(V\)</span>.
+By <strong>Theorem 8.11</strong>, <span class="arithmatex">\(T(\beta)\)</span> spans <span class="arithmatex">\(R(T)=W\)</span>; hence <span class="arithmatex">\(W\)</span> is finite-dimensional by <strong>Theorem 6.3</strong>.
+Conversely, if <span class="arithmatex">\(W\)</span> is finite-dimensional, then so is <span class="arithmatex">\(V\)</span> by a similar argument, using <span class="arithmatex">\(T^{-1}\)</span>.</p>
+<p>Now suppose that <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> are finite-dimensional.
+Because <span class="arithmatex">\(T\)</span> is one-to-one and onto, we have</p>
+<div class="arithmatex">\[
+\operatorname{nullity}(T)=0 \quad \text { and } \quad \operatorname{rank}(T)=\operatorname{dim}(R(T))=\operatorname{dim}(W).
+\]</div>
+<p>So by <strong>Theorem 8.13</strong>, it follows that <span class="arithmatex">\(\operatorname{dim}(V)=\operatorname{dim}(W)\)</span>.</p>
+</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 11.6 : Invertibility corresponds to invertibility of the matrix representation.</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be finite-dimensional vector spaces with ordered bases <span class="arithmatex">\(\beta\)</span> and <span class="arithmatex">\(\gamma\)</span>, respectively.
+Let <span class="arithmatex">\(T: V \rightarrow W\)</span> be linear.
+Then <span class="arithmatex">\(T\)</span> is invertible if and only if <span class="arithmatex">\([T]_{\beta}^{\gamma}\)</span> is invertible.
+Furthermore,</p>
+<div class="arithmatex">\[
+\left[T^{-1}\right]_{\gamma}^{\beta}=\left([T]_{\beta}^{\gamma}\right)^{-1}.
+\]</div>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Suppose that <span class="arithmatex">\(T\)</span> is invertible.
+By <strong>Theorem 11.5</strong>, we have <span class="arithmatex">\(\operatorname{dim}(V)=\operatorname{dim}(W)\)</span>.
+Let <span class="arithmatex">\(n=\operatorname{dim}(V)\)</span>.
+So <span class="arithmatex">\([T]_{\beta}^{\gamma}\)</span> is an <span class="arithmatex">\(n \times n\)</span> matrix.
+Now <span class="arithmatex">\(T^{-1}: W \rightarrow V\)</span> satisfies <span class="arithmatex">\(TT^{-1}=I_{W}\)</span> and <span class="arithmatex">\(T^{-1}T=I_{V}\)</span>.
+Thus</p>
+<div class="arithmatex">\[
+I_{n}=[I_{V}]_{\beta}=\left[T^{-1} T\right]_{\beta}=\left[T^{-1}\right]_{\gamma}^{\beta}[T]_{\beta}^{\gamma} .
+\]</div>
+<p>Similarly, <span class="arithmatex">\([T]_{\beta}^{\gamma}\left[T^{-1}\right]_{\gamma}^{\beta}=I_{n}\)</span>.
+So <span class="arithmatex">\([T]_{\beta}^{\gamma}\)</span> is invertible and <span class="arithmatex">\(\left([T]_{\beta}^{\gamma}\right)^{-1}=\left[T^{-1}\right]_{\gamma}^{\beta}\)</span>.</p>
+<p>Now suppose that <span class="arithmatex">\(A=[T]_{\beta}^{\gamma}\)</span> is invertible.
+Then there exists an <span class="arithmatex">\(n \times n\)</span> matrix <span class="arithmatex">\(B\)</span> such that <span class="arithmatex">\(AB=BA=I_{n}\)</span>.
+By <strong>Theorem 8.17</strong>, there exists <span class="arithmatex">\(U \in \mathcal{L}(W, V)\)</span> such that</p>
+<div class="arithmatex">\[
+U\left(w_{j}\right)=\sum_{i=1}^{n} B_{i j} v_{i} \quad \text { for } j=1,2, \ldots, n
+\]</div>
+<p>where <span class="arithmatex">\(\gamma=\left\{w_{1}, w_{2}, \ldots, w_{n}\right\}\)</span> and <span class="arithmatex">\(\beta=\left\{v_{1}, v_{2}, \ldots, v_{n}\right\}\)</span>.
+It follows that <span class="arithmatex">\([U]_{\gamma}^{\beta}=B\)</span>.
+To show that <span class="arithmatex">\(U=T^{-1}\)</span>, observe that</p>
+<div class="arithmatex">\[
+[UT]_{\beta}=[U]_{\gamma}^{\beta}[T]_{\beta}^{\gamma}=B A=I_{n}=[I_{V}]_{\beta}
+\]</div>
+<p>by <strong>Theorem 10.6</strong>.
+So <span class="arithmatex">\(UT=I_{V}\)</span>, and similarly, <span class="arithmatex">\(TU=I_{W}\)</span>.</p>
+</div>
+</div>
+<div class="admonition corollary">
+<p class="admonition-title">Corollary 11.7 : Invertibility in <span class="arithmatex">\(\mathcal{L}(V)\)</span> corresponds to invertibility of the representing matrix.</p>
+<p>Let <span class="arithmatex">\(V\)</span> be a finite-dimensional vector space with an ordered basis <span class="arithmatex">\(\beta\)</span>, and let <span class="arithmatex">\(T: V \rightarrow V\)</span> be linear.
+Then <span class="arithmatex">\(T\)</span> is invertible if and only if <span class="arithmatex">\([T]_{\beta}\)</span> is invertible.
+Furthermore,</p>
+<div class="arithmatex">\[
+\left[T^{-1}\right]_{\beta}=\left([T]_{\beta}\right)^{-1}.
+\]</div>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Apply <strong>Theorem 11.6</strong> with <span class="arithmatex">\(W=V\)</span> and <span class="arithmatex">\(\gamma=\beta\)</span>.</p>
+</div>
+</div>
+<div class="admonition corollary">
+<p class="admonition-title">Corollary 11.8 : Invertibility of a matrix corresponds to invertibility of <span class="arithmatex">\(L_A\)</span>.</p>
+<p>Let <span class="arithmatex">\(A\)</span> be an <span class="arithmatex">\(n \times n\)</span> matrix.
+Then <span class="arithmatex">\(A\)</span> is invertible if and only if <span class="arithmatex">\(L_{A}\)</span> is invertible.
+Furthermore, </p>
+<div class="arithmatex">\[
+\left(L_{A}\right)^{-1}=L_{A^{-1}}.
+\]</div>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Let <span class="arithmatex">\(\beta\)</span> be the standard ordered basis for <span class="arithmatex">\(F^{n}\)</span>.
+By <strong>Theorem 10.16</strong>(a), <span class="arithmatex">\([L_{A}]_{\beta}=A\)</span>.
+Applying <strong>Corollary 11.7</strong> to the linear transformation <span class="arithmatex">\(L_{A}: F^{n} \rightarrow F^{n}\)</span>, we see that <span class="arithmatex">\(L_{A}\)</span> is invertible if and only if <span class="arithmatex">\(A\)</span> is invertible.</p>
+<p>If <span class="arithmatex">\(A\)</span> is invertible, then by <strong>Corollary 11.7</strong>,</p>
+<div class="arithmatex">\[
+\left[\left(L_{A}\right)^{-1}\right]_{\beta}=\left([L_{A}]_{\beta}\right)^{-1}=A^{-1} .
+\]</div>
+<p>By <strong>Theorem 10.16</strong>(d), <span class="arithmatex">\(\left(L_{A}\right)^{-1}=L_{C}\)</span>, where <span class="arithmatex">\(C=\left[\left(L_{A}\right)^{-1}\right]_{\beta}\)</span>.
+Hence <span class="arithmatex">\(\left(L_{A}\right)^{-1}=L_{A^{-1}}\)</span>.</p>
+</div>
+</div>
+<h2 id="isomorphism">Isomorphism<a class="headerlink" href="#isomorphism" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">Definition 11.9 : Isomorphism</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be vector spaces.
+We say that <span class="arithmatex">\(V\)</span> is <strong>isomorphic to</strong> <span class="arithmatex">\(W\)</span> if there exists a linear transformation <span class="arithmatex">\(T: V \rightarrow W\)</span> that is invertible.
+Such a linear transformation is called an <strong>isomorphism</strong> from <span class="arithmatex">\(V\)</span> onto <span class="arithmatex">\(W\)</span>.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 11.10 : Isomorphism is an equivalence relation.</p>
+<p>The relation "is isomorphic to" is an equivalence relation on the class of vector spaces over a fixed field.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Let <span class="arithmatex">\(F\)</span> be a field, and consider vector spaces over <span class="arithmatex">\(F\)</span>.</p>
+<ul>
+<li>
+<p>Reflexive.<br />
+    For any vector space <span class="arithmatex">\(V\)</span> over <span class="arithmatex">\(F\)</span>, the identity transformation <span class="arithmatex">\(I_{V}: V \rightarrow V\)</span> is linear and invertible (with inverse <span class="arithmatex">\(I_{V}\)</span>).
+    Hence <span class="arithmatex">\(V\)</span> is isomorphic to <span class="arithmatex">\(V\)</span>.</p>
+</li>
+<li>
+<p>Symmetric.<br />
+    Suppose that <span class="arithmatex">\(V\)</span> is isomorphic to <span class="arithmatex">\(W\)</span>.
+    Then there exists a linear invertible transformation <span class="arithmatex">\(T: V \rightarrow W\)</span>.
+    By <strong>Theorem 11.3</strong>, <span class="arithmatex">\(T^{-1}: W \rightarrow V\)</span> is linear, and clearly <span class="arithmatex">\(T^{-1}\)</span> is invertible.
+    Hence <span class="arithmatex">\(W\)</span> is isomorphic to <span class="arithmatex">\(V\)</span>.</p>
+</li>
+<li>
+<p>Transitive.<br />
+    Suppose that <span class="arithmatex">\(V\)</span> is isomorphic to <span class="arithmatex">\(W\)</span> and that <span class="arithmatex">\(W\)</span> is isomorphic to <span class="arithmatex">\(Z\)</span>.
+    Let <span class="arithmatex">\(T: V \rightarrow W\)</span> and <span class="arithmatex">\(U: W \rightarrow Z\)</span> be isomorphisms.
+    By <strong>Theorem 10.1</strong>, <span class="arithmatex">\(UT: V \rightarrow Z\)</span> is linear.
+    Also, <span class="arithmatex">\(UT\)</span> is invertible with inverse <span class="arithmatex">\(T^{-1}U^{-1}\)</span> by <strong>Concept 11.2</strong>.
+    Hence <span class="arithmatex">\(V\)</span> is isomorphic to <span class="arithmatex">\(Z\)</span>.</p>
+</li>
+</ul>
+</div>
+<p>So we need only say that <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> are isomorphic.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 11.11 : Finite-dimensional vector spaces are isomorphic if and only if they have the same dimension.</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be finite-dimensional vector spaces (over the same field).
+Then <span class="arithmatex">\(V\)</span> is isomorphic to <span class="arithmatex">\(W\)</span> if and only if <span class="arithmatex">\(\operatorname{dim}(V)=\operatorname{dim}(W)\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Suppose that <span class="arithmatex">\(V\)</span> is isomorphic to <span class="arithmatex">\(W\)</span> and that <span class="arithmatex">\(T: V \rightarrow W\)</span> is an isomorphism from <span class="arithmatex">\(V\)</span> to <span class="arithmatex">\(W\)</span>.
+By <strong>Theorem 11.5</strong>, we have that <span class="arithmatex">\(\operatorname{dim}(V)=\operatorname{dim}(W)\)</span>.</p>
+<p>Now suppose that <span class="arithmatex">\(\operatorname{dim}(V)=\operatorname{dim}(W)\)</span>, and let <span class="arithmatex">\(\beta=\left\{v_{1}, v_{2}, \ldots, v_{n}\right\}\)</span> and <span class="arithmatex">\(\gamma=\left\{w_{1}, w_{2}, \ldots, w_{n}\right\}\)</span> be bases for <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span>, respectively.
+By <strong>Theorem 8.17</strong>, there exists <span class="arithmatex">\(T: V \rightarrow W\)</span> such that <span class="arithmatex">\(T\)</span> is linear and <span class="arithmatex">\(T\left(v_{i}\right)=w_{i}\)</span> for <span class="arithmatex">\(i=1,2, \ldots, n\)</span>.
+Using <strong>Theorem 8.11</strong>, we have</p>
+<div class="arithmatex">\[
+R(T)=\operatorname{span}(T(\beta))=\operatorname{span}(\gamma)=W .
+\]</div>
+<p>So <span class="arithmatex">\(T\)</span> is onto.
+From <strong>Theorem 8.15</strong>, we have that <span class="arithmatex">\(T\)</span> is also one-to-one.
+Hence <span class="arithmatex">\(T\)</span> is an isomorphism.</p>
+</div>
+</div>
+<div class="admonition corollary">
+<p class="admonition-title">Corollary 11.12 : An <span class="arithmatex">\(n\)</span>-dimensional vector space is isomorphic to <span class="arithmatex">\(F^n\)</span>.</p>
+<p>Let <span class="arithmatex">\(V\)</span> be a vector space over <span class="arithmatex">\(F\)</span>.
+Then <span class="arithmatex">\(V\)</span> is isomorphic to <span class="arithmatex">\(F^{n}\)</span> if and only if <span class="arithmatex">\(\operatorname{dim}(V)=n\)</span>.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 11.13 : Matrix representation is an isomorphism from <span class="arithmatex">\(\mathcal{L}(V, W)\)</span> to <span class="arithmatex">\(\mathrm{M}_{m \times n}(F)\)</span>.</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be finite-dimensional vector spaces over <span class="arithmatex">\(F\)</span> of dimensions <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(m\)</span>, respectively, and let <span class="arithmatex">\(\beta\)</span> and <span class="arithmatex">\(\gamma\)</span> be ordered bases for <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span>, respectively.
+Then the function <span class="arithmatex">\(\Phi: \mathcal{L}(V, W) \rightarrow \mathrm{M}_{m \times n}(F)\)</span>, defined by <span class="arithmatex">\(\Phi(T)=[T]_{\beta}^{\gamma}\)</span> for <span class="arithmatex">\(T \in \mathcal{L}(V, W)\)</span>, is an isomorphism.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>By <strong>Theorem 9.10</strong>, <span class="arithmatex">\(\Phi\)</span> is linear.
+Hence we must show that <span class="arithmatex">\(\Phi\)</span> is one-to-one and onto.
+This is accomplished if we show that for every <span class="arithmatex">\(m \times n\)</span> matrix <span class="arithmatex">\(A\)</span>, there exists a unique linear transformation <span class="arithmatex">\(T: V \rightarrow W\)</span> such that <span class="arithmatex">\(\Phi(T)=A\)</span>.
+Let <span class="arithmatex">\(\beta=\left\{v_{1}, v_{2}, \ldots, v_{n}\right\}\)</span>, <span class="arithmatex">\(\gamma=\left\{w_{1}, w_{2}, \ldots, w_{m}\right\}\)</span>, and let <span class="arithmatex">\(A\)</span> be a given <span class="arithmatex">\(m \times n\)</span> matrix.
+By <strong>Theorem 8.17</strong>, there exists a unique linear transformation <span class="arithmatex">\(T: V \rightarrow W\)</span> such that</p>
+<div class="arithmatex">\[
+T\left(v_{j}\right)=\sum_{i=1}^{m} A_{i j} w_{i} \quad \text { for } 1 \leq j \leq n
+\]</div>
+<p>But this means that <span class="arithmatex">\([T]_{\beta}^{\gamma}=A\)</span>, or <span class="arithmatex">\(\Phi(T)=A\)</span>.
+Thus <span class="arithmatex">\(\Phi\)</span> is an isomorphism.</p>
+</div>
+</div>
+<div class="admonition corollary">
+<p class="admonition-title">Corollary 11.14 : Dimension of <span class="arithmatex">\(\mathcal{L}(V, W)\)</span></p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be finite-dimensional vector spaces of dimensions <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(m\)</span>, respectively.
+Then <span class="arithmatex">\(\mathcal{L}(V, W)\)</span> is finite-dimensional of dimension <span class="arithmatex">\(mn\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>The proof follows from <strong>Theorem 11.13</strong> and <strong>Theorem 11.11</strong> and the fact that <span class="arithmatex">\(\operatorname{dim}\left(\mathrm{M}_{m \times n}(F)\right)=mn\)</span>.</p>
+</div>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">Definition 11.15 : Standard Representation</p>
+<p>Let <span class="arithmatex">\(\beta\)</span> be an ordered basis for an <span class="arithmatex">\(n\)</span>-dimensional vector space <span class="arithmatex">\(V\)</span> over the field <span class="arithmatex">\(F\)</span>.
+The <strong>standard representation of <span class="arithmatex">\(V\)</span> with respect to <span class="arithmatex">\(\beta\)</span></strong> is the function <span class="arithmatex">\(\phi_{\beta}: V \rightarrow F^{n}\)</span> defined by <span class="arithmatex">\(\phi_{\beta}(x)=[x]_{\beta}\)</span> for each <span class="arithmatex">\(x \in V\)</span>.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 11.16 : Standard representation is an isomorphism.</p>
+<p>For any finite-dimensional vector space <span class="arithmatex">\(V\)</span> with ordered basis <span class="arithmatex">\(\beta\)</span>, <span class="arithmatex">\(\phi_{\beta}\)</span> is an isomorphism.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Let <span class="arithmatex">\(\beta=\left\{v_{1}, v_{2}, \ldots, v_{n}\right\}\)</span>.
+For any <span class="arithmatex">\(x, y \in V\)</span> and <span class="arithmatex">\(a \in F\)</span>, we have</p>
+<div class="arithmatex">\[
+[x+y]_{\beta}=[x]_{\beta}+[y]_{\beta} \quad \text { and } \quad [a x]_{\beta}=a[x]_{\beta},
+\]</div>
+<p>hence <span class="arithmatex">\(\phi_{\beta}\)</span> is linear.</p>
+<p>Let <span class="arithmatex">\(\left(\begin{array}{c} a_{1} \\ a_{2} \\ \vdots \\ a_{n} \end{array}\right) \in F^{n}\)</span>.
+Set <span class="arithmatex">\(x=\sum_{i=1}^{n} a_{i} v_{i}\)</span>.
+Then <span class="arithmatex">\([x]_{\beta}=\left(\begin{array}{c} a_{1} \\ a_{2} \\ \vdots \\ a_{n} \end{array}\right)\)</span>, so <span class="arithmatex">\(\phi_{\beta}\)</span> is onto.</p>
+<p>If <span class="arithmatex">\(\phi_{\beta}(x)=\phi_{\beta}(y)\)</span>, then <span class="arithmatex">\([x]_{\beta}=[y]_{\beta}\)</span>, so <span class="arithmatex">\(x=y\)</span> by uniqueness of coordinates with respect to the basis <span class="arithmatex">\(\beta\)</span>.
+Therefore <span class="arithmatex">\(\phi_{\beta}\)</span> is one-to-one, and hence an isomorphism.</p>
+</div>
+</div>
+<div class="admonition corollary">
+<p class="admonition-title">Corollary 11.17 : An <span class="arithmatex">\(n\)</span>-dimensional vector space is isomorphic to <span class="arithmatex">\(F^n\)</span>. (revisited)</p>
+<p>Let <span class="arithmatex">\(V\)</span> be an <span class="arithmatex">\(n\)</span>-dimensional vector space over <span class="arithmatex">\(F\)</span>.
+Then <span class="arithmatex">\(V\)</span> is isomorphic to <span class="arithmatex">\(F^{n}\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Let <span class="arithmatex">\(\beta\)</span> be an ordered basis for <span class="arithmatex">\(V\)</span>.
+By <strong>Theorem 11.16</strong>, <span class="arithmatex">\(\phi_{\beta}: V \rightarrow F^{n}\)</span> is an isomorphism.</p>
+</div>
+<p>This provides us with an alternate proof of <strong>Corollary 11.12</strong>.</p>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 11.18 : Relationship between <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(L_{[T]_{\beta}^{\gamma}}\)</span></p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be vector spaces of dimension <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(m\)</span>, respectively, and let <span class="arithmatex">\(T: V \rightarrow W\)</span> be a linear transformation.
+Define <span class="arithmatex">\(A=[T]_{\beta}^{\gamma}\)</span>, where <span class="arithmatex">\(\beta\)</span> and <span class="arithmatex">\(\gamma\)</span> are arbitrary ordered bases of <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span>, respectively.
+We are now able to use <span class="arithmatex">\(\phi_{\beta}\)</span> and <span class="arithmatex">\(\phi_{\gamma}\)</span> to study the relationship between the linear transformations <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(L_{A}: F^{n} \rightarrow F^{m}\)</span>.</p>
+<figure>
+<p><img alt="" class="center" src="../assets/11.1.jpg" style="width:80%;" /></p>
+<figcaption>
+<p>Figure 11.1.</p>
+</figcaption>
+</figure>
+<p>Let us first consider Figure 11.1.
+Notice that there are two composites of linear transformations that map <span class="arithmatex">\(V\)</span> into <span class="arithmatex">\(F^{m}\)</span>:</p>
+<ol>
+<li>Map <span class="arithmatex">\(V\)</span> into <span class="arithmatex">\(F^{n}\)</span> with <span class="arithmatex">\(\phi_{\beta}\)</span> and follow this transformation with <span class="arithmatex">\(L_{A}\)</span>; this yields the composite <span class="arithmatex">\(L_{A} \phi_{\beta}\)</span>.</li>
+<li>Map <span class="arithmatex">\(V\)</span> into <span class="arithmatex">\(W\)</span> with <span class="arithmatex">\(T\)</span> and follow it by <span class="arithmatex">\(\phi_{\gamma}\)</span> to obtain the composite <span class="arithmatex">\(\phi_{\gamma} T\)</span>.</li>
+</ol>
+<p>These two composites are depicted by the dashed arrows in Figure 11.1.
+By a simple reformulation of <strong>Theorem 10.14</strong>, we may conclude that</p>
+<div class="arithmatex">\[
+L_{A} \phi_{\beta}=\phi_{\gamma} T
+\]</div>
+<p>that is, the diagram "commutes."
+Heuristically, this relationship indicates that after <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> are identified with <span class="arithmatex">\(F^{n}\)</span> and <span class="arithmatex">\(F^{m}\)</span> via <span class="arithmatex">\(\phi_{\beta}\)</span> and <span class="arithmatex">\(\phi_{\gamma}\)</span>, respectively, we may "identify" <span class="arithmatex">\(T\)</span> with <span class="arithmatex">\(L_{A}\)</span>.
+This diagram allows us to transfer operations on abstract vector spaces to ones on <span class="arithmatex">\(F^{n}\)</span> and <span class="arithmatex">\(F^{m}\)</span>.</p>
+</div>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 11.4</p>
+<p>Let <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> be <span class="arithmatex">\(n \times n\)</span> invertible matrices.
+Prove that <span class="arithmatex">\(AB\)</span> is invertible and <span class="arithmatex">\((AB)^{-1}=B^{-1} A^{-1}\)</span>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 11.5</p>
+<p>Let <span class="arithmatex">\(A\)</span> be invertible.
+Prove that <span class="arithmatex">\(A^{t}\)</span> is invertible and <span class="arithmatex">\(\left(A^{t}\right)^{-1}=\left(A^{-1}\right)^{t}\)</span>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 11.9</p>
+<p>Let <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> be <span class="arithmatex">\(n \times n\)</span> matrices such that <span class="arithmatex">\(AB\)</span> is invertible.
+Prove that <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> are invertible.
+Give an example to show that arbitrary matrices <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> need not be invertible if <span class="arithmatex">\(AB\)</span> is invertible.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 11.10</p>
+<p>Let <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> be <span class="arithmatex">\(n \times n\)</span> matrices such that <span class="arithmatex">\(AB=I_{n}\)</span>.</p>
+<ul>
+<li>(a) Use <strong>Exercise 11.9</strong> to conclude that <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> are invertible.</li>
+<li>(b) Prove <span class="arithmatex">\(A=B^{-1}\)</span> (and hence <span class="arithmatex">\(B=A^{-1}\)</span>). (We are, in effect, saying that for square matrices, a "one-sided" inverse is a "two-sided" inverse.)</li>
+<li>(c) State and prove analogous results for linear transformations defined on finite-dimensional vector spaces.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 11.15</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be <span class="arithmatex">\(n\)</span>-dimensional vector spaces, and let <span class="arithmatex">\(T: V \rightarrow W\)</span> be a linear transformation.
+Suppose that <span class="arithmatex">\(\beta\)</span> is a basis for <span class="arithmatex">\(V\)</span>.
+Prove that <span class="arithmatex">\(T\)</span> is an isomorphism if and only if <span class="arithmatex">\(T(\beta)\)</span> is a basis for <span class="arithmatex">\(W\)</span>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 11.17</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be finite-dimensional vector spaces and <span class="arithmatex">\(T: V \rightarrow W\)</span> be an isomorphism.
+Let <span class="arithmatex">\(V_{0}\)</span> be a subspace of <span class="arithmatex">\(V\)</span>.</p>
+<ul>
+<li>(a) Prove that <span class="arithmatex">\(T\left(V_{0}\right)\)</span> is a subspace of <span class="arithmatex">\(W\)</span>.</li>
+<li>(b) Prove that <span class="arithmatex">\(\operatorname{dim}\left(V_{0}\right)=\operatorname{dim}\left(T\left(V_{0}\right)\right)\)</span>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 11.20</p>
+<p>Let <span class="arithmatex">\(T: V \rightarrow W\)</span> be a linear transformation from an <span class="arithmatex">\(n\)</span>-dimensional vector space <span class="arithmatex">\(V\)</span> to an <span class="arithmatex">\(m\)</span>-dimensional vector space <span class="arithmatex">\(W\)</span>.
+Let <span class="arithmatex">\(\beta\)</span> and <span class="arithmatex">\(\gamma\)</span> be ordered bases for <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span>, respectively.
+Prove that <span class="arithmatex">\(\operatorname{rank}(T)=\operatorname{rank}\left(L_{A}\right)\)</span> and that <span class="arithmatex">\(\operatorname{nullity}(T)=\operatorname{nullity}\left(L_{A}\right)\)</span>, where <span class="arithmatex">\(A=[T]_{\beta}^{\gamma}\)</span>.</p>
+<p>Hint: Apply <strong>Exercise 11.17</strong> to <strong>Concept 11.18</strong>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 11.22</p>
+<p>Let <span class="arithmatex">\(c_{0}, c_{1}, \ldots, c_{n}\)</span> be distinct scalars from an infinite field <span class="arithmatex">\(F\)</span>.
+Define <span class="arithmatex">\(T: \mathrm{P}_{n}(F) \rightarrow F^{n+1}\)</span> by <span class="arithmatex">\(T(f)=\left(f\left(c_{0}\right), f\left(c_{1}\right), \ldots, f\left(c_{n}\right)\right)\)</span>.
+Prove that <span class="arithmatex">\(T\)</span> is an isomorphism.</p>
+<p>Hint: Use the Lagrange polynomials associated with <span class="arithmatex">\(c_{0}, c_{1}, \ldots, c_{n}\)</span>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 11.24</p>
+<p>Let <span class="arithmatex">\(T: V \rightarrow Z\)</span> be a linear transformation of a vector space <span class="arithmatex">\(V\)</span> onto a vector space <span class="arithmatex">\(Z\)</span>.
+Define the mapping</p>
+<div class="arithmatex">\[
+\overline{T}: V / N(T) \rightarrow Z \quad \text { by } \quad \overline{T}(v+N(T))=T(v)
+\]</div>
+<p>for any coset <span class="arithmatex">\(v+N(T)\)</span> in <span class="arithmatex">\(V / N(T)\)</span>.</p>
+<ul>
+<li>(a) Prove that <span class="arithmatex">\(\overline{T}\)</span> is well-defined; that is, prove that if <span class="arithmatex">\(v+N(T)=v^{\prime}+N(T)\)</span>, then <span class="arithmatex">\(T(v)=T\left(v^{\prime}\right)\)</span>.</li>
+<li>(b) Prove that <span class="arithmatex">\(\overline{T}\)</span> is linear.</li>
+<li>(c) Prove that <span class="arithmatex">\(\overline{T}\)</span> is an isomorphism.</li>
+<li>(d) Prove that the diagram shown below commutes; that is, prove that <span class="arithmatex">\(T=\overline{T} \eta\)</span>.</li>
+</ul>
+<figure>
+<p><img alt="" class="center" src="../assets/11.2.jpg" style="width:30%;" /></p>
+<figcaption>
+<p>Figure 11.2.</p>
+</figcaption>
+</figure>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 11.25</p>
+<p>Let <span class="arithmatex">\(V\)</span> be a nonzero vector space over a field <span class="arithmatex">\(F\)</span>, and suppose that <span class="arithmatex">\(S\)</span> is a basis for <span class="arithmatex">\(V\)</span>.
+(By <strong>Corollary 7.10</strong>, every vector space has a basis.)
+Let <span class="arithmatex">\(\mathcal{C}(S, F)\)</span> denote the vector space of all functions <span class="arithmatex">\(f \in \mathcal{F}(S, F)\)</span> such that <span class="arithmatex">\(f(s)=0\)</span> for all but a finite number of vectors in <span class="arithmatex">\(S\)</span>. 
+(See <strong>Exercise 3.14</strong>)
+Let <span class="arithmatex">\(\Psi: \mathcal{C}(S, F) \rightarrow V\)</span> be defined by <span class="arithmatex">\(\Psi(f)=0\)</span> if <span class="arithmatex">\(f\)</span> is the zero function, and</p>
+<div class="arithmatex">\[
+\Psi(f)=\sum_{s \in S, f(s) \neq 0} f(s) s
+\]</div>
+<p>otherwise.
+Prove that <span class="arithmatex">\(\Psi\)</span> is an isomorphism.
+Thus every nonzero vector space can be viewed as a space of functions.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/arnold518" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

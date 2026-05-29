@@ -1,0 +1,4654 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../32/">
+      
+      
+        <link rel="next" href="../../abstract-algebra/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>33. The Singular Value Decomposition and the PseudoInverse - Mathematics Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%206a6%206%200%200%201%206%206c0%202.22-1.21%204.16-3%205.2V19a1%201%200%200%201-1%201h-4a1%201%200%200%201-1-1v-1.8c-1.79-1.04-3-2.98-3-5.2a6%206%200%200%201%206-6m2%2015v1a1%201%200%200%201-1%201h-2a1%201%200%200%201-1-1v-1zm6-10h3v2h-3zM1%2011h3v2H1zM13%201v3h-2V1zM4.92%203.5l2.13%202.14-1.42%201.41L3.5%204.93zm12.03%202.13%202.12-2.13%201.43%201.43-2.13%202.12z%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%200a256%20256%200%201%201%200%20512%20256%20256%200%201%201%200-512m-24%20120v136c0%208%204%2015.5%2010.7%2020l96%2064c11%207.4%2025.9%204.4%2033.3-6.7s4.4-25.9-6.7-33.3L280%20243.2V120c0-13.3-10.7-24-24-24s-24%2010.7-24%2024%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#33-the-singular-value-decomposition-and-the-pseudoinverse" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../.." title="Mathematics Notes" class="md-header__button md-logo" aria-label="Mathematics Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mathematics Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              33. The Singular Value Decomposition and the PseudoInverse
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="공유" aria-label="공유" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arnold518/math-notes" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    arnold518/math-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Linear Algebra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../abstract-algebra/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Abstract Algebra
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../topology/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Topology
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mathematics Notes" class="md-nav__button md-logo" aria-label="Mathematics Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Mathematics Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arnold518/math-notes" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    arnold518/math-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linear Algebra
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linear Algebra
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 1. Vector Spaces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 1. Vector Spaces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Vector Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Subspaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Linear Combinations and Systems of Linear Equations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Linear Dependence and Linear Independence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Bases and Dimension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Maximal Linearly Independent Subsets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 2. Linear Transformations and Matrices
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 2. Linear Transformations and Matrices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Linear Transformations, Null spaces, and Ranges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. The Matrix Representation of a Linear Transformation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Composition of Linear Transformations and Matrix Multiplication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Invertibility and Isomorphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. The Change of Coordinate Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 3. Elementary Matrix Operations and Systems of Linear Equations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 3. Elementary Matrix Operations and Systems of Linear Equations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Elementary Matrix Operations and Elementary Matrices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. The Rank of a Matrix and Matrix Inverses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Systems of Linear Equations - Theoretical Aspects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Systems of Linear Equations - Computational Aspects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 4. Determinants
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 4. Determinants
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Determinants of Order 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Determinants of Order n
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Properties of Determinants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 5. Diagonalization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 5. Diagonalization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Eigenvalues and Eigenvectors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Diagonalizability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Invariant Subspaces and the Cayley-Hamliton Theorem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 6. Inner Product Spaces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 6. Inner Product Spaces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Inner Products and Norms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. The Gram-Schmidt Orthogonalization Process and Orthogonal Complements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. The Adjoint of a Linear Operator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. Normal and Self-Adjoint Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. Unitary and Orthogonal Operators and Their Matrices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. Orthogonal Projections and the Spectral Theorem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. The Singular Value Decomposition and the PseudoInverse
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. The Singular Value Decomposition and the PseudoInverse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-singular-value-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Singular Value Decomposition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-polar-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Polar Decomposition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pseudoinverse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Pseudoinverse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../abstract-algebra/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abstract Algebra
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Abstract Algebra
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0. Sets and Relations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 1. Groups and SubGroups
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 1. Groups and SubGroups
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/1.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction and Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Binary Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Isomorphic Binary Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Subgroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Cyclic Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Generating Sets and Cayley Digraphs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 2. Permutations, Cosets, and Direct Products
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 2. Permutations, Cosets, and Direct Products
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/8.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Groups of Permutations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/9.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Orbits, Cycles, and the Alternating Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/10.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Cosets and the Theorem of Lagrange
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/11.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Direct Products and Finitely Generated Abelian Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/12.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Plane Isometries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 3. Homomorphisms and Factor Groups
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 3. Homomorphisms and Factor Groups
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/13.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Homomorphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/14.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Factor Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/15.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Factor-Group Computations and Simple Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Group Action on a Set
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/17.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Applications of G-Sets to Counting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 4. Rings and Fields
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 4. Rings and Fields
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/18.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Rings and Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/19.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Integral Domains
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/20.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Fermat's and Euler's Theorem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/21.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Field of Quotients of an Integral Domain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/22.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Rings of Polynomials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/23.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Factorization of Polynomials over a Field
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/24.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Noncommutative Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../abstract-algebra/25.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Ordered Rings and Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../topology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 1. Set Theory and Logic
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 1. Set Theory and Logic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Fundamental Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Relations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. The Integers and the Real Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Cartesian Products
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Finite Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 2. Topological Spaces and Continuous Functions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 2. Topological Spaces and Continuous Functions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Topological Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Basis for a Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. The Order Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. The Product Topology on X ⨯ Y
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. The Subspace Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Closed Sets and Limit Points
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Continuous Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. The Product Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Metric Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Metric Topology (continued)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. The Quotient Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch 3. Connectedness and Compactness
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ch 3. Connectedness and Compactness
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Connected Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Connected Subspaces of the Real Line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Components and Local Connectedness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Compact Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/27/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Compact Subspaces of the Real Line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. Limit Point Compactness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../topology/29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. Local Compactness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-singular-value-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Singular Value Decomposition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-polar-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Polar Decomposition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pseudoinverse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Pseudoinverse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="33-the-singular-value-decomposition-and-the-pseudoinverse">§ 33. The Singular Value Decomposition and the Pseudoinverse<a class="headerlink" href="#33-the-singular-value-decomposition-and-the-pseudoinverse" title="Permanent link">&para;</a></h1>
+<p>For brevity, in this section we use the terms unitary operator and unitary matrix to include orthogonal operators and orthogonal matrices in the context of real spaces. Thus any operator <span class="arithmatex">\(T\)</span> for which <span class="arithmatex">\(\langle T(x), T(y)\rangle=\langle x, y\rangle\)</span>, or any matrix <span class="arithmatex">\(A\)</span> for which <span class="arithmatex">\(\langle A x, A y\rangle=\langle x, y\rangle\)</span>, for all <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> is called unitary for the purposes of this section.</p>
+<h2 id="the-singular-value-decomposition">The Singular Value Decomposition<a class="headerlink" href="#the-singular-value-decomposition" title="Permanent link">&para;</a></h2>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 33.1 : Singular value theorem for linear transformations</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be finite-dimensional inner product spaces, and let <span class="arithmatex">\(T: V \rightarrow W\)</span> be a linear transformation of rank <span class="arithmatex">\(r\)</span>. Then there exist orthonormal bases <span class="arithmatex">\(\left\{v_{1}, v_{2}, \ldots, v_{n}\right\}\)</span> for <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(\left\{u_{1}, u_{2}, \ldots, u_{m}\right\}\)</span> for <span class="arithmatex">\(W\)</span> and positive scalars <span class="arithmatex">\(\sigma_{1} \geq \sigma_{2} \geq \cdots \geq \sigma_{r}\)</span> such that</p>
+<div class="arithmatex">\[
+T\left(v_{i}\right)= \begin{cases}\sigma_{i} u_{i} &amp; \text { if } 1 \leq i \leq r  \\ 0 &amp; \text { if } i&gt;r\end{cases}
+\]</div>
+<p>Conversely, suppose that the preceding conditions are satisfied. Then for <span class="arithmatex">\(1 \leq i \leq n, v_{i}\)</span> is an eigenvector of <span class="arithmatex">\(T^{*} T\)</span> with corresponding eigenvalue <span class="arithmatex">\(\sigma_{i}^{2}\)</span> if <span class="arithmatex">\(1 \leq i \leq r\)</span> and 0 if <span class="arithmatex">\(i&gt;r\)</span>. Therefore the scalars <span class="arithmatex">\(\sigma_{1}, \sigma_{2}, \ldots, \sigma_{r}\)</span> are uniquely determined by <span class="arithmatex">\(T\)</span>.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>We first establish the existence of the bases and scalars. By <strong>Exercise 30.18</strong> and <strong>Exercise 29.15</strong>(d), <span class="arithmatex">\(T^{*}T\)</span> is a positive semidefinite linear operator of rank <span class="arithmatex">\(r\)</span> on <span class="arithmatex">\(V\)</span>; hence there is an orthonormal basis <span class="arithmatex">\(\left\{v_{1}, v_{2}, \ldots, v_{n}\right\}\)</span> for <span class="arithmatex">\(V\)</span> consisting of eigenvectors of <span class="arithmatex">\(T^{*} T\)</span> with corresponding eigenvalues <span class="arithmatex">\(\lambda_{i}\)</span>, where <span class="arithmatex">\(\lambda_{1} \geq \lambda_{2} \geq \cdots \geq \lambda_{r}&gt;0\)</span>, and <span class="arithmatex">\(\lambda_{i}=0\)</span> for <span class="arithmatex">\(i&gt;r\)</span>. For <span class="arithmatex">\(1 \leq i \leq r\)</span>, define <span class="arithmatex">\(\sigma_{i}=\sqrt{\lambda_{i}}\)</span> and <span class="arithmatex">\(u_{i}=\frac{1}{\sigma_{i}} T\left(v_{i}\right)\)</span>. We show that <span class="arithmatex">\(\left\{u_{1}, u_{2}, \ldots, u_{r}\right\}\)</span> is an orthonormal subset of <span class="arithmatex">\(W\)</span>. Suppose <span class="arithmatex">\(1 \leq i, j \leq r\)</span>. Then</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\left\langle u_{i}, u_{j}\right\rangle &amp; =\left\langle\frac{1}{\sigma_{i}} T\left(v_{i}\right), \frac{1}{\sigma_{j}} T\left(v_{j}\right)\right\rangle \\
+&amp; =\frac{1}{\sigma_{i} \sigma_{j}}\left\langle T^{*} T\left(v_{i}\right), v_{j}\right\rangle \\
+&amp; =\frac{1}{\sigma_{i} \sigma_{j}}\left\langle\lambda_{i} v_{i}, v_{j}\right\rangle \\
+&amp; =\frac{\sigma_{i}^{2}}{\sigma_{i} \sigma_{j}}\left\langle v_{i}, v_{j}\right\rangle \\
+&amp; =\delta_{i j}
+\end{aligned}
+\]</div>
+<p>and hence <span class="arithmatex">\(\left\{u_{1}, u_{2}, \ldots, u_{r}\right\}\)</span> is orthonormal. By <strong>Theorem 28.20</strong>(a), this set extends to an orthonormal basis <span class="arithmatex">\(\left\{u_{1}, u_{2}, \ldots, u_{r}, \ldots, u_{m}\right\}\)</span> for <span class="arithmatex">\(W\)</span>. Clearly <span class="arithmatex">\(T\left(v_{i}\right)=\sigma_{i} u_{i}\)</span> if <span class="arithmatex">\(1 \leq i \leq r\)</span>. If <span class="arithmatex">\(i&gt;r\)</span>, then <span class="arithmatex">\(T^{*} T\left(v_{i}\right)=0\)</span>, and so <span class="arithmatex">\(T\left(v_{i}\right)=0\)</span> by <strong>Exercise 29.15</strong>(d).</p>
+<p>To establish uniqueness, suppose that <span class="arithmatex">\(\left\{v_{1}, v_{2}, \ldots, v_{n}\right\},\left\{u_{1}, u_{2}, \ldots, u_{m}\right\}\)</span>, and <span class="arithmatex">\(\sigma_{1} \geq \sigma_{2} \geq \cdots \geq \sigma_{r}&gt;0\)</span> satisfy the properties stated in the first part of the theorem. Then for <span class="arithmatex">\(1 \leq i \leq m\)</span> and <span class="arithmatex">\(1 \leq j \leq n\)</span>,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\left\langle T^{*}\left(u_{i}\right), v_{j}\right\rangle &amp; =\left\langle u_{i}, T\left(v_{j}\right)\right\rangle \\
+&amp; = \begin{cases}\sigma_{i} &amp; \text { if } i=j \leq r \\
+0 &amp; \text { otherwise }\end{cases}
+\end{aligned}
+\]</div>
+<p>and hence for any <span class="arithmatex">\(1 \leq i \leq m\)</span>,</p>
+<div class="arithmatex">\[
+T^{*}\left(u_{i}\right)=\sum_{j=1}^{n}\left\langle T^{*}\left(u_{i}\right), v_{j}\right\rangle v_{j}= \begin{cases}\sigma_{i} v_{i} &amp; \text { if } i \leq r  \\ 0 &amp; \text { otherwise }\end{cases}
+\]</div>
+<p>So for <span class="arithmatex">\(i \leq r\)</span>,</p>
+<div class="arithmatex">\[
+T^{*} T\left(v_{i}\right)=T^{*}\left(\sigma_{i} u_{i}\right)=\sigma_{i} T^{*}\left(u_{i}\right)=\sigma_{i}^{2} v_{i}
+\]</div>
+<p>and <span class="arithmatex">\(T^{*} T\left(v_{i}\right)=T^{*}(0)=0\)</span> for <span class="arithmatex">\(i&gt;r\)</span>. Therefore each <span class="arithmatex">\(v_{i}\)</span> is an eigenvector of <span class="arithmatex">\(T^{*} T\)</span> with corresponding eigenvalue <span class="arithmatex">\(\sigma_{i}^{2}\)</span> if <span class="arithmatex">\(i \leq r\)</span> and 0 if <span class="arithmatex">\(i&gt;r\)</span>.</p>
+</div>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">Definition 33.2 : Singular Values of a Linear Transformation</p>
+<p>The unique scalars <span class="arithmatex">\(\sigma_{1}, \sigma_{2}, \ldots, \sigma_{r}\)</span> in <strong>Theorem 33.1</strong> are called the singular values of <span class="arithmatex">\(T\)</span>. If <span class="arithmatex">\(r\)</span> is less than both <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(n\)</span>, then the term singular value is extended to include <span class="arithmatex">\(\sigma_{r+1}=\cdots=\sigma_{k}=0\)</span>, where <span class="arithmatex">\(k\)</span> is the minimum of <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(n\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 33.3 : Singular values for the derivative map on polynomials</p>
+<p>Let <span class="arithmatex">\(\mathrm{P}_{2}(\mathbb{R})\)</span> and <span class="arithmatex">\(\mathrm{P}_{1}(\mathbb{R})\)</span> be the polynomial spaces with inner products defined by</p>
+<div class="arithmatex">\[
+\langle f(x), g(x)\rangle=\int_{-1}^{1} f(t) g(t) d t .
+\]</div>
+<p>Let <span class="arithmatex">\(T: \mathrm{P}_{2}(\mathbb{R}) \rightarrow \mathrm{P}_{1}(\mathbb{R})\)</span> be the linear transformation defined by <span class="arithmatex">\(T(f(x))=f^{\prime}(x)\)</span>. Find orthonormal bases <span class="arithmatex">\(\beta=\left\{v_{1}, v_{2}, v_{3}\right\}\)</span> for <span class="arithmatex">\(\mathrm{P}_{2}(\mathbb{R})\)</span> and <span class="arithmatex">\(\gamma=\left\{u_{1}, u_{2}\right\}\)</span> for <span class="arithmatex">\(\mathrm{P}_{1}(\mathbb{R})\)</span> such that <span class="arithmatex">\(T\left(v_{i}\right)=\sigma_{i} u_{i}\)</span> for <span class="arithmatex">\(i=1,2\)</span> and <span class="arithmatex">\(T\left(v_{3}\right)=0\)</span>, where <span class="arithmatex">\(\sigma_{1} \geq \sigma_{2}&gt;0\)</span> are the nonzero singular values of <span class="arithmatex">\(T\)</span>.</p>
+<p>To facilitate the computations, we translate this problem into the corresponding problem for a matrix representation of <span class="arithmatex">\(T\)</span>. Caution is advised here because not any matrix representation will do. Since the adjoint is defined in terms of inner products, we must use a matrix representation constructed from orthonormal bases for <span class="arithmatex">\(\mathrm{P}_{2}(\mathbb{R})\)</span> and <span class="arithmatex">\(\mathrm{P}_{1}(\mathbb{R})\)</span> to guarantee that the adjoint of the matrix representation of <span class="arithmatex">\(T\)</span> is the same as the matrix representation of the adjoint of <span class="arithmatex">\(T\)</span>. (See <strong>Exercise 29.15</strong>.) For this purpose, we use the results of source Exercise 21(a) from source subsection 6.2 to obtain orthonormal bases</p>
+<div class="arithmatex">\[
+\alpha=\left\{\frac{1}{\sqrt{2}}, \sqrt{\frac{3}{2}} x, \sqrt{\frac{5}{8}}\left(3 x^{2}-1\right)\right\} \quad \text { and } \quad \alpha^{\prime}=\left\{\frac{1}{\sqrt{2}}, \sqrt{\frac{3}{2}} x\right\}
+\]</div>
+<p>for <span class="arithmatex">\(\mathrm{P}_{2}(\mathbb{R})\)</span> and <span class="arithmatex">\(\mathrm{P}_{1}(\mathbb{R})\)</span>, respectively.
+Let</p>
+<div class="arithmatex">\[
+A=[T]_{\alpha}^{\alpha^{\prime}}=\left(\begin{array}{ccc}
+0 &amp; \sqrt{3} &amp; 0 \\
+0 &amp; 0 &amp; \sqrt{15}
+\end{array}\right)
+\]</div>
+<p>Then</p>
+<div class="arithmatex">\[
+A^{*} A=\left(\begin{array}{cc}
+0 &amp; 0 \\
+\sqrt{3} &amp; 0 \\
+0 &amp; \sqrt{15}
+\end{array}\right)\left(\begin{array}{ccc}
+0 &amp; \sqrt{3} &amp; 0 \\
+0 &amp; 0 &amp; \sqrt{15}
+\end{array}\right)=\left(\begin{array}{ccc}
+0 &amp; 0 &amp; 0 \\
+0 &amp; 3 &amp; 0 \\
+0 &amp; 0 &amp; 15
+\end{array}\right)
+\]</div>
+<p>which has eigenvalues (listed in descending order of size) <span class="arithmatex">\(\lambda_{1}=15, \lambda_{2}=3\)</span>, and <span class="arithmatex">\(\lambda_{3}=0\)</span>. These eigenvalues correspond, respectively, to the orthonormal eigenvectors <span class="arithmatex">\(e_{3}=(0,0,1), e_{2}=(0,1,0)\)</span>, and <span class="arithmatex">\(e_{1}=(1,0,0)\)</span> in <span class="arithmatex">\(\mathbb{R}^{3}\)</span>. Translating everything into the context of <span class="arithmatex">\(T: \mathrm{P}_{2}(\mathbb{R})\)</span> and <span class="arithmatex">\(\mathrm{P}_{1}(\mathbb{R})\)</span>, let</p>
+<div class="arithmatex">\[
+v_{1}=\sqrt{\frac{5}{8}}\left(3 x^{2}-1\right), \quad v_{2}=\sqrt{\frac{3}{2}} x, \quad \text { and } \quad v_{3}=\frac{1}{\sqrt{2}} .
+\]</div>
+<p>Then <span class="arithmatex">\(\beta=\left\{v_{1}, v_{2}, v_{3}\right\}\)</span> is an orthonormal basis for <span class="arithmatex">\(\mathrm{P}_{2}(\mathbb{R})\)</span> consisting of eigenvectors of <span class="arithmatex">\(T^{*}T\)</span> with corresponding eigenvalues <span class="arithmatex">\(\lambda_{1}, \lambda_{2}\)</span>, and <span class="arithmatex">\(\lambda_{3}\)</span>. Now set <span class="arithmatex">\(\sigma_{1}=\sqrt{\lambda_{1}}=\sqrt{15}\)</span> and <span class="arithmatex">\(\sigma_{2}=\sqrt{\lambda_{2}}=\sqrt{3}\)</span>, the nonzero singular values of <span class="arithmatex">\(T\)</span>, and take</p>
+<div class="arithmatex">\[
+u_{1}=\frac{1}{\sigma_{1}} T\left(v_{1}\right)=\sqrt{\frac{3}{2}} x \quad \text { and } \quad u_{2}=\frac{1}{\sigma_{2}} T\left(v_{2}\right)=\frac{1}{\sqrt{2}}
+\]</div>
+<p>to obtain the required basis <span class="arithmatex">\(\gamma=\left\{u_{1}, u_{2}\right\}\)</span> for <span class="arithmatex">\(\mathrm{P}_{1}(\mathbb{R})\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 33.4 : Image of the unit circle under an invertible operator</p>
+<p>Let <span class="arithmatex">\(T\)</span> be an invertible linear operator on <span class="arithmatex">\(\mathbb{R}^{2}\)</span> and <span class="arithmatex">\(S=\left\{x \in \mathbb{R}^{2}:\|x\|=1\right\}\)</span>, the unit circle in <span class="arithmatex">\(\mathbb{R}^{2}\)</span>. We apply <strong>Theorem 33.1</strong> to describe <span class="arithmatex">\(S^{\prime}=T(S)\)</span>.</p>
+<p>Since <span class="arithmatex">\(T\)</span> is invertible, it has rank equal to 2 and hence has singular values <span class="arithmatex">\(\sigma_{1} \geq \sigma_{2}&gt;0\)</span>. Let <span class="arithmatex">\(\left\{v_{1}, v_{2}\right\}\)</span> and <span class="arithmatex">\(\beta=\left\{u_{1}, u_{2}\right\}\)</span> be orthonormal bases for <span class="arithmatex">\(\mathbb{R}^{2}\)</span> so that <span class="arithmatex">\(T\left(v_{1}\right)=\sigma_{1} u_{1}\)</span> and <span class="arithmatex">\(T\left(v_{2}\right)=\sigma_{2} u_{2}\)</span>, as in <strong>Theorem 33.1</strong>. Then <span class="arithmatex">\(\beta\)</span> determines a coordinate system, which we shall call the <span class="arithmatex">\(x^{\prime} y^{\prime}\)</span>-coordinate system for <span class="arithmatex">\(\mathbb{R}^{2}\)</span>, where the <span class="arithmatex">\(x^{\prime}\)</span>-axis contains <span class="arithmatex">\(u_{1}\)</span> and the <span class="arithmatex">\(y^{\prime}\)</span>-axis contains <span class="arithmatex">\(u_{2}\)</span>. For any vector <span class="arithmatex">\(u \in \mathbb{R}^{2}\)</span>, if <span class="arithmatex">\(u=x_{1}^{\prime} u_{1}+x_{2}^{\prime} u_{2}\)</span>, then <span class="arithmatex">\([u]_{\beta}=\binom{x_{1}^{\prime}}{x_{2}^{\prime}}\)</span> is the coordinate vector of <span class="arithmatex">\(u\)</span> relative to <span class="arithmatex">\(\beta\)</span>. We characterize <span class="arithmatex">\(S^{\prime}\)</span> in terms of an equation relating <span class="arithmatex">\(x_{1}^{\prime}\)</span> and <span class="arithmatex">\(x_{2}^{\prime}\)</span>.</p>
+<p>For any vector <span class="arithmatex">\(v=x_{1} v_{1}+x_{2} v_{2} \in \mathbb{R}^{2}\)</span>, the equation <span class="arithmatex">\(u=T(v)\)</span> means that</p>
+<div class="arithmatex">\[
+u=T\left(x_{1} v_{1}+x_{2} v_{2}\right)=x_{1} T\left(v_{1}\right)+x_{2} T\left(v_{2}\right)=x_{1} \sigma_{1} u_{1}+x_{2} \sigma_{2} u_{2} .
+\]</div>
+<p>Thus for <span class="arithmatex">\(u=x_{1}^{\prime} u_{1}+x_{2}^{\prime} u_{2}\)</span>, we have <span class="arithmatex">\(x_{1}^{\prime}=x_{1} \sigma_{1}\)</span> and <span class="arithmatex">\(x_{2}^{\prime}=x_{2} \sigma_{2}\)</span>. Furthermore, <span class="arithmatex">\(u \in S^{\prime}\)</span> if and only if <span class="arithmatex">\(v \in S\)</span> if and only if</p>
+<div class="arithmatex">\[
+\frac{\left(x_{1}^{\prime}\right)^{2}}{\sigma_{1}^{2}}+\frac{\left(x_{2}^{\prime}\right)^{2}}{\sigma_{2}^{2}}=x_{1}^{2}+x_{2}^{2}=1 .
+\]</div>
+<p>If <span class="arithmatex">\(\sigma_{1}=\sigma_{2}\)</span>, this is the equation of a circle of radius <span class="arithmatex">\(\sigma_{1}\)</span>, and if <span class="arithmatex">\(\sigma_{1}&gt;\sigma_{2}\)</span>, this is the equation of an ellipse with major axis and minor axis oriented along the <span class="arithmatex">\(x^{\prime}\)</span>-axis and the <span class="arithmatex">\(y^{\prime}\)</span>-axis, respectively. (See Figure 33.1.)</p>
+<figure>
+<p><img alt="" class="center" src="../assets/33.1.jpg" style="width:100%;" /></p>
+<figcaption>
+<p>Figure 33.1.</p>
+</figcaption>
+</figure>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">Definition 33.5 : Singular Values of a Matrix</p>
+<p>Let <span class="arithmatex">\(A\)</span> be an <span class="arithmatex">\(m \times n\)</span> matrix. We define the singular values of <span class="arithmatex">\(A\)</span> to be the singular values of the linear transformation <span class="arithmatex">\(L_{A}\)</span>.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 33.6 : Singular value decomposition theorem for matrices</p>
+<p>Let <span class="arithmatex">\(A\)</span> be an <span class="arithmatex">\(m \times n\)</span> matrix of rank <span class="arithmatex">\(r\)</span> with the positive singular values <span class="arithmatex">\(\sigma_{1} \geq \sigma_{2} \geq \cdots \geq \sigma_{r}\)</span>, and let <span class="arithmatex">\(\Sigma\)</span> be the <span class="arithmatex">\(m \times n\)</span> matrix defined by</p>
+<div class="arithmatex">\[
+\Sigma_{i j}= \begin{cases}\sigma_{i} &amp; \text { if } i=j \leq r \\ 0 &amp; \text { otherwise }\end{cases}
+\]</div>
+<p>Then there exists an <span class="arithmatex">\(m \times m\)</span> unitary matrix <span class="arithmatex">\(U\)</span> and an <span class="arithmatex">\(n \times n\)</span> unitary matrix <span class="arithmatex">\(V\)</span> such that</p>
+<div class="arithmatex">\[
+A=U \Sigma V^{*}
+\]</div>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>Let <span class="arithmatex">\(T=L_{A}: F^{n} \rightarrow F^{m}\)</span>. By <strong>Theorem 33.1</strong>, there exist orthonormal bases <span class="arithmatex">\(\beta=\left\{v_{1}, v_{2}, \ldots, v_{n}\right\}\)</span> for <span class="arithmatex">\(F^{n}\)</span> and <span class="arithmatex">\(\gamma=\left\{u_{1}, u_{2}, \ldots, u_{m}\right\}\)</span> for <span class="arithmatex">\(F^{m}\)</span> such that <span class="arithmatex">\(T\left(v_{i}\right)=\sigma_{i} u_{i}\)</span> for <span class="arithmatex">\(1 \leq i \leq r\)</span> and <span class="arithmatex">\(T\left(v_{i}\right)=0\)</span> for <span class="arithmatex">\(i&gt;r\)</span>. Let <span class="arithmatex">\(U\)</span> be the <span class="arithmatex">\(m \times m\)</span> matrix whose <span class="arithmatex">\(j\)</span> th column is <span class="arithmatex">\(u_{j}\)</span> for all <span class="arithmatex">\(j\)</span>, and let <span class="arithmatex">\(V\)</span> be the <span class="arithmatex">\(n \times n\)</span> matrix whose <span class="arithmatex">\(j\)</span> th column is <span class="arithmatex">\(v_{j}\)</span> for all <span class="arithmatex">\(j\)</span>. Note that both <span class="arithmatex">\(U\)</span> and <span class="arithmatex">\(V\)</span> are unitary matrices.</p>
+<p>By <strong>Theorem 10.12</strong>(a), the <span class="arithmatex">\(j\)</span> th column of <span class="arithmatex">\(A V\)</span> is <span class="arithmatex">\(A v_{j}=\sigma_{j} u_{j}\)</span>. Observe that the <span class="arithmatex">\(j\)</span> th column of <span class="arithmatex">\(\Sigma\)</span> is <span class="arithmatex">\(\sigma_{j} e_{j}\)</span>, where <span class="arithmatex">\(e_{j}\)</span> is the <span class="arithmatex">\(j\)</span> th standard vector of <span class="arithmatex">\(F^{m}\)</span>. So by <strong>Theorem 10.12</strong>(a) and (b), the <span class="arithmatex">\(j\)</span> th column of <span class="arithmatex">\(U \Sigma\)</span> is given by</p>
+<div class="arithmatex">\[
+U\left(\sigma_{j} e_{j}\right)=\sigma_{j} U\left(e_{j}\right)=\sigma_{j} u_{j} .
+\]</div>
+<p>It follows that <span class="arithmatex">\(A V\)</span> and <span class="arithmatex">\(U \Sigma\)</span> are <span class="arithmatex">\(m \times n\)</span> matrices whose corresponding columns are equal, and hence <span class="arithmatex">\(A V=U \Sigma\)</span>. Therefore <span class="arithmatex">\(A=A V V^{*}=U \Sigma V^{*}\)</span>.</p>
+</div>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">Definition 33.7 : Singular Value Decomposition</p>
+<p>Let <span class="arithmatex">\(A\)</span> be an <span class="arithmatex">\(m \times n\)</span> matrix of rank <span class="arithmatex">\(r\)</span> with positive singular values <span class="arithmatex">\(\sigma_{1} \geq \sigma_{2} \geq \cdots \geq \sigma_{r}\)</span>. A factorization <span class="arithmatex">\(A=U \Sigma V^{*}\)</span> where <span class="arithmatex">\(U\)</span> and <span class="arithmatex">\(V\)</span> are unitary matrices and <span class="arithmatex">\(\Sigma\)</span> is the <span class="arithmatex">\(m \times n\)</span> matrix defined as in <strong>Theorem 33.6</strong> is called a singular value decomposition of <span class="arithmatex">\(A\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 33.8 : A singular value decomposition of a rank-one matrix</p>
+<p>We find a singular value decomposition for <span class="arithmatex">\(A=\left(\begin{array}{lll}1 &amp; 1 &amp; -1 \\ 1 &amp; 1 &amp; -1\end{array}\right)\)</span>.
+First observe that for</p>
+<div class="arithmatex">\[
+v_{1}=\frac{1}{\sqrt{3}}\left(\begin{array}{r}
+1 \\
+1 \\
+-1
+\end{array}\right), \quad v_{2}=\frac{1}{\sqrt{2}}\left(\begin{array}{r}
+1 \\
+-1 \\
+0
+\end{array}\right), \quad \text { and } \quad v_{3}=\frac{1}{\sqrt{6}}\left(\begin{array}{l}
+1 \\
+1 \\
+2
+\end{array}\right)
+\]</div>
+<p>the set <span class="arithmatex">\(\beta=\left\{v_{1}, v_{2}, v_{3}\right\}\)</span> is an orthonormal basis for <span class="arithmatex">\(\mathbb{R}^{3}\)</span> consisting of eigenvectors of <span class="arithmatex">\(A^{*} A\)</span> with corresponding eigenvalues <span class="arithmatex">\(\lambda_{1}=6\)</span>, and <span class="arithmatex">\(\lambda_{2}=\lambda_{3}=0\)</span>. Consequently, <span class="arithmatex">\(\sigma_{1}=\sqrt{6}\)</span> is the only nonzero singular value of <span class="arithmatex">\(A\)</span>. Hence, as in the proof of <strong>Theorem 33.6</strong>, we let <span class="arithmatex">\(V\)</span> be the matrix whose columns are the vectors in <span class="arithmatex">\(\beta\)</span>. Then</p>
+<div class="arithmatex">\[
+\Sigma=\left(\begin{array}{ccc}
+\sqrt{6} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0
+\end{array}\right) \quad \text { and } \quad V=\left(\begin{array}{ccc}
+\frac{1}{\sqrt{3}} &amp; \frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{6}} \\
+\frac{1}{\sqrt{3}} &amp; \frac{-1}{\sqrt{2}} &amp; \frac{1}{\sqrt{6}} \\
+\frac{-1}{\sqrt{3}} &amp; 0 &amp; \frac{2}{\sqrt{6}}
+\end{array}\right)
+\]</div>
+<p>Also, as in <strong>Theorem 33.6</strong>, we take</p>
+<div class="arithmatex">\[
+u_{1}=\frac{1}{\sigma_{1}} L_{A}\left(v_{1}\right)=\frac{1}{\sigma_{1}} A v_{1}=\frac{1}{\sqrt{2}}\binom{1}{1} .
+\]</div>
+<p>Next choose <span class="arithmatex">\(u_{2}=\frac{1}{\sqrt{2}}\binom{1}{-1}\)</span>, a unit vector orthogonal to <span class="arithmatex">\(u_{1}\)</span>, to obtain the orthonormal basis <span class="arithmatex">\(\gamma=\left\{u_{1}, u_{2}\right\}\)</span> for <span class="arithmatex">\(\mathbb{R}^{2}\)</span>, and set</p>
+<div class="arithmatex">\[
+U=\left(\begin{array}{ll}
+\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{array}\right) .
+\]</div>
+<p>Then <span class="arithmatex">\(A=U \Sigma V^{*}\)</span> is the desired singular value decomposition.</p>
+</div>
+<h2 id="the-polar-decomposition">The Polar Decomposition<a class="headerlink" href="#the-polar-decomposition" title="Permanent link">&para;</a></h2>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 33.9 : Polar decomposition</p>
+<p>For any square matrix <span class="arithmatex">\(A\)</span>, there exists a unitary matrix <span class="arithmatex">\(W\)</span> and a positive semidefinite matrix <span class="arithmatex">\(P\)</span> such that</p>
+<div class="arithmatex">\[
+A=W P
+\]</div>
+<p>Furthermore, if <span class="arithmatex">\(A\)</span> is invertible, then the representation is unique.</p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>By <strong>Theorem 33.6</strong>, there exist unitary matrices <span class="arithmatex">\(U\)</span> and <span class="arithmatex">\(V\)</span> and a diagonal matrix <span class="arithmatex">\(\Sigma\)</span> with nonnegative diagonal entries such that <span class="arithmatex">\(A=U \Sigma V^{*}\)</span>. So</p>
+<div class="arithmatex">\[
+A=U \Sigma V^{*}=U V^{*} V \Sigma V^{*}=W P
+\]</div>
+<p>where <span class="arithmatex">\(W=U V^{*}\)</span> and <span class="arithmatex">\(P=V \Sigma V^{*}\)</span>. Since <span class="arithmatex">\(W\)</span> is the product of unitary matrices, <span class="arithmatex">\(W\)</span> is unitary, and since <span class="arithmatex">\(\Sigma\)</span> is positive semidefinite and <span class="arithmatex">\(P\)</span> is unitarily equivalent to <span class="arithmatex">\(\Sigma, P\)</span> is positive semidefinite by <strong>Exercise 31.14</strong>.</p>
+<p>Now suppose that <span class="arithmatex">\(A\)</span> is invertible and factors as the products</p>
+<div class="arithmatex">\[
+A=W P=Z Q
+\]</div>
+<p>where <span class="arithmatex">\(W\)</span> and <span class="arithmatex">\(Z\)</span> are unitary and <span class="arithmatex">\(P\)</span> and <span class="arithmatex">\(Q\)</span> are positive semidefinite. Since <span class="arithmatex">\(A\)</span> is invertible, it follows that <span class="arithmatex">\(P\)</span> and <span class="arithmatex">\(Q\)</span> are positive definite and invertible, and therefore <span class="arithmatex">\(Z^{*} W=Q P^{-1}\)</span>. Thus <span class="arithmatex">\(Q P^{-1}\)</span> is unitary, and so</p>
+<div class="arithmatex">\[
+I=\left(Q P^{-1}\right)^{*}\left(Q P^{-1}\right)=P^{-1} Q^{2} P^{-1}
+\]</div>
+<p>Hence <span class="arithmatex">\(P^{2}=Q^{2}\)</span>. Since both <span class="arithmatex">\(P\)</span> and <span class="arithmatex">\(Q\)</span> are positive definite, it follows that <span class="arithmatex">\(P=Q\)</span> by <strong>Exercise 30.17</strong>. Therefore <span class="arithmatex">\(W=Z\)</span>, and consequently the factorization is unique.</p>
+<p>The factorization of a square matrix <span class="arithmatex">\(A\)</span> as <span class="arithmatex">\(W P\)</span> where <span class="arithmatex">\(W\)</span> is unitary and <span class="arithmatex">\(P\)</span> is positive semidefinite, is called a polar decomposition of <span class="arithmatex">\(A\)</span>.</p>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 33.10 : Polar decomposition of a <span class="arithmatex">\(2 \times 2\)</span> matrix</p>
+<p>To find the polar decomposition of <span class="arithmatex">\(A=\left(\begin{array}{rr}11 &amp; -5 \\ -2 &amp; 10\end{array}\right)\)</span>, we begin by finding a singular value decomposition <span class="arithmatex">\(U \Sigma V^{*}\)</span> of <span class="arithmatex">\(A\)</span>. The object is to find an orthonormal basis <span class="arithmatex">\(\beta\)</span> for <span class="arithmatex">\(\mathbb{R}^{2}\)</span> consisting of eigenvectors of <span class="arithmatex">\(A^{*} A\)</span>. It can be shown that</p>
+<div class="arithmatex">\[
+v_{1}=\frac{1}{\sqrt{2}}\binom{1}{-1} \quad \text { and } \quad v_{2}=\frac{1}{\sqrt{2}}\binom{1}{1}
+\]</div>
+<p>are orthonormal eigenvectors of <span class="arithmatex">\(A^{*} A\)</span> with corresponding eigenvalues <span class="arithmatex">\(\lambda_{1}=200\)</span> and <span class="arithmatex">\(\lambda_{2}=50\)</span>. So <span class="arithmatex">\(\beta=\left\{v_{1}, v_{2}\right\}\)</span> is an appropriate basis. Thus <span class="arithmatex">\(\sigma_{1}=\sqrt{200}=\)</span> <span class="arithmatex">\(10 \sqrt{2}\)</span> and <span class="arithmatex">\(\sigma_{2}=\sqrt{50}=5 \sqrt{2}\)</span> are the singular values of <span class="arithmatex">\(A\)</span>. So we have</p>
+<div class="arithmatex">\[
+V=\left(\begin{array}{cc}
+\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+\frac{-1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}}
+\end{array}\right) \quad \text { and } \quad \Sigma=\left(\begin{array}{cc}
+10 \sqrt{2} &amp; 0 \\
+0 &amp; 5 \sqrt{2}
+\end{array}\right)
+\]</div>
+<p>Next, we find the columns <span class="arithmatex">\(u_{1}\)</span> and <span class="arithmatex">\(u_{2}\)</span> of <span class="arithmatex">\(U\)</span> :</p>
+<div class="arithmatex">\[
+u_{1}=\frac{1}{\sigma_{1}} A v_{1}=\frac{1}{5}\binom{4}{-3} \quad \text { and } \quad u_{2}=\frac{1}{\sigma_{2}} A v_{2}=\frac{1}{5}\binom{3}{4} .
+\]</div>
+<p>Thus</p>
+<div class="arithmatex">\[
+U=\left(\begin{array}{rr}
+\frac{4}{5} &amp; \frac{3}{5} \\
+-\frac{3}{5} &amp; \frac{4}{5}
+\end{array}\right)
+\]</div>
+<p>Therefore, in the notation of <strong>Theorem 33.9</strong>, we have</p>
+<div class="arithmatex">\[
+W=U V^{*}=\left(\begin{array}{rr}
+\frac{4}{5} &amp; \frac{3}{5} \\
+-\frac{3}{5} &amp; \frac{4}{5}
+\end{array}\right)\left(\begin{array}{cc}
+\frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}}
+\end{array}\right)=\frac{1}{5 \sqrt{2}}\left(\begin{array}{rr}
+7 &amp; -1 \\
+1 &amp; 7
+\end{array}\right)
+\]</div>
+<p>and</p>
+<div class="arithmatex">\[
+P=V \Sigma V^{*}=\left(\begin{array}{cc}
+\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+\frac{-1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}}
+\end{array}\right)\left(\begin{array}{cc}
+10 \sqrt{2} &amp; 0 \\
+0 &amp; 5 \sqrt{2}
+\end{array}\right)\left(\begin{array}{cc}
+\frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}}
+\end{array}\right)=\frac{5}{\sqrt{2}}\left(\begin{array}{rr}
+3 &amp; -1 \\
+-1 &amp; 3
+\end{array}\right)
+\]</div>
+</div>
+<h2 id="the-pseudoinverse">The Pseudoinverse<a class="headerlink" href="#the-pseudoinverse" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">Definition 33.11 : Pseudoinverse of a Linear Transformation</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be finite-dimensional inner product spaces over the same field, and let <span class="arithmatex">\(T: V \rightarrow W\)</span> be a linear transformation. Let <span class="arithmatex">\(L: N(T)^{\perp} \rightarrow R(T)\)</span> be the linear transformation defined by <span class="arithmatex">\(L(x)=T(x)\)</span> for all <span class="arithmatex">\(x \in N(T)^{\perp}\)</span>. The pseudoinverse (or Moore-Penrose generalized inverse) of <span class="arithmatex">\(T\)</span>, denoted by <span class="arithmatex">\(T^{\dagger}\)</span>, is defined as the unique linear transformation from <span class="arithmatex">\(W\)</span> to <span class="arithmatex">\(V\)</span> such that</p>
+<div class="arithmatex">\[
+T^{\dagger}(y)= \begin{cases}L^{-1}(y) &amp; \text { for } y \in R(T) \\ 0 &amp; \text { for } y \in R(T)^{\perp}\end{cases}
+\]</div>
+<p>The pseudoinverse of a linear transformation <span class="arithmatex">\(T\)</span> on a finite-dimensional inner product space exists even if <span class="arithmatex">\(T\)</span> is not invertible. Furthermore, if <span class="arithmatex">\(T\)</span> is invertible, then <span class="arithmatex">\(T^{\dagger}=T^{-1}\)</span> because <span class="arithmatex">\(N(T)^{\perp}=V\)</span>, and <span class="arithmatex">\(L\)</span> (as just defined) coincides with <span class="arithmatex">\(T\)</span>.</p>
+</div>
+<div class="admonition concept">
+<p class="admonition-title">Concept 33.12 : Pseudoinverse from singular values</p>
+<p>We can use the singular value theorem to describe the pseudoinverse of a linear transformation. Suppose that <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> are finite-dimensional vector spaces and <span class="arithmatex">\(T: V \rightarrow W\)</span> is a linear transformation of rank <span class="arithmatex">\(r\)</span>. Let <span class="arithmatex">\(\left\{v_{1}, v_{2}, \ldots, v_{n}\right\}\)</span> and <span class="arithmatex">\(\left\{u_{1}, u_{2}, \ldots, u_{m}\right\}\)</span> be orthonormal bases for <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span>, respectively, and let <span class="arithmatex">\(\sigma_{1} \geq \sigma_{2} \geq \cdots \geq \sigma_{r}\)</span> be the nonzero singular values of <span class="arithmatex">\(T\)</span> satisfying (4) in <strong>Theorem 33.1</strong>. Then <span class="arithmatex">\(\left\{v_{1}, v_{2}, \ldots, v_{r}\right\}\)</span> is a basis for <span class="arithmatex">\(N(T)^{\perp},\left\{v_{r+1}, v_{r+2}, \ldots, v_{n}\right\}\)</span> is a basis for <span class="arithmatex">\(N(T),\left\{u_{1}, u_{2}, \ldots, u_{r}\right\}\)</span> is a basis for <span class="arithmatex">\(R(T)\)</span>, and <span class="arithmatex">\(\left\{u_{r+1}, u_{r+2}, \ldots, u_{m}\right\}\)</span> is a basis for <span class="arithmatex">\(R(T)^{\perp}\)</span>. Let <span class="arithmatex">\(L\)</span> be the restriction of <span class="arithmatex">\(T\)</span> to <span class="arithmatex">\(N(T)^{\perp}\)</span>, as in the definition of pseudoinverse. Then <span class="arithmatex">\(L^{-1}\left(u_{i}\right)=\frac{1}{\sigma_{i}} v_{i}\)</span> for <span class="arithmatex">\(1 \leq i \leq r\)</span>. Therefore</p>
+<div class="arithmatex">\[
+T^{\dagger}\left(u_{i}\right)= \begin{cases}\frac{1}{\sigma_{i}} v_{i} &amp; \text { if } 1 \leq i \leq r \\ 0 &amp; \text { if } r&lt;i \leq m\end{cases}
+\]</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 33.13 : Pseudoinverse of the derivative map on polynomials</p>
+<p>Let <span class="arithmatex">\(T: \mathrm{P}_{2}(\mathbb{R}) \rightarrow \mathrm{P}_{1}(\mathbb{R})\)</span> be the linear transformation defined by <span class="arithmatex">\(T(f(x))=f^{\prime}(x)\)</span>, as in <strong>Example 33.3</strong>. Let <span class="arithmatex">\(\beta=\left\{v_{1}, v_{2}, v_{3}\right\}\)</span> and <span class="arithmatex">\(\gamma=\left\{u_{1}, u_{2}\right\}\)</span> be the orthonormal bases for <span class="arithmatex">\(\mathrm{P}_{2}(\mathbb{R})\)</span> and <span class="arithmatex">\(\mathrm{P}_{1}(\mathbb{R})\)</span> in <strong>Example 33.3</strong>. Then <span class="arithmatex">\(\sigma_{1}=\sqrt{15}\)</span> and <span class="arithmatex">\(\sigma_{2}=\sqrt{3}\)</span> are the nonzero singular values of <span class="arithmatex">\(T\)</span>. It follows that</p>
+<div class="arithmatex">\[
+T^{\dagger}\left(\sqrt{\frac{3}{2}} x\right)=T^{\dagger}\left(u_{1}\right)=\frac{1}{\sigma_{1}} v_{1}=\frac{1}{\sqrt{15}} \sqrt{\frac{5}{8}}\left(3 x^{2}-1\right)
+\]</div>
+<p>and hence</p>
+<div class="arithmatex">\[
+T^{\dagger}(x)=\frac{1}{6}\left(3 x^{2}-1\right)
+\]</div>
+<p>Similarly, <span class="arithmatex">\(T^{\dagger}(1)=x\)</span>. Thus, for any polynomial <span class="arithmatex">\(a+b x \in \mathrm{P}_{1}(\mathbb{R})\)</span>,</p>
+<div class="arithmatex">\[
+T^{\dagger}(a+b x)=a T^{\dagger}(1)+b T^{\dagger}(x)=a x+\frac{b}{6}\left(3 x^{2}-1\right)
+\]</div>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">Definition 33.14 : Pseudoinverse of a Matrix</p>
+<p>Let <span class="arithmatex">\(A\)</span> be an <span class="arithmatex">\(m \times n\)</span> matrix. Then there exists a unique <span class="arithmatex">\(n \times m\)</span> matrix <span class="arithmatex">\(B\)</span> such that <span class="arithmatex">\(\left(L_{A}\right)^{\dagger}: F^{m} \rightarrow F^{n}\)</span> is equal to the left-multiplication transformation <span class="arithmatex">\(L_{B}\)</span>. We call <span class="arithmatex">\(B\)</span> the pseudoinverse of <span class="arithmatex">\(A\)</span> and denote it by <span class="arithmatex">\(B=A^{\dagger}\)</span>. Thus</p>
+<div class="arithmatex">\[
+\left(L_{A}\right)^{\dagger}=L_{A^{\dagger}} .
+\]</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 33.15 : SVD formula for the pseudoinverse</p>
+<p>Let <span class="arithmatex">\(A\)</span> be an <span class="arithmatex">\(m \times n\)</span> matrix of rank <span class="arithmatex">\(r\)</span> with a singular value decomposition <span class="arithmatex">\(A=U \Sigma V^{*}\)</span> and nonzero singular values <span class="arithmatex">\(\sigma_{1} \geq \sigma_{2} \geq \cdots \geq \sigma_{r}\)</span>. Let <span class="arithmatex">\(\Sigma^{\dagger}\)</span> be the <span class="arithmatex">\(n \times m\)</span> matrix defined by</p>
+<div class="arithmatex">\[
+\Sigma_{i j}^{\dagger}= \begin{cases}\frac{1}{\sigma_{i}} &amp; \text { if } i=j \leq r \\ 0 &amp; \text { otherwise }\end{cases}
+\]</div>
+<p>Then <span class="arithmatex">\(A^{\dagger}=V \Sigma^{\dagger} U^{*}\)</span>, and this is a singular value decomposition of <span class="arithmatex">\(A^{\dagger}\)</span>.
+Notice that <span class="arithmatex">\(\Sigma^{\dagger}\)</span> as defined in <strong>Theorem 33.15</strong> is actually the pseudoinverse of <span class="arithmatex">\(\Sigma\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 33.16 : Pseudoinverse of a rank-one matrix</p>
+<p>We find <span class="arithmatex">\(A^{\dagger}\)</span> for the matrix <span class="arithmatex">\(A=\left(\begin{array}{lll}1 &amp; 1 &amp; -1 \\ 1 &amp; 1 &amp; -1\end{array}\right)\)</span>.
+Since <span class="arithmatex">\(A\)</span> is the matrix of <strong>Example 33.8</strong>, we can use the singular value decomposition obtained in that example:</p>
+<div class="arithmatex">\[
+A=U \Sigma V^{*}=\left(\begin{array}{cc}
+\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{array}\right)\left(\begin{array}{ccc}
+\sqrt{6} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0
+\end{array}\right)\left(\begin{array}{ccc}
+\frac{1}{\sqrt{3}} &amp; \frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{6}} \\
+\frac{1}{\sqrt{3}} &amp; \frac{-1}{\sqrt{2}} &amp; \frac{1}{\sqrt{6}} \\
+\frac{-1}{\sqrt{3}} &amp; 0 &amp; \frac{2}{\sqrt{6}}
+\end{array}\right)^{*} .
+\]</div>
+<p>By <strong>Theorem 33.15</strong>, we have</p>
+<div class="arithmatex">\[
+A^{\dagger}=V \Sigma^{\dagger} U^{*}=\left(\begin{array}{ccc}
+\frac{1}{\sqrt{3}} &amp; \frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{6}} \\
+\frac{1}{\sqrt{3}} &amp; \frac{-1}{\sqrt{2}} &amp; \frac{1}{\sqrt{6}} \\
+\frac{-1}{\sqrt{3}} &amp; 0 &amp; \frac{2}{\sqrt{6}}
+\end{array}\right)\left(\begin{array}{cc}
+\frac{1}{\sqrt{6}} &amp; 0 \\
+0 &amp; 0 \\
+0 &amp; 0
+\end{array}\right)\left(\begin{array}{ll}
+\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{array}\right)=\frac{1}{6}\left(\begin{array}{rr}
+1 &amp; 1 \\
+1 &amp; 1 \\
+-1 &amp; -1
+\end{array}\right) .
+\]</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Lemma 33.17 : Projection identities for the pseudoinverse</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be finite-dimensional inner product spaces, and let <span class="arithmatex">\(T: V \rightarrow W\)</span> be linear. Then</p>
+<ul>
+<li>(a) <span class="arithmatex">\(T^{\dagger} T\)</span> is the orthogonal projection of <span class="arithmatex">\(V\)</span> on <span class="arithmatex">\(N(T)^{\perp}\)</span>.</li>
+<li>(b) <span class="arithmatex">\(TT^{\dagger}\)</span> is the orthogonal projection of <span class="arithmatex">\(W\)</span> on <span class="arithmatex">\(R(T)\)</span>.</li>
+</ul>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>As in the earlier discussion, we define <span class="arithmatex">\(L: N(T)^{\perp} \rightarrow W\)</span> by <span class="arithmatex">\(L(x)=\)</span> <span class="arithmatex">\(T(x)\)</span> for all <span class="arithmatex">\(x \in N(T)^{\perp}\)</span>. If <span class="arithmatex">\(x \in N(T)^{\perp}\)</span>, then <span class="arithmatex">\(T^{\dagger} T(x)=L^{-1} L(x)=x\)</span>, and if <span class="arithmatex">\(x \in N(T)\)</span>, then <span class="arithmatex">\(T^{\dagger} T(x)=T^{\dagger}(0)=0\)</span>. Consequently <span class="arithmatex">\(T^{\dagger} T\)</span> is the orthogonal projection of <span class="arithmatex">\(V\)</span> on <span class="arithmatex">\(N(T)^{\perp}\)</span>. This proves (a).</p>
+<p>The proof of (b) is similar and is left as an exercise.</p>
+</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem 33.18 : Least-squares and minimum-norm solutions from the pseudoinverse</p>
+<p>Consider the system of linear equations <span class="arithmatex">\(A x=b\)</span>, where <span class="arithmatex">\(A\)</span> is an <span class="arithmatex">\(m \times n\)</span> matrix and <span class="arithmatex">\(b \in F^{m}\)</span>. If <span class="arithmatex">\(z=A^{\dagger} b\)</span>, then <span class="arithmatex">\(z\)</span> has the following properties.</p>
+<ul>
+<li>(a) If <span class="arithmatex">\(A x=b\)</span> is consistent, then <span class="arithmatex">\(z\)</span> is the unique solution to the system having minimum norm. That is, <span class="arithmatex">\(z\)</span> is a solution to the system, and if <span class="arithmatex">\(y\)</span> is any solution to the system, then <span class="arithmatex">\(\|z\| \leq\|y\|\)</span> with equality if and only if <span class="arithmatex">\(z=y\)</span>.</li>
+<li>(b) If <span class="arithmatex">\(A x=b\)</span> is inconsistent, then <span class="arithmatex">\(z\)</span> is the unique best approximation to a solution having minimum norm. That is, <span class="arithmatex">\(\|A z-b\| \leq\|A y-b\|\)</span> for any <span class="arithmatex">\(y \in F^{n}\)</span>, with equality if and only if <span class="arithmatex">\(A z=A y\)</span>. Furthermore, if <span class="arithmatex">\(A z=A y\)</span>, then <span class="arithmatex">\(\|z\| \leq\|y\|\)</span> with equality if and only if <span class="arithmatex">\(z=y\)</span>.</li>
+</ul>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>For convenience, let <span class="arithmatex">\(T=L_{A}\)</span>.</p>
+<ul>
+<li>
+<p>(a) Suppose that <span class="arithmatex">\(A x=b\)</span> is consistent, and let <span class="arithmatex">\(z=A^{\dagger} b\)</span>. Observe that <span class="arithmatex">\(b \in R(T)\)</span>, and therefore <span class="arithmatex">\(A z=A A^{\dagger} b=TT^{\dagger}(b)=b\)</span> by part (b) of the lemma. Thus <span class="arithmatex">\(z\)</span> is a solution to the system. Now suppose that <span class="arithmatex">\(y\)</span> is any solution to the system. Then</p>
+<div class="arithmatex">\[
+T^{\dagger} T(y)=A^{\dagger} A y=A^{\dagger} b=z
+\]</div>
+<p>and hence <span class="arithmatex">\(z\)</span> is the orthogonal projection of <span class="arithmatex">\(y\)</span> on <span class="arithmatex">\(N(T)^{\perp}\)</span> by part (a) of the lemma. Therefore, by the corollary to <strong>Theorem 28.17</strong>, we have that <span class="arithmatex">\(\|z\| \leq\|y\|\)</span> with equality if and only if <span class="arithmatex">\(z=y\)</span>.</p>
+</li>
+<li>
+<p>(b) Suppose that <span class="arithmatex">\(A x=b\)</span> is inconsistent. By the lemma, <span class="arithmatex">\(A z=A A^{\dagger} b=TT^{\dagger}(b)\)</span> is the orthogonal projection of <span class="arithmatex">\(b\)</span> on <span class="arithmatex">\(R(T)\)</span>; therefore, by the corollary to <strong>Theorem 28.17</strong>, <span class="arithmatex">\(A z\)</span> is the vector in <span class="arithmatex">\(R(T)\)</span> nearest <span class="arithmatex">\(b\)</span>. That is, if</p>
+<p><span class="arithmatex">\(A y\)</span> is any other vector in <span class="arithmatex">\(R(T)\)</span>, then <span class="arithmatex">\(\|A z-b\| \leq\|A y-b\|\)</span> with equality if and only if <span class="arithmatex">\(A z=A y\)</span>.</p>
+<p>Finally, suppose that <span class="arithmatex">\(y\)</span> is any vector in <span class="arithmatex">\(F^{n}\)</span> such that <span class="arithmatex">\(A z=A y=c\)</span>. Then</p>
+<div class="arithmatex">\[
+A^{\dagger} c=A^{\dagger} A z=A^{\dagger} A A^{\dagger} b=A^{\dagger} b=z
+\]</div>
+<p>by source Exercise 23; hence we may apply part (a) of this theorem to the system <span class="arithmatex">\(A x=c\)</span> to conclude that <span class="arithmatex">\(\|z\| \leq\|y\|\)</span> with equality if and only if <span class="arithmatex">\(z=y\)</span>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 33.19 : Minimum-norm and best-approximation solutions</p>
+<p>Consider the linear systems</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp; x_{1}+x_{2}-x_{3}=1 \\
+&amp; x_{1}+x_{2}-x_{3}=1
+\end{aligned} \quad \text { and } \quad \begin{aligned}
+&amp; x_{1}+x_{2}-x_{3}=1 \\
+&amp; x_{1}+x_{2}-x_{3}=2 .
+\end{aligned}
+\]</div>
+<p>The first system has infinitely many solutions. Let <span class="arithmatex">\(A=\left(\begin{array}{lll}1 &amp; 1 &amp; -1 \\ 1 &amp; 1 &amp; -1\end{array}\right)\)</span>, the coefficient matrix of the system, and let <span class="arithmatex">\(b=\binom{1}{1}\)</span>. By <strong>Example 33.16</strong>,</p>
+<div class="arithmatex">\[
+A^{\dagger}=\frac{1}{6}\left(\begin{array}{rr}
+1 &amp; 1 \\
+1 &amp; 1 \\
+-1 &amp; -1
+\end{array}\right)
+\]</div>
+<p>and therefore</p>
+<div class="arithmatex">\[
+z=A^{\dagger} b=\frac{1}{6}\left(\begin{array}{rr}
+1 &amp; 1 \\
+1 &amp; 1 \\
+-1 &amp; -1
+\end{array}\right)\binom{1}{1}=\frac{1}{3}\left(\begin{array}{r}
+1 \\
+1 \\
+-1
+\end{array}\right)
+\]</div>
+<p>is the solution of minimal norm by <strong>Theorem 33.18</strong>(a).
+The second system is obviously inconsistent. Let <span class="arithmatex">\(b=\binom{1}{2}\)</span>. Thus, although</p>
+<div class="arithmatex">\[
+z=A^{\dagger} b=\frac{1}{6}\left(\begin{array}{rr}
+1 &amp; 1 \\
+1 &amp; 1 \\
+-1 &amp; -1
+\end{array}\right)\binom{1}{2}=\frac{1}{2}\left(\begin{array}{r}
+1 \\
+1 \\
+-1
+\end{array}\right)
+\]</div>
+<p>is not a solution to the second system, it is the "best approximation" to a solution having minimum norm, as described in <strong>Theorem 33.18</strong>(b).</p>
+</div>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.8</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be finite-dimensional inner product spaces over <span class="arithmatex">\(F\)</span>, and suppose that <span class="arithmatex">\(\left\{v_{1}, v_{2}, \ldots, v_{n}\right\}\)</span> and <span class="arithmatex">\(\left\{u_{1}, u_{2}, \ldots, u_{m}\right\}\)</span> are orthonormal bases for <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span>, respectively.
+Let <span class="arithmatex">\(T: V \rightarrow W\)</span> be a linear transformation of rank <span class="arithmatex">\(r\)</span>, and suppose that <span class="arithmatex">\(\sigma_{1} \geq \sigma_{2} \geq \cdots \geq \sigma_{r}&gt;0\)</span> satisfy</p>
+<div class="arithmatex">\[
+T\left(v_{i}\right)= \begin{cases}\sigma_{i} u_{i} &amp; \text { if } 1 \leq i \leq r \\ 0 &amp; \text { if } r&lt;i.\end{cases}
+\]</div>
+<ul>
+<li>
+<p>(a) Prove that <span class="arithmatex">\(\left\{u_{1}, u_{2}, \ldots, u_{m}\right\}\)</span> is a set of eigenvectors of <span class="arithmatex">\(TT^{*}\)</span> with corresponding eigenvalues <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{m}\)</span>, where</p>
+<div class="arithmatex">\[
+\lambda_{i}= \begin{cases}\sigma_{i}^{2} &amp; \text { if } 1 \leq i \leq r \\ 0 &amp; \text { if } r&lt;i.\end{cases}
+\]</div>
+</li>
+<li>
+<p>(b) Let <span class="arithmatex">\(A\)</span> be an <span class="arithmatex">\(m \times n\)</span> matrix with real or complex entries.
+    Prove that the nonzero singular values of <span class="arithmatex">\(A\)</span> are the positive square roots of the nonzero eigenvalues of <span class="arithmatex">\(A A^{*}\)</span>, including repetitions.</p>
+</li>
+<li>(c) Prove that <span class="arithmatex">\(TT^{*}\)</span> and <span class="arithmatex">\(T^{*}T\)</span> have the same nonzero eigenvalues, including repetitions.</li>
+<li>(d) State and prove a result for matrices analogous to (c).</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.10</p>
+<p>This exercise relates the singular values of a well-behaved linear operator or matrix to its eigenvalues.</p>
+<ul>
+<li>(a) Let <span class="arithmatex">\(T\)</span> be a normal linear operator on an <span class="arithmatex">\(n\)</span>-dimensional inner product space with eigenvalues <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}\)</span>.
+    Prove that the singular values of <span class="arithmatex">\(T\)</span> are <span class="arithmatex">\(\left|\lambda_{1}\right|,\left|\lambda_{2}\right|, \ldots,\left|\lambda_{n}\right|\)</span>.</li>
+<li>(b) State and prove a result for matrices analogous to (a).</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.11</p>
+<p>Let <span class="arithmatex">\(A\)</span> be a normal matrix with an orthonormal basis of eigenvectors <span class="arithmatex">\(\beta=\left\{v_{1}, v_{2}, \ldots, v_{n}\right\}\)</span> and corresponding eigenvalues <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}\)</span>.
+Let <span class="arithmatex">\(V\)</span> be the <span class="arithmatex">\(n \times n\)</span> matrix whose columns are the vectors in <span class="arithmatex">\(\beta\)</span>.
+Prove that for each <span class="arithmatex">\(i\)</span> there is a scalar <span class="arithmatex">\(\theta_{i}\)</span> of absolute value <span class="arithmatex">\(1\)</span> such that if <span class="arithmatex">\(U\)</span> is the <span class="arithmatex">\(n \times n\)</span> matrix with <span class="arithmatex">\(\theta_{i}v_{i}\)</span> as column <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(\Sigma\)</span> is the diagonal matrix such that <span class="arithmatex">\(\Sigma_{ii}=\left|\lambda_{i}\right|\)</span> for each <span class="arithmatex">\(i\)</span>, then <span class="arithmatex">\(U\Sigma V^{*}\)</span> is a singular value decomposition of <span class="arithmatex">\(A\)</span>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.12</p>
+<p>Prove that if <span class="arithmatex">\(A\)</span> is a positive semidefinite matrix, then the singular values of <span class="arithmatex">\(A\)</span> are the same as the eigenvalues of <span class="arithmatex">\(A\)</span>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.13</p>
+<p>Prove that if <span class="arithmatex">\(A\)</span> is a positive definite matrix and <span class="arithmatex">\(A=U\Sigma V^{*}\)</span> is a singular value decomposition of <span class="arithmatex">\(A\)</span>, then <span class="arithmatex">\(U=V\)</span>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.14</p>
+<p>Let <span class="arithmatex">\(A\)</span> be a square matrix with a polar decomposition <span class="arithmatex">\(A=W P\)</span>.</p>
+<ul>
+<li>(a) Prove that <span class="arithmatex">\(A\)</span> is normal if and only if <span class="arithmatex">\(W P^{2}=P^{2} W\)</span>.</li>
+<li>(b) Use (a) to prove that <span class="arithmatex">\(A\)</span> is normal if and only if <span class="arithmatex">\(W P=P W\)</span>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.15</p>
+<p>Let <span class="arithmatex">\(A\)</span> be a square matrix.
+Prove an alternate form of the polar decomposition for <span class="arithmatex">\(A\)</span>: there exists a unitary matrix <span class="arithmatex">\(W\)</span> and a positive semidefinite matrix <span class="arithmatex">\(P\)</span> such that <span class="arithmatex">\(A=P W\)</span>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.16</p>
+<p>Let <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(U\)</span> be linear operators on <span class="arithmatex">\(\mathbb{R}^{2}\)</span> defined for all <span class="arithmatex">\(\left(x_{1}, x_{2}\right) \in \mathbb{R}^{2}\)</span> by</p>
+<div class="arithmatex">\[
+T\left(x_{1}, x_{2}\right)=\left(x_{1}, 0\right)
+\quad \text { and } \quad
+U\left(x_{1}, x_{2}\right)=\left(x_{1}+x_{2}, 0\right).
+\]</div>
+<ul>
+<li>(a) Prove that <span class="arithmatex">\((UT)^{\dagger} \neq T^{\dagger} U^{\dagger}\)</span>.</li>
+<li>(b) Exhibit matrices <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> such that <span class="arithmatex">\(AB\)</span> is defined, but <span class="arithmatex">\((AB)^{\dagger} \neq B^{\dagger}A^{\dagger}\)</span>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.17</p>
+<p>Let <span class="arithmatex">\(A\)</span> be an <span class="arithmatex">\(m \times n\)</span> matrix.
+Prove the following results.</p>
+<ul>
+<li>(a) For any <span class="arithmatex">\(m \times m\)</span> unitary matrix <span class="arithmatex">\(G\)</span>, <span class="arithmatex">\((GA)^{\dagger}=A^{\dagger}G^{*}\)</span>.</li>
+<li>(b) For any <span class="arithmatex">\(n \times n\)</span> unitary matrix <span class="arithmatex">\(H\)</span>, <span class="arithmatex">\((AH)^{\dagger}=H^{*}A^{\dagger}\)</span>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.18</p>
+<p>Let <span class="arithmatex">\(A\)</span> be a matrix with real or complex entries.
+Prove the following results.</p>
+<ul>
+<li>(a) The nonzero singular values of <span class="arithmatex">\(A\)</span> are the same as the nonzero singular values of <span class="arithmatex">\(A^{*}\)</span>, which are the same as the nonzero singular values of <span class="arithmatex">\(A^{t}\)</span>.</li>
+<li>(b) <span class="arithmatex">\(\left(A^{\dagger}\right)^{*}=\left(A^{*}\right)^{\dagger}\)</span>.</li>
+<li>(c) <span class="arithmatex">\(\left(A^{\dagger}\right)^{t}=\left(A^{t}\right)^{\dagger}\)</span>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.19</p>
+<p>Let <span class="arithmatex">\(A\)</span> be a square matrix such that <span class="arithmatex">\(A^{2}=O\)</span>.
+Prove that <span class="arithmatex">\(\left(A^{\dagger}\right)^{2}=O\)</span>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.20</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be finite-dimensional inner product spaces, and let <span class="arithmatex">\(T: V \rightarrow W\)</span> be linear.
+Prove the following results.</p>
+<ul>
+<li>(a) <span class="arithmatex">\(TT^{\dagger}T=T\)</span>.</li>
+<li>(b) <span class="arithmatex">\(T^{\dagger}TT^{\dagger}=T^{\dagger}\)</span>.</li>
+<li>(c) Both <span class="arithmatex">\(T^{\dagger}T\)</span> and <span class="arithmatex">\(TT^{\dagger}\)</span> are self-adjoint.</li>
+</ul>
+<p>The preceding three statements are called the Penrose conditions, and they characterize the pseudoinverse of a linear transformation as shown in <strong>Exercise 33.21</strong>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.21</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be finite-dimensional inner product spaces.
+Let <span class="arithmatex">\(T: V \rightarrow W\)</span> and <span class="arithmatex">\(U: W \rightarrow V\)</span> be linear transformations such that <span class="arithmatex">\(TUT=T\)</span>, <span class="arithmatex">\(UTU=U\)</span>, and both <span class="arithmatex">\(UT\)</span> and <span class="arithmatex">\(TU\)</span> are self-adjoint.
+Prove that <span class="arithmatex">\(U=T^{\dagger}\)</span>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.24</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be finite-dimensional inner product spaces, and let <span class="arithmatex">\(T: V \rightarrow W\)</span> be linear.
+Prove the following results.</p>
+<ul>
+<li>(a) If <span class="arithmatex">\(T\)</span> is one-to-one, then <span class="arithmatex">\(T^{*}T\)</span> is invertible and <span class="arithmatex">\(T^{\dagger}=\left(T^{*}T\right)^{-1}T^{*}\)</span>.</li>
+<li>(b) If <span class="arithmatex">\(T\)</span> is onto, then <span class="arithmatex">\(TT^{*}\)</span> is invertible and <span class="arithmatex">\(T^{\dagger}=T^{*}\left(TT^{*}\right)^{-1}\)</span>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.25</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be finite-dimensional inner product spaces with orthonormal bases <span class="arithmatex">\(\beta\)</span> and <span class="arithmatex">\(\gamma\)</span>, respectively, and let <span class="arithmatex">\(T: V \rightarrow W\)</span> be linear.
+Prove that</p>
+<div class="arithmatex">\[
+\left([T]_{\beta}^{\gamma}\right)^{\dagger}
+=
+\left[T^{\dagger}\right]_{\gamma}^{\beta}.
+\]</div>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise 33.26</p>
+<p>Let <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(W\)</span> be finite-dimensional inner product spaces, and let <span class="arithmatex">\(T: V \rightarrow W\)</span> be a linear transformation.
+Prove part (b) of <strong>Lemma 33.17</strong>: <span class="arithmatex">\(TT^{\dagger}\)</span> is the orthogonal projection of <span class="arithmatex">\(W\)</span> on <span class="arithmatex">\(R(T)\)</span>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/arnold518" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
