@@ -50,12 +50,15 @@ Stephen H. Friedberg, Arnold J. Insel, Lawrence E. Spence - Linear Algebra, 4th 
 - [31. Unitary and Orthogonal Operators and Their Matrices](31.md)
 - [32. Orthogonal Projections and the Spectral Theorem](32.md)
 - [33. The Singular Value Decomposition and the Pseudoinverse](33.md)
+- [34. Bilinear and Quadratic Forms]
+- [35. Einstein's Special Theory of Relativity]
+- [36. Conditioning and the Rayleigh Quotient]
+- [37. The Geometry of Orthogonal Operators]
 
 ### Ch 7. Canonical Forms
-- [34. The Jordan Canonical Form I]
-- [35. The Jordan Canonical Form II]
-- [36. The Minimal Polynomial]
-- [37. The Rational Canonical Form]
+- [38. The Jordan Canonical Form I]
+- [39. The Jordan Canonical Form II]
+- [40. The Minimal Polynomial]
+- [41. The Rational Canonical Form]
 
 ## Materials
-
